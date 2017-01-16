@@ -1,5 +1,8 @@
-package Entity.articles;
+package entity.articles;
 
+/**
+ * @author dandi
+ */
 
 public class Catalogue {
     private int numeroArticoli;

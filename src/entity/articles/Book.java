@@ -1,6 +1,8 @@
-package Entity.articles;
+package entity.articles;
 
-
+/**
+ * @author dandi
+ */
 
 public class Book extends Article {
 

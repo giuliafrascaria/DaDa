@@ -1,11 +1,14 @@
-package Entity.articles;
+package entity.articles;
 
+/**
+ * @author dandi
+ */
 
+public class Clothing extends Article {
 
-public class Electronics extends Article {
     private String tipo;
-    private String modello;
     private String marca;
+    private int taglia;
 
     public String getTipo() {
         return tipo;
@@ -15,19 +18,19 @@ public class Electronics extends Article {
         this.tipo = tipo;
     }
 
-    public String getModello() {
-        return modello;
-    }
-
-    public void setModello(String modello) {
-        this.modello = modello;
-    }
-
     public String getMarca() {
         return marca;
     }
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public int getTaglia() {
+        return taglia;
+    }
+
+    public void setTaglia(int taglia) {
+        this.taglia = taglia;
     }
 }
