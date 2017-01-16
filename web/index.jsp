@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>eElectronics - HTML eCommerce Template</title>
+  <title>DaDa Marketplace</title>
 
   <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -86,7 +86,7 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="logo">
-          <h1><a href="index.html">e<span>Electronics</span></a></h1>
+          <h1><a href="index.jsp"><span>DaDa</span></a></h1>
         </div>
       </div>
 
@@ -360,7 +360,7 @@
     <div class="row">
       <div class="col-md-3 col-sm-6">
         <div class="footer-about-us">
-          <h2>e<span>Electronics</span></h2>
+          <h2><span>DaDa</span></h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
           <div class="footer-social">
             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -416,7 +416,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="copyright">
-          <p>&copy; 2015 eElectronics. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
+          <p>&copy; 2017 DaDa. All Rights Reserved. Coded with <i class="fa fa-heart"></i> by <a href="http://wpexpand.com" target="_blank">WP Expand</a></p>
         </div>
       </div>
 
