@@ -118,9 +118,9 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Acquista</a></li>
+          <li><a href="article.jsp">Acquista</a></li>
           <li class="active"><a href="shop.html">Vendi</a></li>
-          <li><a href="single-product.html">Dona</a></li>
+          <li><a href="article.jsp">Dona</a></li>
           <li><a href="checkout.html">Recensisci</a></li>
           <li><a href="#">Il mio Account</a></li>
           <li onclick="showSlide()"><a href="#">Barra</a></li>
@@ -162,7 +162,7 @@
           <div class="product-upper">
             <img src="img/product-2.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -177,7 +177,7 @@
           <div class="product-upper">
             <img src="img/product-1.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -192,7 +192,7 @@
           <div class="product-upper">
             <img src="img/product-3.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -207,7 +207,7 @@
           <div class="product-upper">
             <img src="img/product-4.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -222,7 +222,7 @@
           <div class="product-upper">
             <img src="img/product-2.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -237,7 +237,7 @@
           <div class="product-upper">
             <img src="img/product-1.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -252,7 +252,7 @@
           <div class="product-upper">
             <img src="img/product-3.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -267,7 +267,7 @@
           <div class="product-upper">
             <img src="img/product-4.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -282,7 +282,7 @@
           <div class="product-upper">
             <img src="img/product-2.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -297,7 +297,7 @@
           <div class="product-upper">
             <img src="img/product-1.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -312,7 +312,7 @@
           <div class="product-upper">
             <img src="img/product-3.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>
@@ -327,7 +327,7 @@
           <div class="product-upper">
             <img src="img/product-4.jpg" alt="">
           </div>
-          <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+          <h2><a href="article.jsp">Apple new mac book 2015 March :P</a></h2>
           <div class="product-carousel-price">
             <ins>$899.00</ins> <del>$999.00</del>
           </div>

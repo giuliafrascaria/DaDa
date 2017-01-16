@@ -74,7 +74,7 @@ body { font-family: 'Titillium Web', sans-serif; }
     text-align: center;
 }
 
-.mainmenu-area {background: none repeat scroll 0 0 #e78355;
+.mainmenu-area {background: none repeat scroll 0 0 #ff9900;
     font-family: "Roboto Condensed",sans-serif;
     text-transform: uppercase;
     width: 100%;
@@ -91,7 +91,7 @@ body { font-family: 'Titillium Web', sans-serif; }
 }
 .logo h1 a:hover {text-decoration: none;opacity: .7}
 .logo h1 a span {
-    color: #e78355;
+    color: #ff9900;
 }
 .shopping-item {
     border: 1px solid #ddd;
@@ -115,11 +115,11 @@ body { font-family: 'Titillium Web', sans-serif; }
     color: #666;
 }
 .cart-amunt {
-    color: #e78355;
+    color: #ff9900;
     font-weight: 700;
 }
 .product-count {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     border-radius: 50%;
     color: #fff;
     display: inline-block;
@@ -138,8 +138,8 @@ body { font-family: 'Titillium Web', sans-serif; }
 
 
 .shopping-item:hover {
-    background: none repeat scroll 0 0 #e78355;
-    border-color: #e78355;
+    background: none repeat scroll 0 0 #ff9900;
+    border-color: #ff9900;
 }
 .shopping-item:hover a {
     color: #fff;text-decoration: none
@@ -175,7 +175,7 @@ body { font-family: 'Titillium Web', sans-serif; }
 .slide-text {display: table-cell;vertical-align: middle}
 
 .zigzag-bottom {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     bottom: -80px;
     height: 165px;
     left: -5%;
@@ -225,9 +225,9 @@ body { font-family: 'Titillium Web', sans-serif; }
 
 
 .readmore {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     color: #fff;
-    border: 1px solid #e78355;
+    border: 1px solid #ff9900;
     display: inline-block;
     font-size: 20px;
     margin-top: 15px;
@@ -240,20 +240,20 @@ body { font-family: 'Titillium Web', sans-serif; }
 
 
 .promo-area {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     color: #fff;
     padding: 77px 0 200px;
 }
 
 .brands-area {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     color: #fff;
     padding: 0px 0 200px;
 }
 
 .promo-area .zigzag-bottom, .brands-area .zigzag-bottom{background: #fff}
 .single-promo {
-    border: 1px solid #e78355;
+    border: 1px solid #ff9900;
     font-size: 25px;
     font-weight: 200;
     padding: 20px 10px;
@@ -295,7 +295,7 @@ body { font-family: 'Titillium Web', sans-serif; }
     width: 100%;transition: .4s;
 }
 .product-hover a {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     border-radius: 5px;
     color: #fff;
     display: block;
@@ -306,7 +306,7 @@ body { font-family: 'Titillium Web', sans-serif; }
     position: absolute;
     text-align: center;
     text-transform: uppercase;
-    border: 1px solid #e78355;
+    border: 1px solid #ff9900;
     width: 80%;z-index: 99;transition: .4s;
 }
 .product-hover a:hover {
@@ -314,7 +314,7 @@ body { font-family: 'Titillium Web', sans-serif; }
     text-decoration: none;border-color: #444;
 }
 .product-carousel-price ins {
-    color: #e78355;
+    color: #ff9900;
     font-weight: 700;
     margin-right: 5px;
     text-decoration: none;
@@ -336,7 +336,7 @@ body { font-family: 'Titillium Web', sans-serif; }
     color: #222;
 }
 .single-product p {
-    color: #e78355;
+    color: #ff9900;
     font-weight: 700;
 }
 
@@ -359,8 +359,8 @@ body { font-family: 'Titillium Web', sans-serif; }
 }
 
 .latest-product .owl-nav div, .related-products-wrapper .owl-nav div {
-    border: 1px solid #e78355;
-    color: #e78355;
+    border: 1px solid #ff9900;
+    color: #ff9900;
     display: inline-block;
     margin-left: 15px;
     padding: 1px 10px;
@@ -409,7 +409,7 @@ body { font-family: 'Titillium Web', sans-serif; }
     margin-bottom: 10px;
 }
 .product-wid-price ins {
-    color: #e78355;
+    color: #ff9900;
     font-weight: 700;
     margin-right: 10px;
     text-decoration: none;
@@ -418,10 +418,10 @@ body { font-family: 'Titillium Web', sans-serif; }
     color: #222;
 }
 .single-wid-product h2 a:hover, .single-product h2 a:hover {
-    color: #e78355;
+    color: #ff9900;
 }
 .wid-view-more {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     color: #fff;
     padding: 3px 15px;
     position: absolute;
@@ -445,7 +445,7 @@ body { font-family: 'Titillium Web', sans-serif; }
 
 .footer-bottom-area {background: #000;color: #fff}
 .footer-about-us span {
-    color: #e78355;
+    color: #ff9900;
 }
 .footer-wid-title {
     font-family: raleway;
@@ -472,7 +472,7 @@ body { font-family: 'Titillium Web', sans-serif; }
 
 
 .footer-social a {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     color: #fff;
     display: inline-block;
     font-size: 20px;
@@ -481,7 +481,7 @@ body { font-family: 'Titillium Web', sans-serif; }
     margin-right: 10px;
     padding-top: 5px;
     text-align: center;
-    width: 40px;border: 1px solid #e78355;
+    width: 40px;border: 1px solid #ff9900;
 }
 
 .footer-social a:hover {background-color: #222;border-color: #666}
@@ -497,19 +497,19 @@ body { font-family: 'Titillium Web', sans-serif; }
     width: 100%;
 }
 .newsletter-form input[type="submit"] {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     border: medium none;
     color: #fff;
     display: inline-block;
     font-size: 18px;
     padding: 7px 20px;
-    text-transform: uppercase;border: 1px solid #e78355;
+    text-transform: uppercase;border: 1px solid #ff9900;
 }
 .newsletter-form input[type="submit"]:hover {background: #222;border-color: #666}
 .newsletter-form {
     margin-top: 25px;
 }
-a {color: #e78355}
+a {color: #ff9900}
 a:hover, a:focus {color: #17a78b}
 .footer-bottom-area {
     background: none repeat scroll 0 0 #000;
@@ -570,7 +570,7 @@ ol.slide-indicators li.active {
     margin: 10px 0 0;
 }
 
-.product-big-title-area {background: url(img/crossword.png) repeat scroll 0 0 #e78355}
+.product-big-title-area {background: url(img/crossword.png) repeat scroll 0 0 #ff9900}
 
 .product-bit-title h2 {
     font-family: raleway;
@@ -604,7 +604,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
     padding: 10px;
 }
 input[type="submit"], button[type=submit] {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     border: medium none;
     color: #fff;
     padding: 11px 20px;
@@ -633,7 +633,7 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
     color: #222;
 }
 .product-sidebar-price > ins {
-    color: #e78355;
+    color: #ff9900;
     font-weight: 700;
     margin-right: 10px;
     text-decoration: none;
@@ -687,7 +687,7 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
     margin-bottom: 25px;
 }
 .product-inner-price > ins {
-    color: #e78355;
+    color: #ff9900;
     font-weight: 700;
     margin-right: 10px;
     text-decoration: none;
@@ -697,12 +697,12 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
     margin-right: 15px;
 }
 .quantity input[type="number"] {
-    border: 1px solid #e78355;
+    border: 1px solid #ff9900;
     padding: 5px;
     width: 50px;
 }
 .add_to_cart_button {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     border: medium none;
     color: #fff;
     padding: 6px 25px;display: inline-block
@@ -725,7 +725,7 @@ form.cart {
     display: inline-block;
 }
 .product-tab li.active {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
 }
 .product-tab li.active a {
     color: #fff;
@@ -810,7 +810,7 @@ td.product-name {
     font-size: 18px;
 }
 div.quantity input.plus, div.quantity input.minus {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     border: medium none;
     color: #fff;
     height: 25px;
@@ -838,7 +838,7 @@ td.actions div.coupon {
     width: 40%;
 }
 .cart-collaterals h2 {
-    color: #e78355;
+    color: #ff9900;
     font-size: 25px;
     margin-bottom: 25px;
     text-transform: uppercase;
@@ -870,7 +870,7 @@ div.cart-collaterals ul.products li.product {
 .onsale {
 }
 div.cart-collaterals ul.products li.product .onsale {
-    background: none repeat scroll 0 0 #e78355;
+    background: none repeat scroll 0 0 #ff9900;
     color: #fff;
     padding: 5px 10px;
     position: absolute;
@@ -890,7 +890,7 @@ div.cart-collaterals ul.products li.product .price {
 .price > ins {
 }
 div.cart-collaterals ul.products li.product .price ins {
-    color: #e78355;
+    color: #ff9900;
     font-weight: 700;
     margin-left: 10px;
     text-decoration: none;
@@ -922,7 +922,7 @@ div.cart-collaterals ul.products li.product .price ins {
     width: 100%;
 }
 #customer_details h3 {
-    color: #e78355;
+    color: #ff9900;
     font-size: 20px;
     text-transform: uppercase;
 }
@@ -932,7 +932,7 @@ div.cart-collaterals ul.products li.product .price ins {
     padding: 15px;
 }
 #order_review_heading {
-    color: #e78355;
+    color: #ff9900;
     font-size: 20px;
     text-transform: uppercase;
 }
@@ -967,9 +967,9 @@ table.shop_table td.product-remove a {
 
 table.shop_table td.product-remove a:hover {color: #fff;background: red;text-decoration: none}
 table.shop_table td.product-name a{color: #222;}
-table.shop_table td.product-name a:hover {color: #e78355;text-decoration: none}
+table.shop_table td.product-name a:hover {color: #ff9900;text-decoration: none}
 div.quantity input.plus:hover, div.quantity input.minus:hover {background-color: #222}
-div.cart-collaterals ul.products li.product a:hover h3 {color: #e78355}
+div.cart-collaterals ul.products li.product a:hover h3 {color: #ff9900}
 div.cart-collaterals ul.products li.product a:hover {text-decoration: none}
 
 div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background-color: #222}
@@ -1011,7 +1011,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 .single-shop-product {margin-bottom: 50px}
 
 .pagination > li > a, .pagination > li > span {
-    color: #e78355;
+    color: #ff9900;
 }
 
 .img-circle {
