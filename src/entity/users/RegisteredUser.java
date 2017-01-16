@@ -1,8 +1,6 @@
-package entity;
+package entity.users;
 
-/**
- * Created by giogge on 24/12/16.
- */
+
 public class RegisteredUser
 {
     protected String email;

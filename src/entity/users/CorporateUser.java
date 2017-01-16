@@ -1,4 +1,4 @@
-package entity;
+package entity.users;
 
 
 public class CorporateUser extends RegisteredUser

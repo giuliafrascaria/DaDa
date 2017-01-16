@@ -90,11 +90,17 @@
         </div>
       </div>
 
+
+
       <div class="col-sm-6">
-        <div class="shopping-item">
-          <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+        <div class="shopping-item2">
+          <span class="cart-amunt">Simone D'Aniello</span> <img class="img-circle" src="img/slide-2.jpg">
         </div>
       </div>
+
+
+
+
     </div>
   </div>
 </div> <!-- End site branding area -->
@@ -112,14 +118,14 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="shop.html">Shop page</a></li>
-          <li><a href="single-product.html">Single product</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
-          <li><a href="#">Category</a></li>
-          <li><a href="#">Others</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="index.html">Acquista</a></li>
+          <li class="active"><a href="shop.html">Vendi</a></li>
+          <li><a href="single-product.html">Dona</a></li>
+          <li><a href="checkout.html">Recensisci</a></li>
+          <li><a href="cart.html">Info</a></li>
+          <li><a href="#">Il mio Account</a></li>
+          <%--<li><a href="#">Others</a></li>--%>
+          <%--<li><a href="#">Contact</a></li>--%>
         </ul>
       </div>
     </div>
@@ -131,7 +137,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="product-bit-title text-center">
-          <h2>Shop</h2>
+          <h2>Dalla curva si alzerààààà</h2>
+              <%--<ul>--%>
+                  <%--<li><a href="">My account</a></li>--%>
+                  <%--<li><a href="">Order history</a></li>--%>
+                  <%--<li><a href="">Wishlist</a></li>--%>
+                  <%--<li><a href="">Vendor contact</a></li>--%>
+                  <%--<li><a href="">Front page</a></li>--%>
+              <%--</ul>--%>
         </div>
       </div>
     </div>

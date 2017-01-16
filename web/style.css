@@ -101,6 +101,16 @@ body { font-family: 'Titillium Web', sans-serif; }
     padding: 10px;
     position: relative;
 }
+
+.shopping-item2 {
+    float: right;
+    font-size: 18px;
+    margin-top: 40px;
+    padding: 10px;
+    position: relative;
+}
+
+
 .shopping-item a {
     color: #666;
 }
@@ -1002,4 +1012,10 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 
 .pagination > li > a, .pagination > li > span {
     color: #e78355;
+}
+
+.img-circle {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 }
