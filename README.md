@@ -9,7 +9,7 @@ articles.
 
 ## Prerequisites
 
-this standalone needs a database system to run.
+this Web Application needs a database system to run.
 
 MySql was used in development. You can find all the files
  needed inside the package
@@ -19,6 +19,17 @@ by clicking on this URL
 
 https://dev.mysql.com/downloads/connector/j/5.0.html
 
+##How to add JAR's
+
+If you use IntelliJ IDE you have to 
+
+- Type CTRL-SHIFT-ALT-S
+- Select "Modules"
+- Click on the "+" button
+- Select "Add Jar's"
+- Select the entire package (MySql or Tomcat)
+- Apply
+
 
 ##Development environment
 
@@ -27,7 +38,7 @@ https://dev.mysql.com/downloads/connector/j/5.0.html
 * JUnit 4.12 - Testing framework
 * Apache TomCat 8.5.6 - Web Server
 
-##Author
+##Authors
 
 * Giulia Cassarà - Student at University of Rome Tor Vergata
 * Simone D'Aniello - Student at University of Rome Tor Vergata
