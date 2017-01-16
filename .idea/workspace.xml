@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2206a7c-aff7-4e77-8a7e-45d102410809" name="Default" comment="entity articles added 2">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/entity/info" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/User.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/articles/Article.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/articles/Book.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/articles/Catalogue.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/articles/Clothing.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/articles/Electronics.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/articles/TextBook.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Entity/articles/Article.java" afterPath="$PROJECT_DIR$/src/entity/articles/Article.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Entity/articles/Book.java" afterPath="$PROJECT_DIR$/src/entity/articles/Book.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Entity/articles/Catalogue.java" afterPath="$PROJECT_DIR$/src/entity/articles/Catalogue.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Entity/articles/Clothing.java" afterPath="$PROJECT_DIR$/src/entity/articles/Clothing.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Entity/articles/Electronics.java" afterPath="$PROJECT_DIR$/src/entity/articles/Electronics.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Entity/articles/TextBook.java" afterPath="$PROJECT_DIR$/src/entity/articles/TextBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="f2206a7c-aff7-4e77-8a7e-45d102410809" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="DaDaWA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -124,8 +108,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+              <first_editor relative-caret-position="514">
+                <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -963,7 +947,7 @@
       <option name="presentableId" value="Default" />
       <updated>1484569532975</updated>
       <workItem from="1484569535936" duration="1000" />
-      <workItem from="1484569932435" duration="3688000" />
+      <workItem from="1484569932435" duration="4254000" />
     </task>
     <task id="LOCAL-00001" summary="apache-tomcat added">
       <created>1484570168903</created>
@@ -993,11 +977,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484574041605</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="entity articles added 2">
+      <created>1484574308703</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1484574308703</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3689000" />
+    <option name="totallyTimeSpent" value="4255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -1142,8 +1133,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <first_editor relative-caret-position="514">
+            <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
             <folding />
           </first_editor>
           <second_editor />
