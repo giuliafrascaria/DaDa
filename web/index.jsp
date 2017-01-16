@@ -122,8 +122,9 @@
           <li class="active"><a href="shop.html">Vendi</a></li>
           <li><a href="single-product.html">Dona</a></li>
           <li><a href="checkout.html">Recensisci</a></li>
-          <li><a href="cart.html">Info</a></li>
           <li><a href="#">Il mio Account</a></li>
+          <li onclick="showSlide()"><a href="#">Barra</a></li>
+            <li><a href="#">Aiuto</a></li>
           <%--<li><a href="#">Others</a></li>--%>
           <%--<li><a href="#">Contact</a></li>--%>
         </ul>
@@ -132,7 +133,7 @@
   </div>
 </div> <!-- End mainmenu area -->
 
-<div class="product-big-title-area">
+<div class="product-big-title-area" style="display: none" id="product-big-title-area">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -462,3 +463,16 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+
+<script type="text/javascript">
+
+//    var close = document.getElementById('Btn_Close');
+//    close.onclick = function () {
+//        productbigtitlearea.style.display = "none";
+//    };
+
+    function showSlide(){
+        var productbigtitlearea = document.getElementById('product-big-title-area');
+        productbigtitlearea.style.display = "block";
+    }
+</script>

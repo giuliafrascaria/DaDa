@@ -26,7 +26,7 @@ If you use IntelliJ IDE you have to
 - Type CTRL-SHIFT-ALT-S
 - Select "Modules"
 - Click on the "+" button
-- Select "Add Jar's"
+- Select "Add Jars"
 - Select the entire package (MySql or Tomcat)
 - Apply
 
