@@ -1,7 +1,7 @@
 # DaDa
 
 DaDa is a Web-Application developed for the exam of 
-Software Enginnering and Web Applications.
+Software Engineering and Web Applications.
  
 It simulates an e-commerce web site where users can buy, sell or donate 
 articles.
