@@ -163,7 +163,8 @@ body { font-family: 'Titillium Web', sans-serif; }
 .mainmenu-area .nav > li > a:focus {color: #000}
 
 .slider-area {clear: both}
-.slider-area, .promo-area, .brands-area, .maincontent-area, .footer-top-area, .product-widget-area, .product-breadcroumb-area, .single-product-area {position: relative;overflow: hidden}
+.slider-area, .promo-area, .brands-area, .maincontent-area, .footer-top-area, .product-widget-area, .product-breadcroumb-area{position: relative;overflow: hidden}
+.single-product-area {position: static;overflow: hidden}
 .zigzag-bottom {}
 .slide-text-wrapper {
     height: 700px;
@@ -570,7 +571,7 @@ ol.slide-indicators li.active {
     margin: 10px 0 0;
 }
 
-.product-big-title-area {background: url(img/crossword.png) repeat scroll 0 0 #ff9900}
+.product-big-title-area {background-color: #ff9900}
 
 .product-bit-title h2 {
     font-family: raleway;
@@ -1019,3 +1020,23 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     width: 80px;
     border-radius: 50%;
 }
+
+
+/*
+.input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}*/
