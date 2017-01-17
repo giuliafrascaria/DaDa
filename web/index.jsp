@@ -49,7 +49,7 @@
             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
             <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
             <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+            <li><a href="signup.jsp"><i class="fa fa-user"></i> Login</a></li>
           </ul>
         </div>
       </div>
@@ -86,7 +86,9 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="logo">
-          <h1><a href="index.jsp"><span>DaDa</span></a></h1>
+          <%--<h1><a href="index.jsp"><span>DaDa</span></a></h1>--%>
+            <h1><a href="index.jsp"></a></h1>
+            <img class="img-circle" src="img/DaDalogo.png" style="width:200px;height:200px;">
         </div>
       </div>
 
