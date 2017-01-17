@@ -107,6 +107,29 @@
   </div>
 </div> <!-- End site branding area -->
 
+<style>
+    input[type=text] {
+        width: 130px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 16px;
+        background: white no-repeat 10px 10px;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    input[type=text]:focus {
+        width: 100%;
+    }
+
+    #informatica {display:inline-block;margin-right:10px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px;color: white;}
+    #abbigliamento {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
+    #libri {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
+</style>
+
 <div class="mainmenu-area">
   <div class="container">
     <div class="row">
@@ -125,34 +148,64 @@
           <li><a href="article.jsp">Dona</a></li>
           <li><a href="checkout.html">Recensisci</a></li>
           <li><a href="#">Il mio Account</a></li>
-          <li onclick="showSlide()"><a href="#">Barra</a></li>
+          <li onclick="showSlide()"><a>Barra</a></li>
             <li><a href="#">Aiuto</a></li>
           <%--<li><a href="#">Others</a></li>--%>
           <%--<li><a href="#">Contact</a></li>--%>
         </ul>
-      </div>
-    </div>
-  </div>
-</div> <!-- End mainmenu area -->
+        <div class="product-big-title-area" style="display: block" id="product-big-title-area">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                  <%--<h2>Dalla curva si alzerààààà</h2>--%>
+                      <input type="text" name="search" placeholder="Cerca..">
+                      <div>
+                          <a href="#" id="informatica">Informatica</a>
+                          <a href="#" id="abbigliamento">Abbigliamento</a>
+                          <a href="#" id="libri">Libri</a>
+                      </div>
+                      <div style="width:300px; margin:0 auto; display:inline-block;" >
+                          <input class="mdl-slider mdl-js-slider" type="range"
+                                 min="0" max="100" value="0" tabindex="0">
+                          <a type="label" name="label" >Max</a>
+                      </div>
 
-<div class="product-big-title-area" style="display: none" id="product-big-title-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="product-bit-title text-center">
-          <h2>Dalla curva si alzerààààà</h2>
-              <%--<ul>--%>
+                  <%--<ul>--%>
                   <%--<li><a href="">My account</a></li>--%>
                   <%--<li><a href="">Order history</a></li>--%>
                   <%--<li><a href="">Wishlist</a></li>--%>
                   <%--<li><a href="">Vendor contact</a></li>--%>
                   <%--<li><a href="">Front page</a></li>--%>
-              <%--</ul>--%>
+                  <%--</ul>--%>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> <!-- End mainmenu area -->
+
+<%--<div class="product-big-title-area" style="display: none" id="product-big-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-bit-title text-center">
+          <h2>Dalla curva si alzerààààà</h2>
+              &lt;%&ndash;<ul>&ndash;%&gt;
+                  &lt;%&ndash;<li><a href="">My account</a></li>&ndash;%&gt;
+                  &lt;%&ndash;<li><a href="">Order history</a></li>&ndash;%&gt;
+                  &lt;%&ndash;<li><a href="">Wishlist</a></li>&ndash;%&gt;
+                  &lt;%&ndash;<li><a href="">Vendor contact</a></li>&ndash;%&gt;
+                  &lt;%&ndash;<li><a href="">Front page</a></li>&ndash;%&gt;
+              &lt;%&ndash;</ul>&ndash;%&gt;
+        </div>
+      </div>
+    </div>
+  </div>
+</div>--%>
 
 
 <div class="single-product-area">
@@ -467,14 +520,13 @@
 </html>
 
 <script type="text/javascript">
-
-//    var close = document.getElementById('Btn_Close');
-//    close.onclick = function () {
-//        productbigtitlearea.style.display = "none";
-//    };
-
     function showSlide(){
         var productbigtitlearea = document.getElementById('product-big-title-area');
+      if(productbigtitlearea.style.display == "none") {
         productbigtitlearea.style.display = "block";
+      }
+      else{
+          productbigtitlearea.style.display = "none"
+      }
     }
 </script>
