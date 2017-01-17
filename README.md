@@ -19,7 +19,7 @@ by clicking on this URL
 
 https://dev.mysql.com/downloads/connector/j/5.0.html
 
-##How to add JAR's
+##How to add JARs
 
 If you use IntelliJ IDE you have to 
 
@@ -40,6 +40,6 @@ If you use IntelliJ IDE you have to
 
 ##Authors
 
-* Giulia Cassarà - Student at University of Rome Tor Vergata
-* Simone D'Aniello - Student at University of Rome Tor Vergata
-* Giulia Frascaria - Student at University of Rome Tor Vergata
+* Giulia Cassarà - B.Sc. student of Computer Engineering in the University of Rome Tor Vergata
+* Simone D'Aniello - B.Sc. student of Computer Engineering in the University of Rome Tor Vergata
+* Giulia Frascaria - B.Sc. student of Computer Engineering in the University of Rome Tor Vergata
