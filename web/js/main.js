@@ -83,7 +83,10 @@ jQuery(document).ready(function($){
     $('body').scrollspy({ 
         target: '.navbar-collapse',
         offset: 95
-    })      
+    })
+
+    //$('#areaProdotti').prepend('<div class="rigaProdotti"> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> </div>')
+
 });
 
 

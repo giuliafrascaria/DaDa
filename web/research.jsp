@@ -158,7 +158,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-bit-title text-center">
-                                    <%--<h2>Dalla curva si alzerààààà</h2>--%>
                                     <input type="text" name="search" placeholder="Cerca..">
                                     <div>
                                         <a href="#" id="informatica">Informatica</a>
@@ -170,6 +169,7 @@
                                                min="0" max="100" value="0" tabindex="0">
                                         <a type="label" name="label" >Max</a>
                                     </div>
+                                    <button onclick="research()"> OK </button>
                                 </div>
 
                             </div>
@@ -561,6 +561,7 @@
 
 <!-- Main Script -->
 <script src="js/main.js"></script>
+<script src="js/jquery-3.1.1.js"></script>
 </body>
 </html>
 
@@ -601,4 +602,9 @@
             productbigtitlearea.style.display = "none"
         }
     }
+
+    function research() {
+        $('#areaProdotti').prepend('<div class="rigaProdotti"> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> </div>')
+    }
 </script>
+
