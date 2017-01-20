@@ -571,7 +571,7 @@ ol.slide-indicators li.active {
     margin: 10px 0 0;
 }
 
-.product-big-title-area {background-color: #ff9900}
+.product-big-title-area {background: url(img/crossword.png) repeat scroll 0 0 #ff9900}
 
 .product-bit-title h2 {
     font-family: raleway;
@@ -1021,6 +1021,32 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     border-radius: 50%;
 }
 
+.sliderImage {
+    position: absolute;
+    text-align: center;
+    max-width:50px;
+}
+
+ input[type=text] {
+     width: 130px;
+     box-sizing: border-box;
+     border: 2px solid #ccc;
+     border-radius: 4px;
+     font-family: 'Titillium Web', sans-serif;
+     font-size: 16px;
+     background: white no-repeat 10px 10px;
+     padding: 12px 20px 12px 40px;
+     -webkit-transition: width 0.4s ease-in-out;
+     transition: width 0.4s ease-in-out;
+ }
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+#informatica {display:inline-block;margin-right:10px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px;color: white;}
+#abbigliamento {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
+#libri {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
 
 /*
 .input[type=text] {
@@ -1040,3 +1066,28 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 input[type=text]:focus {
     width: 100%;
 }*/
+
+#wrapSlider {
+    text-align: center;
+}
+
+#sliderImage {
+    display: inline-block;
+    text-align: center;
+}
+
+#areaProdotti {
+    text-align: center;
+}
+
+.rigaProdotti {
+    display: inline-block;
+    text-align: center;
+}
+
+.rigaProd {
+
+    padding: 50px;
+    float: left;
+    width: 25%;
+}

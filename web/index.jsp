@@ -81,14 +81,14 @@
   </div>
 </div> <!-- End header area -->
 
-<div class="site-branding-area">
+<div class="site-branding-area" style="display: block">
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
         <div class="logo">
           <%--<h1><a href="index.jsp"><span>DaDa</span></a></h1>--%>
             <h1><a href="index.jsp"></a></h1>
-            <img class="img-circle" src="img/DaDalogo.png" style="width:200px;height:200px;">
+            <img src="img/DaDalogo.png" style="width:150px;height:150px; padding:10px">
         </div>
       </div>
 
@@ -143,17 +143,17 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="article.jsp">Acquista</a></li>
-          <li class="active"><a href="shop.html">Vendi</a></li>
+          <li class="active"><a href="index.jsp">Acquista</a></li>
+          <li><a href="article.jsp">Vendi</a></li>
           <li><a href="article.jsp">Dona</a></li>
-          <li><a href="checkout.html">Recensisci</a></li>
-          <li><a href="#">Il mio Account</a></li>
+          <li><a href="template.jsp">Recensisci</a></li>
+          <li><a href="research.jsp">Il mio Account</a></li>
           <li onclick="showSlide()"><a>Barra</a></li>
             <li><a href="#">Aiuto</a></li>
           <%--<li><a href="#">Others</a></li>--%>
           <%--<li><a href="#">Contact</a></li>--%>
         </ul>
-        <div class="product-big-title-area" style="display: block" id="product-big-title-area">
+        <div class="add-to-cart-link"  style="display: block" id="product-big-title-area">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
@@ -170,48 +170,53 @@
                                  min="0" max="100" value="0" tabindex="0">
                           <a type="label" name="label" >Max</a>
                       </div>
-
-                  <%--<ul>--%>
-                  <%--<li><a href="">My account</a></li>--%>
-                  <%--<li><a href="">Order history</a></li>--%>
-                  <%--<li><a href="">Wishlist</a></li>--%>
-                  <%--<li><a href="">Vendor contact</a></li>--%>
-                  <%--<li><a href="">Front page</a></li>--%>
-                  <%--</ul>--%>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
+
+
+        <div class="add-to-cart-link"  style="display: none" id="product-big-title-area2">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                  <%--<h2>Dalla curva si alzerààààà</h2>--%>
+                  <input type="text" name="search" placeholder="Cerca..">
+                  <div style="width:300px; margin:0 auto; display:inline-block;" >
+                    <input class="mdl-slider mdl-js-slider" type="range"
+                           min="0" max="100" value="0" tabindex="0">
+                    <a type="label" name="label" >Max</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
   </div>
 </div> <!-- End mainmenu area -->
 
-<%--<div class="product-big-title-area" style="display: none" id="product-big-title-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="product-bit-title text-center">
-          <h2>Dalla curva si alzerààààà</h2>
-              &lt;%&ndash;<ul>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">My account</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Order history</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Wishlist</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Vendor contact</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Front page</a></li>&ndash;%&gt;
-              &lt;%&ndash;</ul>&ndash;%&gt;
-        </div>
-      </div>
-    </div>
-  </div>
-</div>--%>
+
+<div class="sliderImage" style="position: static;text-align:center;max-width:100px;">
+  <img class="mySlides" src="img/product-2.jpg" style="width:50%">
+  <img class="mySlides" src="img/product-4.jpg" style="width:50%">
+  <img class="mySlides" src="img/product-2.jpg" style="width:50%">
+</div>
 
 
 <div class="single-product-area">
-  <div class="zigzag-bottom"></div>
+  <%--<div class="zigzag-bottom"></div>--%>
+
   <div class="container">
-    <div class="row">
+    <div class="row" id ="riga">
       <div class="col-md-3 col-sm-6">
         <div class="single-shop-product">
           <div class="product-upper">
@@ -393,7 +398,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-12">
         <div class="product-pagination text-center">
@@ -518,6 +522,33 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+
+
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+
+<script type="text/javascript">
+    var elem = document.createElement("img");
+    elem.setAttribute("src", "img/DaDalogo.png");
+    elem.setAttribute("height", "768");
+    elem.setAttribute("width", "1024");
+    elem.setAttribute("alt", "Flower");
+    document.getElementById("riga").appendChild(elem);
+</script>
 
 <script type="text/javascript">
     function showSlide(){
