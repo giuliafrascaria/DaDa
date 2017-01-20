@@ -147,7 +147,7 @@
           <li><a href="article.jsp">Vendi</a></li>
           <li><a href="article.jsp">Dona</a></li>
           <li><a href="template.jsp">Recensisci</a></li>
-          <li><a href="#">Il mio Account</a></li>
+          <li><a href="research.jsp">Il mio Account</a></li>
           <li onclick="showSlide()"><a>Barra</a></li>
             <li><a href="#">Aiuto</a></li>
           <%--<li><a href="#">Others</a></li>--%>
@@ -206,39 +206,10 @@
 
 
 <div class="sliderImage" style="position: static;text-align:center;max-width:100px;">
-    <img class="mySlides" src="img/product-2.jpg" style="width:50%">
-    <img class="mySlides" src="img/product-4.jpg" style="width:50%">
-    <img class="mySlides" src="img/product-2.jpg" style="width:50%">
+  <img class="mySlides" src="img/product-2.jpg" style="width:50%">
+  <img class="mySlides" src="img/product-4.jpg" style="width:50%">
+  <img class="mySlides" src="img/product-2.jpg" style="width:50%">
 </div>
-
-<script>
-    var myIndex = 0;
-    carousel();
-
-    function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}
-        x[myIndex-1].style.display = "block";
-        setTimeout(carousel, 2000); // Change image every 2 seconds
-    }
-</script>
-
-<script type="text/javascript">
-  var elem = document.createElement("img");
-  elem.setAttribute("src", "images/hydrangeas.jpg");
-  elem.setAttribute("height", "768");
-  elem.setAttribute("width", "1024");
-  elem.setAttribute("alt", "Flower");
-  document.getElementById("riga").appendChild(elem);
-</script>
-<body>
-
-
 
 
 <div class="single-product-area">
@@ -427,7 +398,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-12">
         <div class="product-pagination text-center">
@@ -553,11 +523,37 @@
 </body>
 </html>
 
+
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+
+<script type="text/javascript">
+    var elem = document.createElement("img");
+    elem.setAttribute("src", "img/DaDalogo.png");
+    elem.setAttribute("height", "768");
+    elem.setAttribute("width", "1024");
+    elem.setAttribute("alt", "Flower");
+    document.getElementById("riga").appendChild(elem);
+</script>
+
 <script type="text/javascript">
     function showSlide(){
         var productbigtitlearea = document.getElementById('product-big-title-area');
       if(productbigtitlearea.style.display == "none") {
-        alert("sono qui");
         productbigtitlearea.style.display = "block";
       }
       else{

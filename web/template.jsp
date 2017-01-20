@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: giogge
-  Date: 16/01/17
-  Time: 13:25
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,18 +85,11 @@
                     <img src="img/DaDalogo.png" style="width:150px;height:150px; padding:10px">
                 </div>
             </div>
-
-
-
             <div class="col-sm-6">
                 <div class="shopping-item2">
                     <span class="cart-amunt">Simone D'Aniello</span> <img class="img-circle" src="img/slide-2.jpg">
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 </div> <!-- End site branding area -->
@@ -146,9 +133,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -260,3 +244,8 @@ INSERIRE QUI IL PROPRIO CODICE
 </body>
 </html>
 
+
+<!-- SCRIPT SECTION -->
+
+
+<!-- SCRIPT SECTION -->
