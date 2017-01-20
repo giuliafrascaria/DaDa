@@ -138,7 +138,6 @@
 
 
 <div class="single-product-area">
-    <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -151,7 +150,8 @@
                         <div class="woocommerce-info">Returning customer? <a class="showlogin" data-toggle="collapse" href="#login-form-wrap" aria-expanded="false" aria-controls="login-form-wrap">Click here to login</a>
                         </div>
 
-                        <form id="login-form-wrap" class="login collapse" method="post">
+                        <%-- Login area, need Servet JSP --%>
+                        <form id="login-form-wrap" class="login collapse" method="post" action=LoginServlet>
 
 
                             <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section.</p>
