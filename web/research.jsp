@@ -169,7 +169,9 @@
                                                min="0" max="100" value="0" tabindex="0">
                                         <a type="label" name="label" >Max</a>
                                     </div>
-                                    <button onclick="research()"> OK </button>
+                                    <div>
+                                        <button onclick="research()"> OK </button>
+                                    </div>
                                 </div>
 
                             </div>
@@ -604,6 +606,12 @@
     }
 
     function research() {
+        <%
+            String ciao = "ciao";
+        %>
+        <%
+            System.out.println(ciao);
+        %>
         $('#areaProdotti').prepend('<div class="rigaProdotti"> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> </div>')
     }
 </script>
