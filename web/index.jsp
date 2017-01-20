@@ -204,25 +204,6 @@
   </div>
 </div> <!-- End mainmenu area -->
 
-<%--<div class="product-big-title-area" style="display: none" id="product-big-title-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="product-bit-title text-center">
-          <h2>Dalla curva si alzerààààà</h2>
-              &lt;%&ndash;<ul>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">My account</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Order history</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Wishlist</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Vendor contact</a></li>&ndash;%&gt;
-                  &lt;%&ndash;<li><a href="">Front page</a></li>&ndash;%&gt;
-              &lt;%&ndash;</ul>&ndash;%&gt;
-        </div>
-      </div>
-    </div>
-  </div>
-</div>--%>
-
 
 <div class="sliderImage" style="position: static;text-align:center;max-width:100px;">
     <img class="mySlides" src="img/product-2.jpg" style="width:50%">
