@@ -604,15 +604,29 @@
             productbigtitlearea.style.display = "none"
         }
     }
+</script>
 
+
+
+<script type="text/javascript">
     function research() {
         <%
-            String ciao = "ciao";
+            String ciao = "testing ---------------------";
         %>
         <%
             System.out.println(ciao);
         %>
-        $('#areaProdotti').prepend('<div class="rigaProdotti"> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> </div>')
+        $.get('res.jsp');
+        $('#areaProdotti').prepend('<div class="rigaProdotti"> <div class="rigaProd"> ' +
+                '<img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> ' +
+                '<h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> ' +
+                '<img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> ' +
+                '<h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd">' +
+                ' <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> ' +
+                '<h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> ' +
+                '<img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> ' +
+                '<h2><a href="article.jsp">Articolo 1</a></h2> </div> </div>')
+        <%System.out.println(ciao);%>
     }
 </script>
 
