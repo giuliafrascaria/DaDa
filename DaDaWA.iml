@@ -33,7 +33,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="file://$MODULE_DIR$/mysql-connector-java-5.0.8" />
@@ -43,6 +43,25 @@
           <root url="file://$MODULE_DIR$/mysql-connector-java-5.0.8/src" />
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/mysql-connector-java-5.0.8" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Documenti/ispw/SimpleShoppingStore-master/javax.servlet-5.1.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Scaricati/postgresql-9.4.1212.jre6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
