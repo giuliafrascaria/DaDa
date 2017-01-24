@@ -23,14 +23,7 @@ public class RegistrationBean implements Serializable {
 
     public boolean validate() throws Exception
     {
-        if(dbController.checkUser(email))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return dbController.checkUser(email);
     }
 
 }
