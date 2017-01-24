@@ -25,7 +25,7 @@ public class DatabaseController {
         return instance;
     }
 
-    protected DataSource dataSource;
+    //protected DataSource dataSource;
 
     public ArrayList<Article> searchArticle(String sql, String kind) throws SQLException {
 
@@ -117,7 +117,7 @@ public class DatabaseController {
 
 
         try{
-            connection = this.dataSource.getConnection();
+            connection = this.provider.getConnection();
 
             statement = connection.prepareStatement(query);
             statement.setString(1, userID);
@@ -160,7 +160,7 @@ public class DatabaseController {
 
         try
         {
-            connection = this.dataSource.getConnection();
+            connection = this.provider.getConnection();
 
 
             statement = connection.prepareStatement(insert);

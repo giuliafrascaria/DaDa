@@ -1028,7 +1028,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 }
 
  input[type=text] {
-     width: 130px;
+     width: 80px;
      box-sizing: border-box;
      border: 2px solid #ccc;
      border-radius: 4px;
@@ -1090,4 +1090,9 @@ input[type=text]:focus {
     padding: 50px;
     float: left;
     width: 25%;
+}
+
+.registrationform {
+    text-align: center;
+    width: 50%;
 }

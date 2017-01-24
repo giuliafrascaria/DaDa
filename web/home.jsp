@@ -9,9 +9,19 @@
 <html>
 <head>
     <title>DaDa - HOMEPAGE </title>
+    <jsp:include page="jspPageTemplates/head.jsp" flush="true" />
+
 </head>
+
+
 <body>
 
+
+<jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
+
+<jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
+
+<jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
     <div class="user-menu">
         <ul>
@@ -19,6 +29,8 @@
             <li><a href="registrationForm.jsp"><i class="fa fa-user"></i>Registrati come azienda</a></li>
         </ul>
     </div>
+
+<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
 
 </body>
 </html>

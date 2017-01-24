@@ -24,9 +24,17 @@
 <html>
 <head>
     <title>DaDa - registrati come privato</title>
+    <jsp:include page="jspPageTemplates/head.jsp" flush="true" />
 </head>
 <body>
 
+<jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
+
+<jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
+
+<jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
+
+<div class="registrationform">
     <form action="registrationForm.jsp" name="myform" method="post">
         Nome: <br>
         <input type = "text" name = "firstname" ><br>
@@ -46,6 +54,8 @@
             }
         %>
     </form>
+</div>
+<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
 
 </body>
 </html>
