@@ -34,14 +34,14 @@
 <%--                                        <a href="#" id="informatica">Informatica</a>
                                         <a href="#" id="abbigliamento">Abbigliamento</a>
                                         <a href="#" id="libri">Libri</a>--%>
-                                        <label>
-                                            <input type="checkbox" name="info" value="inf">
+                                        <label class="checkbox-labels">
+                                            <input type="checkbox" name="cb[1][]" value="1" class="radio1" onchange="valueChanged()">
                                         </label> Informatica<br>
-                                        <label>
-                                            <input type="checkbox" name="clot" value="clo">
+                                        <label class="checkbox-labels">
+                                            <input type="checkbox" name="cb[1][]" value="1" class="radio2" onchange="valueChanged()">
                                         </label> Abbigliamento<br>
-                                        <label>
-                                            <input type="checkbox" name="book" value="boo">
+                                        <label class="checkbox-labels">
+                                            <input type="checkbox" name="cb[1][]" value="1" class="radio3" onchange="valueChanged()">
                                         </label> Libri<br>
                                     </div>
                                     <div style="width:300px; margin:0 auto; display:inline-block;" >
@@ -55,6 +55,7 @@
                         </div>
                     </div>
                 </div>
+
 
 
                 <div class="add-to-cart-link"  style="display: none" id="product-big-title-area2">
@@ -94,16 +95,32 @@
     }
 </script>
 
-<!-- Latest jQuery form server -->
 <script src="https://code.jquery.com/jquery.min.js"></script>
-
-<!-- Bootstrap JS form CDN -->
-
-<!-- jQuery sticky menu -->
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.sticky.js"></script>
-
-<!-- jQuery easing -->
-
-<!-- Main Script -->
 <script src="js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    function valueChanged()
+    {
+        if($('.radio1').is(":checked")) {
+            /* $(".answer").show();*/
+/*
+            window.alert("checkato 1");
+*/
+        }
+        else if($('.radio2').is(":checked")) {
+            /* $(".answer").show();*/
+/*
+            window.alert("checkato 2");
+*/
+        }
+        else if($('.radio3').is(":checked")) {
+            /* $(".answer").show();*/
+            /*window.alert("checkato 3");*/
+        }
+        else
+            $(".answer").hide();
+    }
+</script>

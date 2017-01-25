@@ -276,14 +276,14 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <!-- jQuery sticky menu -->
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
+<script src="jspPageTemplates/js/owl.carousel.min.js"></script>
+<script src="jspPageTemplates/js/jquery.sticky.js"></script>
 
 <!-- jQuery easing -->
-<script src="js/jquery.easing.1.3.min.js"></script>
+<script src="jspPageTemplates/js/jquery.easing.1.3.min.js"></script>
 
 <!-- Main Script -->
-<script src="js/main.js"></script>
+<script src="jspPageTemplates/js/main.js"></script>
 </body>
 </html>
 
@@ -325,3 +325,5 @@
       }
     }
 </script>
+
+
