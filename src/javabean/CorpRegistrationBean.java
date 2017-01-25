@@ -1,30 +1,30 @@
 package javabean;
 
 
-import control.PrivateDBcontroller;
+
+import control.CorporateDBcontroller;
 import control.UserFactory;
-import entity.users.PrivateUser;
+import entity.users.CorporateUser;
 import exceptions.UserAlreadyRegisteredException;
 
 import java.io.Serializable;
 import java.sql.SQLException;
 
 
-public class RegistrationBean implements Serializable {
+public class CorpRegistrationBean implements Serializable {
 
-    private PrivateDBcontroller dbController = PrivateDBcontroller.getOurInstance();
-
-
-    private String name, surname, email, password;
+    private CorporateDBcontroller dbController = CorporateDBcontroller.getOurInstance();
 
 
-    private PrivateUser user;
+    private String name, owner, email, password;
 
 
-    public RegistrationBean()
+    private CorporateUser user;
+
+
+    public CorpRegistrationBean()
     {
         this.name = "";
-        this.surname = "";
         this.email = "";
         this.password = "";
 
@@ -38,12 +38,12 @@ public class RegistrationBean implements Serializable {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public String getEmail() {
@@ -62,21 +62,20 @@ public class RegistrationBean implements Serializable {
         this.password = password;
     }
 
-    private void saveData(String name, String email, String surname, String pwd)
+    private void saveData(String name, String email, String owner, String pwd)
     {
-        user = UserFactory.getInstance().createUser();
+        user = UserFactory.getInstance().createCorporateUser();
 
         System.out.println("creato utente");
 
         user.setName(name);
         System.out.println(user.getName());
-        user.setSurname(surname);
-        System.out.println(user.getSurname());
+        user.setOwner(owner);
+        System.out.println(user.getOwner());
         user.setEmail(email);
         System.out.println(user.getEmail());
         user.setPwd(pwd);
         System.out.println(user.getPwd());
-
 
     }
 
@@ -84,16 +83,14 @@ public class RegistrationBean implements Serializable {
 
     public boolean validate()
     {
-
         try {
             if (dbController.checkUser(email)) {
                 System.out.println("aggiungi questo utente");
 
-                saveData(this.name, this.email, this.surname, this.password);
+                saveData(this.name, this.email, this.owner, this.password);
                 dbController.addUser(this.user);
 
                 System.out.println("utente aggiunto");
-
 
                 //aggiungi utente
                 return true;

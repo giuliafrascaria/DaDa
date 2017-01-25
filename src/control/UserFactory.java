@@ -20,6 +20,6 @@ public class UserFactory
         return new PrivateUser();
     }
 
-    CorporateUser createCorporateUser() {return new CorporateUser();}
+    public CorporateUser createCorporateUser() {return new CorporateUser();}
 
 }

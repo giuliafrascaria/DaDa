@@ -3,8 +3,98 @@ package javabean;
 /**
  * Created by giogge on 23/01/17.
  */
-public class UserBean {
 
-    public UserBean(){}
+import entity.users.PrivateUser;
 
+
+/**
+ * Bean to perform the login.
+ *
+ * @author Mario
+ */
+public class UserBean
+{
+    private String name;
+    private String email;
+
+
+    public UserBean() {
+    }
+
+    /**
+     * Getter for the attribute firstName.
+     *
+     * @return String first name of the user.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Setter for the attribute firstName.
+     *
+     * @param name new first name of the user.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    /**
+     * Getter for the attribute email.
+     *
+     * @return String mail of the user.
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Setter for the attribute email.
+     *
+     * @param email new mail of the user.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
+    private void fillUserBean(PrivateUser user) {
+        this.name = user.getName();
+        this.email = user.getEmail();
+    }
+
+    /**
+     * Principal method for the bean, it calls the controller
+     * and control the input parameters.
+     *
+     * @param password the password of the user.
+     * @return 0 if the login goes right
+     * @return 1 if the user with email doesn't exist
+     * @return 2 if the password for the entered email is incorrect
+     * @return 3 if there was some error
+     * @return 4 if is an administrator
+     */
+    public int validate(String password) {
+        /*LoginController controller = LoginController.getInstance();
+        try {
+            UserInfo info = controller.login(this.email, password);
+            this.fillUserBean(info);
+            return 0;
+        } catch (WrongPasswordException e) {
+            return 2;
+        } catch (UserDoNotExistsException e) {
+            return 1;
+        }catch (AdminException e) {
+            this.firstName = "admin";
+            this.accountType = "admin";
+            this.email = "admin";
+            this.premium = "admin";
+            return 4;
+        }catch(Exception e) {
+            return 3;
+        }*/
+        return 1;
+    }
 }

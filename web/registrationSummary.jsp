@@ -6,9 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="RegistrationBean" scope="session" class="javabean.RegistrationBean"/>
+<jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
 
-<jsp:setProperty name="RegistrationBean" property="*"/>
+<jsp:setProperty name="UserBean" property="*"/>
 <html>
 <head>
     <title>Title</title>
@@ -20,12 +20,11 @@
 
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 
-<jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
+<jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
-Login effettuato con:
+Benvenuto in DaDa!
 <br>
-Nome: <jsp:getProperty property="name" name="RegistrationBean" /><br>
-Cognome: <jsp:getProperty property="surname" name="RegistrationBean" /><br>
-Email: <jsp:getProperty property="email" name="RegistrationBean" /><br>
+Nome: <jsp:getProperty property="name" name="UserBean" /><br>
+Email: <jsp:getProperty property="email" name="UserBean" /><br>
 </body>
 </html>

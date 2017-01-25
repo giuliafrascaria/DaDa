@@ -21,6 +21,7 @@ CREATE TABLE USERS.UtenteRegistrato(
 
 
 CREATE TABLE USERS.Azienda(
+  PROPRIETARIO    VARCHAR               ,
   PIVA            VARCHAR                ,
   NOMEAZIENDA        VARCHAR                ,
   SETTORE        VARCHAR                ,
@@ -28,7 +29,7 @@ CREATE TABLE USERS.Azienda(
   TELEFONO        VARCHAR                ,
   EMAIL            VARCHAR
     REFERENCES USERS.UtenteRegistrato(EMAIL),
-  PRIMARY KEY (PIVA)
+  PRIMARY KEY (EMAIL)
 );
 
 
@@ -154,12 +155,6 @@ INSERT INTO USERS.Admin VALUES ('giulia', 'frascaria', 'giogge@gmail.com');
 INSERT INTO USERS.Admin VALUES ('giulia', 'cassara', 'giuliac@gmail.com');
 
 
-
-
-
-
-
-
 INSERT INTO ARTICLES.articolo VALUES ('Santa Croce', 'simone@gmail.com', '10', '100' );
 INSERT INTO ARTICLES.libro VALUES ('origine della Santa Croce', 'simone@gmail.com', 'Santa Croce', 'Simone D'' Aniello', 'Mondadori', '350' );
 
@@ -175,8 +170,6 @@ INSERT INTO ARTICLES.libro VALUES ('origine della Lieve', 'simone@gmail.com', 'L
 INSERT INTO ARTICLES.articolo VALUES ('A scuola con l'' acqua', 'simone@gmail.com', '50', '100' );
 INSERT INTO ARTICLES.libro VALUES ('A scuola con l'' acqua', 'simone@gmail.com', 'A scuola con l'' acqua', 'Simone D'' Aniello', 'Mondadori', '100' );
 INSERT INTO ARTICLES.Scolastico VALUES ('Acquologia', 'simone@gmail.com', 'A scuola con l'' acqua', '1' );
-
-
 
 
 INSERT INTO ARTICLES.articolo VALUES ('Lenovo ThinkPad', 'simone@gmail.com', '500', '10');

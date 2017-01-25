@@ -13,9 +13,17 @@
 
             <div class="col-sm-6">
                 <div class="shopping-item2">
-                    <span class="cart-amunt">Simone D'Aniello</span> <img class="img-circle" src="img/slide-2.jpg">
+                    <span class="cart-amunt"> <jsp:getProperty name="UserBean" property="name"/> </span> <img class="img-circle" src="img/slide-2.jpg">
                 </div>
 
+            </div>
+
+            <div class="user-menu">
+                <ul>
+
+                    <li><a href="registrationFormAzienda.jsp"><i class="fa fa-user"></i>Ciao, <jsp:getProperty name="UserBean" property="name"/></a></li>
+                    <li><a href="login.jsp"><i class="fa fa-user"></i>Logout</a></li>
+                </ul>
             </div>
 
 
@@ -23,4 +31,4 @@
 
         </div>
     </div>
-</div> <!-- End site branding area -->
+</div><!-- End site branding area -->

@@ -9,15 +9,21 @@
 <jsp:useBean id="RegistrationBean" scope="session" class="javabean.RegistrationBean"/>
 
 <jsp:setProperty name="RegistrationBean" property="*"/>
+<jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
 
 <%
     if (request.getParameter("submit") != null) {
         if (RegistrationBean.validate())
         {
+
 %>
 <!-- Passa il controllo alla nuova pagina -->
-            <jsp:forward page="registrationSummary.jsp" />
+            <jsp:setProperty name="UserBean" property="email"/>
+            <jsp:setProperty name="UserBean" property="name"/>
+
+            <%--<jsp:forward page="home.jsp" />&ndash;%&gt;--%>
 <%
+            response.sendRedirect("registrationSummary.jsp");
         }
     }
 %>
@@ -34,10 +40,9 @@
 
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
-<div style="text-align: center;">
-    <div class="registrationform" style="text-align: center" >
+
         <form action="registrationForm.jsp" name="myform" method="post">
-            <div id="customer_details" class="col2-set">
+
                 Nome: <br>
                 <input type = "text" name = "name" id="name"><br>
                 Cognome: <br>
@@ -49,11 +54,8 @@
                 Conferma Password: <br>
                 <input type = "password" name = "confermapassword" ><br>
                 <input type="submit" name = "submit" value="submit"> <br>
-            </div>
-        </form>
-    </div>
-</div>
 
+        </form>
 
 
 <%--<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />--%>

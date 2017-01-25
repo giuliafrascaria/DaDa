@@ -6,9 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="LoginBean" scope="session" class="javabean.LoginBean"/>
-
-<jsp:setProperty name="LoginBean" property="*"/>
+<jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
 
 <html>
 <head>
@@ -24,17 +22,18 @@
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
 
 <%
-    if (LoginBean.getUsername().equals(""))
-    {
+    if (UserBean.getEmail() == null) {
 %>
 
     <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
+
 <%
     }
     else
     {
 %>
-    <jsp:include page="jspPageTemplates/AccountArea.jsp" flush="true" />
+    <%--<jsp:include page="jspPageTemplates/AccountArea.jsp" flush="true" />--%>
+    <h1> ciao <jsp:getProperty name="UserBean" property="name"/></h1>
 <%
     }
 %>
