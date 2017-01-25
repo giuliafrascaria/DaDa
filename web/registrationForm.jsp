@@ -32,7 +32,7 @@
 
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 
-<jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
+<jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
 <div style="text-align: center;">
     <div class="registrationform" style="text-align: center" >
