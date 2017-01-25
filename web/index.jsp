@@ -17,31 +17,6 @@
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 
 
-
-<style>
-    input[type=text] {
-        width: 130px;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        font-family: 'Titillium Web', sans-serif;
-        font-size: 16px;
-        background: white no-repeat 10px 10px;
-        padding: 12px 20px 12px 40px;
-        -webkit-transition: width 0.4s ease-in-out;
-        transition: width 0.4s ease-in-out;
-    }
-
-    input[type=text]:focus {
-        width: 100%;
-    }
-
-    #informatica {display:inline-block;margin-right:10px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px;color: white;}
-    #abbigliamento {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
-    #libri {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
-</style>
-
-
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
 
