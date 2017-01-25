@@ -12,13 +12,10 @@
 
 
             <div class="col-sm-6">
-
-                <div class="user-menu">
-                    <ul>
-                        <li><a href="registrationForm.jsp"><i class="fa fa-user"></i>Registrati come privato</a></li>
-                        <li><a href="registrationForm.jsp"><i class="fa fa-user"></i>Registrati come azienda</a></li>
-                    </ul>
+                <div class="shopping-item2">
+                    <span class="cart-amunt">Simone D'Aniello</span> <img class="img-circle" src="img/slide-2.jpg">
                 </div>
+
             </div>
 
 

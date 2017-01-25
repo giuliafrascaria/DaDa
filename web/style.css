@@ -1093,6 +1093,7 @@ input[type=text]:focus {
 }
 
 .registrationform {
+    position: absolute;
     text-align: center;
     width: 50%;
 }
