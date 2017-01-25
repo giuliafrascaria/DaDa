@@ -1,6 +1,9 @@
 package javabean;
 
 import control.DatabaseController;
+import control.UserFactory;
+import entity.users.PrivateUser;
+import exceptions.UserAlreadyRegisteredException;
 
 import java.io.Serializable;
 
@@ -10,6 +13,7 @@ import java.io.Serializable;
 public class RegistrationBean implements Serializable {
 
     private DatabaseController dbController = DatabaseController.getInstance();
+
 
     private String name, surname, email;
     private char[] pwd;
@@ -21,9 +25,32 @@ public class RegistrationBean implements Serializable {
         this.email = "";
     }
 
-    public boolean validate() throws Exception
+    public boolean validate()
     {
-        return dbController.checkUser(email);
+
+        try {
+            if (dbController.checkUser(email)) {
+                System.out.println("aggiungi questo utente");
+
+                //PrivateUser newUser = UserFactory.getInstance().createUser();
+                //aggiungi utente
+                return true;
+            }
+            else
+            {
+                throw new UserAlreadyRegisteredException();
+
+            }
+        }catch (UserAlreadyRegisteredException e)
+        {
+            System.out.println("this user already exists");
+            return false;
+        }
+        catch (Exception e)
+        {
+            System.out.println("exception");
+            return false;
+        }
     }
 
 }

@@ -44,6 +44,8 @@
         <input type = "text" name = "email" ><br>
         Password: <br>
         <input type = "password" name = "password" ><br>
+        Conferma Password:
+        <input type = "password" name = "confermapassword" ><br>
         <input type="submit" name = "submit" value="submit"> <br>
 
         <%

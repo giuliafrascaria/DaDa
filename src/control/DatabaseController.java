@@ -13,12 +13,12 @@ import entity.users.RegisteredUser;
 
 public class DatabaseController {
 
-    private static Provider provider = new Provider();
+    protected static Provider provider = new Provider();
 
     //Singleton
     private static DatabaseController instance = new DatabaseController();
 
-    private DatabaseController() {
+    protected DatabaseController() {
     }
 
     public static DatabaseController getInstance(){
@@ -98,11 +98,13 @@ public class DatabaseController {
 
     public boolean checkUser(String mail) throws Exception
     {
-        RegisteredUser user;
-        System.out.println("sto per cercare l'utente");
-        user = this.findByPrimaryKey(mail);
-        System.out.println("ricerca finita");
-        return user == null;
+
+            RegisteredUser user;
+            System.out.println("sto per cercare l'utente");
+            user = this.findByPrimaryKey(mail);
+            System.out.println("ricerca finita");
+            return user == null;
+
     }
 
     private RegisteredUser findByPrimaryKey(String userID) throws Exception

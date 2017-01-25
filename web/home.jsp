@@ -6,11 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="LoginBean" scope="request" class="javabean.LoginBean"/>
+
+<jsp:setProperty name="LoginBean" property="*"/>
+
 <html>
 <head>
     <title>DaDa - HOMEPAGE </title>
     <jsp:include page="jspPageTemplates/head.jsp" flush="true" />
-
 
 </head>
 
@@ -20,7 +23,21 @@
 
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
 
-<jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
+<%
+    if (LoginBean.getUsername().equals(""))
+    {
+%>
+
+    <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
+<%
+    }
+    else
+    {
+%>
+    <jsp:include page="jspPageTemplates/AccountArea.jsp" flush="true" />
+<%
+    }
+%>
 
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
