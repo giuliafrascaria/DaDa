@@ -18,10 +18,8 @@
                     <li><a href="ricerca.jsp">Il mio Account</a></li>
                     <li onclick="showSlide()"><a>Barra</a></li>
                     <li><a href="#">Aiuto</a></li>
-                    <%--<li><a href="#">Others</a></li>--%>
-                    <%--<li><a href="#">Contact</a></li>--%>
                 </ul>
-                <div class="add-to-cart-link"  style="display: block" id="product-big-title-area">
+                <div class="add-to-cart-link"  style="display: none" id="product-big-title-area">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -29,43 +27,59 @@
                                     <form action="ResearchServlet">
                                         <input name="nome" type="text" id="nome" placeholder="Cerca..">
                                     </form>
-
-                                    <div>
-<%--                                        <a href="#" id="informatica">Informatica</a>
-                                        <a href="#" id="abbigliamento">Abbigliamento</a>
-                                        <a href="#" id="libri">Libri</a>--%>
-                                        <label class="checkbox-labels">
-                                            <input type="radio" name="cb[1][]" value="1" class="radio1" onchange="valueChanged1()">
-                                        </label> Informatica<br>
-    <div id="informatic" style="display: none">
-        <label for="nome">Nome </label><input name="nome" type="text" id="inputInf">
-        <input name="cerca" type="submit" id="cerca" value="Cerca">
-    </div>
-                                        <label class="checkbox-labels">
-                                            <input type="radio" name="cb[1][]" value="1" class="radio2" onchange="valueChanged2()">
-                                        </label> Abbigliamento<br>
-    <div id="abbigli" style="display: none">
-        ciao2
-    </div>
-                                        <label class="checkbox-labels">
-                                            <input type="radio" name="cb[1][]" value="1" class="radio3" onchange="valueChanged3()">
-                                        </label> Libri<br>
-    <div id="lib" style="display: none">
-        ciao3
-    </div>
-                                    </div>
+                                    <label>
+                                        <input type="radio" name="radiob" value="inf" class="inf" onchange="valueChanged1()">
+                                    </label> informatica <br>
+                                    <label>
+                                        <input type="radio" name="radiob" value="cloth" class="cloth" onchange="valueChanged2()">
+                                    </label> clothing <br>
+                                    <label>
+                                        <input type="radio" name="radiob" value="libri" class="libri" onchange="valueChanged3()">
+                                    </label> libri <br>
+                                    <label>
+                                        <input type="radio" name="radiob" value="scolastico" class="scolastico" onchange="valueChanged4()">
+                                    </label> libri <br>
                                     <div style="width:300px; margin:0 auto; display:inline-block;" >
-                                        <input class="mdl-slider mdl-js-slider" type="range"
-                                               min="0" max="100" value="0" tabindex="0">
+                                        <label>
+                                            <input class="mdl-slider mdl-js-slider" type="range"
+                                                   min="0" max="100" value="0" tabindex="0">
+                                        </label>
                                         <a type="label" name="label" >Max</a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
+                    <div id="informatic" style="text-align: center; display: none">
+                        <div><label for="inftipo">Tipo </label><br><input name="inftipo" type="text" id="inftipo" class="extendedInput"></div>
+                        <div><label for="infvenditore">Venditore </label><br><input name="infvenditore" type="text" id="infvenditore" class="extendedInput"></div>
+                        <div><label for="infnome">Nome </label><br><input name="infnome" type="text" id="infnome" class="extendedInput"></div>
+                        <div><label for="infmodello">Modello </label><br><input name="infmodello" type="text" id="infmodello" class="extendedInput"></div>
+                        <div><label for="infmarca">Marca </label><br><input name="infmarca" type="text" id="infmarca" class="extendedInput"></div>
+                    </div>
+                    <div id="abbigli" style="text-align: center; display: none">
+                        <div><label for="abbtipo">Tipo </label><br><input name="abbtipo" type="text" id="abbtipo" class="extendedInput"></div>
+                        <div><label for="abbvenditore">Venditore </label><br><input name="abbvenditore" type="text" id="abbvenditore" class="extendedInput"></div>
+                        <div><label for="abbnome">Nome </label><br><input name="abbnome" type="text" id="abbnome" class="extendedInput"></div>
+                        <div><label for="abbtaglia">Taglia </label><br><input name="abbtaglia" type="text" id="abbtaglia" class="extendedInput"></div>
+                        <div><label for="abbmarca">Marca </label><br><input name="abbmarca" type="text" id="abbmarca" class="extendedInput"></div>
+                    </div>
+                    <div id="lib" style="text-align: center; display: none">
+                        <div><label for="libtitolo">Titolo </label><br><input name="libtitolo" type="text" id="libtitolo" class="extendedInput"></div>
+                        <div><label for="libvenditore">Venditore </label><br><input name="libvenditore" type="text" id="libvenditore" class="extendedInput"></div>
+                        <div><label for="libnome">Nome </label><br><input name="libnome" type="text" id="libnome" class="extendedInput"></div>
+                        <div><label for="libautore">Autore </label><br><input name="libautore" type="text" id="libautore" class="extendedInput"></div>
+                        <div><label for="libcasa">Casa Editrice </label><br><input name="libcasa" type="text" id="libcasa" class="extendedInput"></div>
+                    </div>
+                    <div id="sco" style="text-align: center; display: none">
+                        <div><label for="scotitolo">Titolo </label><br><input name="scotitolo" type="text" id="scotitolo" class="extendedInput"></div>
+                        <div><label for="scomateria">Materia </label><br><input name="scomateria" type="text" id="scomateria" class="extendedInput"></div>
+                        <div><label for="sconome">Nome </label><br><input name="sconome" type="text" id="sconome" class="extendedInput"></div>
+                        <div><label for="scoautore">Autore </label><br><input name="scoautore" type="text" id="scoautore" class="extendedInput"></div>
+                        <div><label for="scocasa">Casa Editrice </label><br><input name="scocasa" type="text" id="scocasa" class="extendedInput"></div>
+                    </div>
                 </div>
-
+            </div>
 
 
                 <div class="add-to-cart-link"  style="display: none" id="product-big-title-area2">
@@ -119,6 +133,8 @@
         c.style.display = "none";
         var b = document.getElementById('lib');
         b.style.display = "none";
+        var d = document.getElementById('sco');
+        d.style.display = "none";
     }
     function valueChanged2(){
         var i = document.getElementById('informatic');
@@ -127,6 +143,8 @@
         c.style.display = "block";
         var b = document.getElementById('lib');
         b.style.display = "none";
+        var d = document.getElementById('sco');
+        d.style.display = "none";
     }
     function valueChanged3(){
         var i = document.getElementById('informatic');
@@ -135,5 +153,17 @@
         c.style.display = "none";
         var b = document.getElementById('lib');
         b.style.display = "block";
+        var d = document.getElementById('sco');
+        d.style.display = "none";
+    }
+    function valueChanged4(){
+        var i = document.getElementById('informatic');
+        i.style.display = "none";
+        var c = document.getElementById('abbigli');
+        c.style.display = "none";
+        var b = document.getElementById('lib');
+        b.style.display = "none";
+        var d = document.getElementById('sco');
+        d.style.display = "block";
     }
 </script>
