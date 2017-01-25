@@ -15,8 +15,8 @@ public class RegistrationBean implements Serializable {
     private PrivateDBcontroller dbController = PrivateDBcontroller.getOurInstance();
 
 
-    private String name, surname, email;
-    private char[] pwd;
+    private String name, surname, email, password;
+
 
     private PrivateUser user;
 
@@ -25,6 +25,7 @@ public class RegistrationBean implements Serializable {
         this.name = "";
         this.surname = "";
         this.email = "";
+        this.password = "";
 
     }
 
@@ -52,15 +53,15 @@ public class RegistrationBean implements Serializable {
         this.email = email;
     }
 
-    public char[] getPwd() {
-        return pwd;
+    public String getPassword() {
+        return this.password;
     }
 
-    public void setPwd(char[] pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    private void saveData(String name, String email, String surname, char[] pwd)
+    private void saveData(String name, String email, String surname, String pwd)
     {
         user = UserFactory.getInstance().createUser();
 
@@ -87,7 +88,7 @@ public class RegistrationBean implements Serializable {
             if (dbController.checkUser(email)) {
                 System.out.println("aggiungi questo utente");
 
-                saveData(this.name, this.email, this.surname, this.pwd);
+                saveData(this.name, this.email, this.surname, this.password);
                 dbController.addUser(this.user);
 
                 System.out.println("utente aggiunto");

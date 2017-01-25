@@ -3,8 +3,7 @@ package entity.users;
 
 public class RegisteredUser
 {
-    protected String email;
-    protected char[] pwd;
+    protected String email, password;
 
     public String getEmail()
     {
@@ -16,13 +15,13 @@ public class RegisteredUser
         this.email = email;
     }
 
-    public char[] getPwd()
+    public String getPwd()
     {
-        return pwd;
+        return password;
     }
 
-    public void setPwd(char[] pwd)
+    public void setPwd(String pwd)
     {
-        this.pwd = pwd;
+        this.password = pwd;
     }
 }
