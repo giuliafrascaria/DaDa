@@ -15,7 +15,7 @@ public class UserFactory
 
     private UserFactory() {}
 
-    public static PrivateUser createUser()
+    public PrivateUser createUser()
     {
         return new PrivateUser();
     }

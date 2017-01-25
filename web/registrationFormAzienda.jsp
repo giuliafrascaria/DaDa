@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>DaDa - registrati come azienda</title>
+    <jsp:include page="jspPageTemplates/head.jsp" flush="true" />
 </head>
 <body>
 

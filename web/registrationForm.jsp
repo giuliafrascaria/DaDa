@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="RegistrationBean" scope="request" class="javabean.RegistrationBean"/>
+<jsp:useBean id="RegistrationBean" scope="session" class="javabean.RegistrationBean"/>
 
 <jsp:setProperty name="RegistrationBean" property="*"/>
 
@@ -24,7 +24,7 @@
 <html>
 <head>
     <title>DaDa - registrati come privato</title>
-    <jsp:include page="jspPageTemplates/head.jsp" flush="true" />
+<jsp:include page="jspPageTemplates/head.jsp" flush="true" />
 </head>
 <body>
 
@@ -35,29 +35,30 @@
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
 <div class="registrationform">
-    <form action="registrationForm.jsp" name="myform" method="post">
-        Nome: <br>
-        <input type = "text" name = "firstname" ><br>
-        Cognome: <br>
-        <input type = "text" name = "surname" ><br>
-        Email: <br>
-        <input type = "text" name = "email" ><br>
-        Password: <br>
-        <input type = "password" name = "password" ><br>
-        Conferma Password:
-        <input type = "password" name = "confermapassword" ><br>
-        <input type="submit" name = "submit" value="submit"> <br>
 
-        <%
-            if (request.getParameter("submit") != null) {
-        %>
-                <p style="text-color: red;">Dati errati</p>
-        <%
-            }
-        %>
+    <form action="registrationForm.jsp" name="myform" method="post">
+        <div id="customer_details" class="col2-set">
+
+            Nome: <br>
+            <input type = "text" name = "name" ><br>
+            Cognome: <br>
+            <input type = "text" name = "surname" ><br>
+            Email: <br>
+            <input type = "text" name = "email" ><br>
+            Password: <br>
+            <input type = "password" name = "password" ><br>
+            Conferma Password: <br>
+            <input type = "password" name = "confermapassword" ><br>
+            <input type="submit" name = "submit" value="submit"> <br>
+        </div>
     </form>
+
+
 </div>
-<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
+
+
+
+<%--<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />--%>
 
 </body>
 </html>

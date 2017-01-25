@@ -15,12 +15,11 @@
                 <div class="user-menu">
                     <ul>
                         <li><a href="registrationForm.jsp"><i class="fa fa-user"></i>Registrati come privato</a></li>
-                        <li><a href="registrationForm.jsp"><i class="fa fa-user"></i>Registrati come azienda</a></li>
+                        <li><a href="registrationFormAzienda.jsp"><i class="fa fa-user"></i>Registrati come azienda</a></li>
+                        <li><a href="login.jsp"><i class="fa fa-user"></i>Login</a></li>
                     </ul>
                 </div>
             </div>
-
-
 
 
         </div>

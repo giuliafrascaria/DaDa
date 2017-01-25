@@ -41,12 +41,6 @@
 
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
-    <div class="user-menu">
-        <ul>
-            <li><a href="registrationForm.jsp"><i class="fa fa-user"></i>Registrati come privato</a></li>
-            <li><a href="registrationForm.jsp"><i class="fa fa-user"></i>Registrati come azienda</a></li>
-        </ul>
-    </div>
 
     <div id="slideshow">
         <div>
