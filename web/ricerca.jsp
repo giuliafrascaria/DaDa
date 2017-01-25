@@ -24,6 +24,9 @@
         <label>
             <input type="radio" name="radiob" value="libri" class="libri" onchange="valueChanged3()">
         </label> libri <br>
+        <label>
+            <input type="radio" name="radiob" value="scolastico" class="scolastico" onchange="valueChanged4()">
+        </label> libri <br>
     </div>
 
 
@@ -43,7 +46,18 @@
         <div><label for="abbmarca">Marca </label><input name="abbmarca" type="text" id="abbmarca" class="extendedInput"></div>
     </div>
     <div id="lib" style="text-align: center; display: none">
-        <label for="nome">Nome </label><input name="nome" type="text" id="libnome" class="extendedInput">
+        <div><label for="libtitolo">Titolo </label><input name="libtitolo" type="text" id="libtitolo" class="extendedInput"></div>
+        <div><label for="libvenditore">Venditore </label><input name="libvenditore" type="text" id="libvenditore" class="extendedInput"></div>
+        <div><label for="libnome">Nome </label><input name="libnome" type="text" id="libnome" class="extendedInput"></div>
+        <div><label for="libautore">Autore </label><input name="libautore" type="text" id="libautore" class="extendedInput"></div>
+        <div><label for="libcasa">Casa Editrice </label><input name="libcasa" type="text" id="libcasa" class="extendedInput"></div>
+    </div>
+    <div id="sco" style="text-align: center; display: none">
+        <div><label for="scotitolo">Titolo </label><input name="scotitolo" type="text" id="scotitolo" class="extendedInput"></div>
+        <div><label for="scomateria">Materia </label><input name="scomateria" type="text" id="scomateria" class="extendedInput"></div>
+        <div><label for="sconome">Nome </label><input name="sconome" type="text" id="sconome" class="extendedInput"></div>
+        <div><label for="scoautore">Autore </label><input name="scoautore" type="text" id="scoautore" class="extendedInput"></div>
+        <div><label for="scocasa">Casa Editrice </label><input name="scocasa" type="text" id="scocasa" class="extendedInput"></div>
     </div>
 
 
@@ -58,6 +72,8 @@
         c.style.display = "none";
         var b = document.getElementById('lib');
         b.style.display = "none";
+        var d = document.getElementById('sco');
+        d.style.display = "none";
     }
     function valueChanged2(){
         var i = document.getElementById('informatic');
@@ -66,6 +82,8 @@
         c.style.display = "block";
         var b = document.getElementById('lib');
         b.style.display = "none";
+        var d = document.getElementById('sco');
+        d.style.display = "none";
     }
     function valueChanged3(){
         var i = document.getElementById('informatic');
@@ -74,6 +92,18 @@
         c.style.display = "none";
         var b = document.getElementById('lib');
         b.style.display = "block";
+        var d = document.getElementById('sco');
+        d.style.display = "none";
+    }
+    function valueChanged4(){
+        var i = document.getElementById('informatic');
+        i.style.display = "none";
+        var c = document.getElementById('abbigli');
+        c.style.display = "none";
+        var b = document.getElementById('lib');
+        b.style.display = "none";
+        var d = document.getElementById('sco');
+        d.style.display = "block";
     }
 </script>
 </body>
