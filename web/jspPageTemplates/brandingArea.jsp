@@ -3,7 +3,6 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="logo">
-                    <%--<h1><a href="index.jsp"><span>DaDa</span></a></h1>--%>
                     <h1><a href="index.jsp"></a></h1>
                     <img src="img/DaDalogo.png" style="width:150px;height:150px; padding:10px">
                 </div>

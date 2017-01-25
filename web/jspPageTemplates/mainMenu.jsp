@@ -26,12 +26,23 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-bit-title text-center">
-                                    <%--<h2>Dalla curva si alzerààààà</h2>--%>
-                                    <input type="text" name="search" placeholder="Cerca..">
+                                    <form action="ResearchServlet">
+                                        <input name="nome" type="text" id="nome" placeholder="Cerca..">
+                                    </form>
+
                                     <div>
-                                        <a href="#" id="informatica">Informatica</a>
+<%--                                        <a href="#" id="informatica">Informatica</a>
                                         <a href="#" id="abbigliamento">Abbigliamento</a>
-                                        <a href="#" id="libri">Libri</a>
+                                        <a href="#" id="libri">Libri</a>--%>
+                                        <label>
+                                            <input type="checkbox" name="info" value="inf">
+                                        </label> Informatica<br>
+                                        <label>
+                                            <input type="checkbox" name="clot" value="clo">
+                                        </label> Abbigliamento<br>
+                                        <label>
+                                            <input type="checkbox" name="book" value="boo">
+                                        </label> Libri<br>
                                     </div>
                                     <div style="width:300px; margin:0 auto; display:inline-block;" >
                                         <input class="mdl-slider mdl-js-slider" type="range"
@@ -51,7 +62,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-bit-title text-center">
-                                    <%--<h2>Dalla curva si alzerààààà</h2>--%>
                                     <input type="text" name="search" placeholder="Cerca..">
                                     <div style="width:300px; margin:0 auto; display:inline-block;" >
                                         <input class="mdl-slider mdl-js-slider" type="range"
@@ -71,3 +81,29 @@
         </div>
     </div>
 </div> <!-- End mainmenu area -->
+
+<script type="text/javascript">
+    function showSlide(){
+        var productbigtitlearea = document.getElementById('product-big-title-area');
+        if(productbigtitlearea.style.display == "none") {
+            productbigtitlearea.style.display = "block";
+        }
+        else{
+            productbigtitlearea.style.display = "none"
+        }
+    }
+</script>
+
+<!-- Latest jQuery form server -->
+<script src="https://code.jquery.com/jquery.min.js"></script>
+
+<!-- Bootstrap JS form CDN -->
+
+<!-- jQuery sticky menu -->
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+
+<!-- jQuery easing -->
+
+<!-- Main Script -->
+<script src="js/main.js"></script>

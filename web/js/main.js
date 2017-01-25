@@ -87,6 +87,17 @@ jQuery(document).ready(function($){
 
     //$('#areaProdotti').prepend('<div class="rigaProdotti"> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> <div class="rigaProd"> <img src="img/product-2.jpg" alt="" style="width:150px; height: 200px;"> <h2><a href="article.jsp">Articolo 1</a></h2> </div> </div>')
 
+    $("#slideshow > div:gt(0)").hide();
+
+    setInterval(function() {
+        $('#slideshow > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slideshow');
+    },  3000);
+
 });
 
 
