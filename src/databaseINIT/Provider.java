@@ -45,13 +45,13 @@ public class Provider {
     public Provider()
     {
         this.JDBC_DRIVER = "org.postgresql.Driver";
-        /*this.DB_URL = "jdbc:postgresql://localhost:5432/ispw";
+        this.DB_URL = "jdbc:postgresql://localhost:5432/ispw";
         this.USER = "superuser";
-        this.PASS = "password";*/
+        this.PASS = "password";
 
-        DB_URL = "jdbc:postgresql://localhost:5432/dada";
+/*        DB_URL = "jdbc:postgresql://localhost:5432/dada";
         USER = "postgres";
-        PASS = "postgres";
+        PASS = "postgres";*/
     }
 
 

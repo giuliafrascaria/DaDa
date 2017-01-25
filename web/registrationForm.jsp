@@ -36,10 +36,8 @@
 
 <div style="text-align: center;">
     <div class="registrationform" style="text-align: center" >
-
         <form action="registrationForm.jsp" name="myform" method="post">
             <div id="customer_details" class="col2-set">
-
                 Nome: <br>
                 <input type = "text" name = "name" id="name"><br>
                 Cognome: <br>
@@ -53,10 +51,7 @@
                 <input type="submit" name = "submit" value="submit"> <br>
             </div>
         </form>
-
-
     </div>
-
 </div>
 
 
