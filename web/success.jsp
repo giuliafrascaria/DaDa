@@ -23,13 +23,12 @@
 
         <div class="col-md-3 col-sm-6">
             <div class="single-shop-product">
-                <div class="product-upper">
-                    <img src="img/product-2.jpg" alt="" style="border-radius: 10px;">
+                <div >
+                    <img src="img/<%= anA.getImage() %>" alt="" style="border-radius: 10px; height: 300px; width: 300px">
                 </div>
                 <h2><a href="article.jsp"> <%= anA.getNome() %> </a></h2>
                 <div class="product-carousel-price">
                     <ins>$<%= anA.getPrezzo() %></ins> <del>$<%= anA.getPrezzo()*2 %></del>
-                    <ins>$<%= anA.getImage() %></ins>
                 </div>
 
                 <div class="product-option-shop">

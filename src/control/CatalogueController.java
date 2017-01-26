@@ -109,7 +109,7 @@ public class CatalogueController {
         String sql = sqlCreator(rq);
         ArrayList<Article> articoli;
         if(!sqlCheck(sql)){
-            if (rq.getClass().equals(Book.class))
+            if (rq.getClass().equals(Electronics.class))
                 sql = "SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO";
             else if (rq.getClass().equals(Book.class))
                 sql = "SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO";
