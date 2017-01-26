@@ -74,7 +74,7 @@ public class CorpRegistrationBean implements Serializable {
         this.confirmpassword = confirmpassword;
     }
 
-    private void saveData(String name, String email, String owner, String pwd)
+    private void saveData(String name, String email, String owner, String pwd, int type)
     {
         user = UserFactory.getInstance().createCorporateUser();
 
@@ -87,6 +87,7 @@ public class CorpRegistrationBean implements Serializable {
         System.out.println(user.getEmail());
         user.setPwd(pwd);
         System.out.println(user.getPwd());
+        user.setType(type);
 
     }
 
@@ -106,7 +107,7 @@ public class CorpRegistrationBean implements Serializable {
             }
             if (dbController.checkUser(email)) {
 
-                saveData(this.name, this.email, this.owner, this.password);
+                saveData(this.name, this.email, this.owner, this.password, 2);
                 dbController.addUser(this.user);
 
                 return 1;

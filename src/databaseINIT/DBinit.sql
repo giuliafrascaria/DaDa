@@ -13,7 +13,7 @@ CREATE SCHEMA USERS;
 
 CREATE TABLE USERS.UtenteRegistrato(
   EMAIL            VARCHAR                ,
-  ID            VARCHAR                ,
+  ACCOUNTTYPE      VARCHAR                ,
   PASSWORD        VARCHAR                ,
   CONTATTO        VARCHAR                ,
   PRIMARY KEY (EMAIL)
@@ -146,8 +146,8 @@ CREATE TABLE ARTICLES.acquisti(
 
 /*as users*/
 INSERT INTO USERS.UtenteRegistrato VALUES ('simone@gmail.com', '0', 'simone', '3333333333');
-INSERT INTO USERS.UtenteRegistrato VALUES ('giogge@gmail.com', '1', 'giogge', '3333333333');
-INSERT INTO USERS.UtenteRegistrato VALUES ('giuliac@gmail.com', '2', 'giulia', '3333333333');
+INSERT INTO USERS.UtenteRegistrato VALUES ('giogge@gmail.com', '0', 'giogge', '3333333333');
+INSERT INTO USERS.UtenteRegistrato VALUES ('giuliac@gmail.com', '0', 'giulia', '3333333333');
 
 
 /*as admin*/

@@ -5,6 +5,7 @@ import entity.users.PrivateUser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class PrivateDBcontroller extends DatabaseController
 {
@@ -55,5 +56,50 @@ public class PrivateDBcontroller extends DatabaseController
         }
 
 
+    }
+
+    @Override
+    public PrivateUser findUser(String email) throws Exception
+    {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        PrivateUser user = null;
+        ResultSet result = null;
+        final String query = "select * from USERS.Privato where EMAIL=?";
+        //final String query = "select * from USERS.UtenteRegistrato";
+
+
+        try{
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            statement.setString(1, email);
+            result = statement.executeQuery();
+
+            if (result.next()) {
+/*                if (user == null) {*/
+                user = new PrivateUser();
+                user.setEmail(result.getString("EMAIL"));
+                user.setName(result.getString("NOME"));
+                System.out.println("email presa dal database controller = " + user.getEmail());
+/*                }*/
+            } else {
+                return null;
+            }
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+
+        }
+        return user;
     }
 }

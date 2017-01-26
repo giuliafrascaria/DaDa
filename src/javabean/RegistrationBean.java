@@ -72,7 +72,7 @@ public class RegistrationBean implements Serializable {
         this.confirmpassword = confirmpassword;
     }
 
-    private void saveData(String name, String email, String surname, String pwd)
+    private void saveData(String name, String email, String surname, String pwd, int type)
     {
         user = UserFactory.getInstance().createUser();
 
@@ -84,6 +84,7 @@ public class RegistrationBean implements Serializable {
         System.out.println(user.getEmail());
         user.setPwd(pwd);
         System.out.println(user.getPwd());
+        user.setType(type);
 
     }
 
@@ -102,7 +103,7 @@ public class RegistrationBean implements Serializable {
             }
             if (dbController.checkUser(email)) {
 
-                saveData(this.name, this.email, this.surname, this.password);
+                saveData(this.name, this.email, this.surname, this.password, 1);
                 dbController.addUser(this.user);
 
                 return 1;
