@@ -107,7 +107,7 @@ public class DatabaseController {
 
     }
 
-    private RegisteredUser findByPrimaryKey(String userID) throws Exception
+    public RegisteredUser findByPrimaryKey(String userID) throws Exception
     {
 
         Connection connection = null;
@@ -129,6 +129,7 @@ public class DatabaseController {
                 if (user == null) {
                     user = new RegisteredUser();
                     user.setEmail(result.getString("EMAIL"));
+                    user.setPwd(result.getString("PASSWORD"));
                     //user.setName(result.getString("NOME"));
                     System.out.println(user.getEmail());
                 }

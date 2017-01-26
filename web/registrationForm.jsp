@@ -45,7 +45,7 @@
 
         <%if (request.getParameter("submit") != null) {
             if (result == 2) {%>
-        <div class="alert alert-danger" role="alert">This email is already associated with a user.</div><%
+        <div class="alert alert-danger" role="alert">This email is already associated with a user, try to log in.</div><%
             } if (result == 3) {%>
         <div class="alert alert-danger" role="alert">An error occur during the process. Please try again later</div><%
             } if(result == 4) {%>
@@ -71,10 +71,6 @@
                 <input type="submit" name = "submit" value="submit"> <br>
 
         </form>
-
-
-
-
 <%--<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />--%>
 
 </body>

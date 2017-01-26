@@ -56,7 +56,7 @@
                 <ul>
 
                     <li><a href="registrationSummary.jsp"><i class="fa fa-user"></i>Ciao, <jsp:getProperty name="UserBean" property="name"/></a></li>
-                    <li><a href="login.jsp"><i class="fa fa-user"></i>Logout</a></li>
+                    <li><a href="/logout.jsp"><i class="fa fa-user"></i>Logout</a></li>
                 </ul>
             </div>
 
