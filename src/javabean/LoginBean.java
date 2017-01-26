@@ -55,7 +55,7 @@ public class LoginBean {
 
             // Controllo nel db
             DatabaseController controller = DatabaseController.getInstance();
-            if(controller.checkUser(this.email))
+            if(!(controller.checkUser(this.email)))
             {
                 RegisteredUser user = controller.findByPrimaryKey(this.email);
                 if (user != null)

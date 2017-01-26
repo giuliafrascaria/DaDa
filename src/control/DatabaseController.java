@@ -104,7 +104,7 @@ public class DatabaseController {
         user = this.findByPrimaryKey(mail);
         System.out.println("ricerca finita");
 /*            return user == null;*/
-        return user != null;
+        return user == null;
 
     }
 
@@ -149,8 +149,10 @@ public class DatabaseController {
             if(connection  != null){
                 connection.close();
             }
+
         }
         return user;
+
     }
 
     void addRegisteredUser(RegisteredUser newUser) throws SQLException

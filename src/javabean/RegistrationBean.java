@@ -134,5 +134,4 @@ public class RegistrationBean implements Serializable {
             return 3;
         }
     }
-
 }
