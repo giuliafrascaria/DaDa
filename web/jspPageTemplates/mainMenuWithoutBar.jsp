@@ -15,7 +15,7 @@
                     <li><a href="article.jsp">Vendi</a></li>
                     <li><a href="article.jsp">Dona</a></li>
                     <li><a href="template.jsp">Recensisci</a></li>
-                    <li><a href="ricerca.jsp">Il mio Account</a></li>
+                    <li><a href="ricerca.jsp">Cerca</a></li>
                     <li><a href="#">Aiuto</a></li>
                 </ul>
 

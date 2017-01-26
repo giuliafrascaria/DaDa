@@ -165,20 +165,15 @@ public class DatabaseController {
         {
             connection = provider.getConnection();
 
-
-            System.out.println("connessione 1 presa");
-
             statement = connection.prepareStatement(insert);
             statement.setString(1, newUser.getEmail());
             statement.setString(2, String.valueOf((newUser.getPwd())));
 
             statement.executeUpdate();
-            System.out.println("update effettuato per utente registrato");
 
         }
         catch (Exception e)
         {
-            System.out.println("oppure qui");
             e.printStackTrace();
         }
         finally
@@ -193,7 +188,6 @@ public class DatabaseController {
                 connection.close();
             }
 
-            System.out.println("fine connessione 1");
         }
 
 

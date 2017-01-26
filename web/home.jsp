@@ -47,7 +47,7 @@
 
             <div class="col-sm-6">
                 <div class="shopping-item2">
-                    <span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="name"/> </span> <img class="img-circle" src="img/slide-2.jpg">
+                    <span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="name"/> </span> <img class="img-circle" src="img/cats-politics-TN.jpg">
                 </div>
 
             </div>

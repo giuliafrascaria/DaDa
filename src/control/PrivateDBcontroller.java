@@ -19,8 +19,6 @@ public class PrivateDBcontroller extends DatabaseController
 
         super.addRegisteredUser(newUser);
 
-        System.out.println("aggiunto nella tabella degli utenti registrati");
-
         Connection connection2 = null;
 
         PreparedStatement statement2 = null;
@@ -37,11 +35,9 @@ public class PrivateDBcontroller extends DatabaseController
             statement2.setString(3, newUser.getEmail());
 
             statement2.executeUpdate();
-            System.out.println("update effettuato per utente privato");
         }
         catch (Exception e)
         {
-            System.out.println("dunque è qui il problema");
             e.printStackTrace();
         }
         finally
@@ -56,7 +52,6 @@ public class PrivateDBcontroller extends DatabaseController
                 connection2.close();
             }
 
-            System.out.println("aggiunto nella tabella degli utenti privati");
         }
 
 

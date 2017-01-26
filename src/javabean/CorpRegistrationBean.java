@@ -5,6 +5,8 @@ package javabean;
 import control.CorporateDBcontroller;
 import control.UserFactory;
 import entity.users.CorporateUser;
+import exceptions.IncompleteFormException;
+import exceptions.PasswordMismatchException;
 import exceptions.UserAlreadyRegisteredException;
 
 import java.io.Serializable;
@@ -16,7 +18,7 @@ public class CorpRegistrationBean implements Serializable {
     private CorporateDBcontroller dbController = CorporateDBcontroller.getOurInstance();
 
 
-    private String name, owner, email, password;
+    private String name, owner, email, password, confirmpassword;
 
 
     private CorporateUser user;
@@ -25,8 +27,10 @@ public class CorpRegistrationBean implements Serializable {
     public CorpRegistrationBean()
     {
         this.name = "";
+        this.owner = "";
         this.email = "";
         this.password = "";
+        this.confirmpassword = "";
 
     }
 
@@ -62,11 +66,18 @@ public class CorpRegistrationBean implements Serializable {
         this.password = password;
     }
 
+    public String getConfirmpassword() {
+        return confirmpassword;
+    }
+
+    public void setConfirmpassword(String confirmpassword) {
+        this.confirmpassword = confirmpassword;
+    }
+
     private void saveData(String name, String email, String owner, String pwd)
     {
         user = UserFactory.getInstance().createCorporateUser();
 
-        System.out.println("creato utente");
 
         user.setName(name);
         System.out.println(user.getName());
@@ -81,41 +92,50 @@ public class CorpRegistrationBean implements Serializable {
 
 
 
-    public boolean validate()
+    public int validate()
     {
         try {
+            if(email.equals("") || name.equals("") || owner.equals("") || password.equals("") || confirmpassword.equals(""))
+            {
+                throw new IncompleteFormException();
+            }
+
+            if(!(password.equals(confirmpassword)))
+            {
+                throw new PasswordMismatchException();
+            }
             if (dbController.checkUser(email)) {
-                System.out.println("aggiungi questo utente");
 
                 saveData(this.name, this.email, this.owner, this.password);
                 dbController.addUser(this.user);
 
-                System.out.println("utente aggiunto");
-
-                //aggiungi utente
-                return true;
+                return 1;
             }
             else
             {
                 throw new UserAlreadyRegisteredException();
-
             }
+        }
+        catch (IncompleteFormException e)
+        {
+            return 5;
+        }
+        catch (PasswordMismatchException e)
+        {
+            return 4;
         }
         catch (UserAlreadyRegisteredException e)
         {
-            System.out.println("this user already exists");
-            return false;
+            return 2;
         }
         catch (SQLException e)
         {
-            System.out.println("SQLexception");
             e.printStackTrace();
-            return false;
+            return 3;
         }
         catch (Exception e)
         {
-            System.out.println("exception non meglio identificata");
-            return false;
+            return 3;
         }
     }
 

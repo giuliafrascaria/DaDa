@@ -12,8 +12,11 @@
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
 
 <%
-    if (request.getParameter("submit") != null) {
-        if (RegistrationBean.validate())
+    if (request.getParameter("submit") != null) {%>
+        <%! int result ;%>
+<%
+        result = RegistrationBean.validate();
+        if (result == 1)
         {
 
 %>
@@ -40,6 +43,18 @@
 
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
+        <%if (request.getParameter("submit") != null) {
+            if (result == 2) {%>
+        <div class="alert alert-danger" role="alert">This email is already associated with a user.</div><%
+            } if (result == 3) {%>
+        <div class="alert alert-danger" role="alert">An error occur during the process. Please try again later</div><%
+            } if(result == 4) {%>
+        <div class="alert alert-danger" role="alert">Passwords do not match</div><%
+            } if(result == 5) {%>
+        <div class="alert alert-danger" role="alert">Missing fields found</div><%
+             }
+       }
+        %>
 
         <form action="registrationForm.jsp" name="myform" method="post">
 
@@ -52,10 +67,12 @@
                 Password: <br>
                 <input type = "password" name = "password" id="password"><br>
                 Conferma Password: <br>
-                <input type = "password" name = "confermapassword" ><br>
+                <input type = "password" name = "confirmpassword" id="confirmpassword"><br>
                 <input type="submit" name = "submit" value="submit"> <br>
 
         </form>
+
+
 
 
 <%--<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />--%>
