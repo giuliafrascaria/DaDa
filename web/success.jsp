@@ -1,12 +1,8 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="entity.articles.Article" %><%--
-  Created by IntelliJ IDEA.
-  User: dandi
-  Date: 23/01/17
-  Time: 16.09
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="entity.articles.Article" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
+<jsp:setProperty name="ArticleBean" property="*"/>
 <html>
 <head>
     <title>Successo</title>
@@ -16,10 +12,21 @@
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
+
+
+nome : <jsp:getProperty name="ArticleBean" property="nome"/><br>
+proprietario : <jsp:getProperty name="ArticleBean" property="proprietario"/><br>
+editore : <jsp:getProperty name="ArticleBean" property="editore"/><br>
+tipo : <jsp:getProperty name="ArticleBean" property="tipo"/><br>
+tipoArticolo : <jsp:getProperty name="ArticleBean" property="tipoArticolo"/><br>
+
+
 <div class="container">
     <div class="row" id ="riga">
         <%
-            ArrayList<Article> a = (ArrayList<Article>)request.getAttribute("lista");
+            ArticleBean.setLista();
+            System.out.println("fatto");
+            ArrayList<Article> a = ArticleBean.getLista();
             for (Article anA : a) {
         %>
 

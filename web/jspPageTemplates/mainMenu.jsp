@@ -1,3 +1,6 @@
+
+<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
+
 <div class="mainmenu-area">
     <div class="container">
         <div class="row">
@@ -24,9 +27,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="product-bit-title text-center">
-                                    <form action="ResearchServlet">
+                                    <form action="success.jsp" name="myform" method="post">
                                         <input name="nome" type="text" id="nome" placeholder="Cerca..">
-                                    </form>
+
                                     <label>
                                         <input type="radio" name="radiob" value="inf" class="inf" onchange="valueChanged1()">
                                     </label> informatica <br>
@@ -39,6 +42,7 @@
                                     <label>
                                         <input type="radio" name="radiob" value="scolastico" class="scolastico" onchange="valueChanged4()">
                                     </label> libri <br>
+                                    </form>
                                     <div style="width:300px; margin:0 auto; display:inline-block;" >
                                         <label>
                                             <input class="mdl-slider mdl-js-slider" type="range"
@@ -50,17 +54,18 @@
                             </div>
                         </div>
                     </div>
+                    <form action="success.jsp" name="form2" method="post">
                     <div>
                         <div id="informatic" style="text-align: center; display: none">
                             <br>
-                            <div><label for="inftipo">Tipo </label><br><input name="inftipo" type="text" id="inftipo" class="extendedInput"></div>
+                            <div><label for="proprietario">Tipo </label><br><input name="tipo" type="text" id="proprietario" class="extendedInput"></div>
                             <div><label for="infvenditore">Venditore </label><br><input name="infvenditore" type="text" id="infvenditore" class="extendedInput"></div>
-                            <div><label for="infnome">Nome </label><br><input name="infnome" type="text" id="infnome" class="extendedInput"></div>
-                            <div><label for="infmodello">Modello </label><br><input name="infmodello" type="text" id="infmodello" class="extendedInput"></div>
-                            <div><label for="infmarca">Marca </label><br><input name="infmarca" type="text" id="infmarca" class="extendedInput"></div>
+                            <div><label for="infnome">Nome </label><br><input name="nome" type="text" id="infnome" class="extendedInput"></div>
+                            <div><label for="infmodello">Modello </label><br><input name="modello" type="text" id="infmodello" class="extendedInput"></div>
+                            <div><label for="infmarca">Marca </label><br><input name="marca" type="text" id="infmarca" class="extendedInput"></div>
                         </div>
                         <div id="abbigli" style="text-align: center; display: none">
-                            <div><label for="abbtipo">Tipo </label><br><input name="abbtipo" type="text" id="abbtipo" class="extendedInput"></div>
+                            <div><label for="abbtipo">Tipo </label><br><input name="tipo" type="text" id="abbtipo" class="extendedInput"></div>
                             <div><label for="abbvenditore">Venditore </label><br><input name="abbvenditore" type="text" id="abbvenditore" class="extendedInput"></div>
                             <div><label for="abbnome">Nome </label><br><input name="abbnome" type="text" id="abbnome" class="extendedInput"></div>
                             <div><label for="abbtaglia">Taglia </label><br><input name="abbtaglia" type="text" id="abbtaglia" class="extendedInput"></div>
@@ -81,6 +86,7 @@
                             <div><label for="scocasa">Casa Editrice </label><br><input name="scocasa" type="text" id="scocasa" class="extendedInput"></div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
                 <div class="add-to-cart-link"  style="display: none" id="product-big-title-area2">
