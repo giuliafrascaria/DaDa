@@ -17,22 +17,23 @@
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
+<jsp:setProperty name="ArticleBean" property="*"/>
 <jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
 
 <form action="success.jsp" name="myform" method="post">
     <div style="text-align: center">
         <label for="nome">Nome</label> <br> <input name="nome" type="text" id="nome" class="extendedInput"><br>
         <label>
-            <input type="radio" name="radiob" value="inf" class="inf" onchange="valueChanged1()">
+            <input type="radio" name="radioB" value="inf" onchange="valueChanged1()">
         </label> Informatica <br>
         <label>
-            <input type="radio" name="radiob" value="cloth" class="cloth" onchange="valueChanged2()">
+            <input type="radio" name="radioB" value="cloth"  onchange="valueChanged2()">
         </label> Abbigliamento <br>
         <label>
-            <input type="radio" name="radiob" value="libri" class="libri" onchange="valueChanged3()">
+            <input type="radio" name="radioB" value="libri"  onchange="valueChanged3()">
         </label> Libri <br>
         <label>
-            <input type="radio" name="radiob" value="scolastico" class="scolastico" onchange="valueChanged4()">
+            <input type="radio" name="radioB" value="scolastico"  onchange="valueChanged4()">
         </label> Libri scolastici <br>
     </div>
 
@@ -103,6 +104,7 @@
         c.style.display = "none";
         var b = document.getElementById('lib');
         b.style.display = "block";
+        <% ArticleBean.setRadioB("libri");%>
         var d = document.getElementById('sco');
         d.style.display = "none";
     }
@@ -115,12 +117,13 @@
         b.style.display = "none";
         var d = document.getElementById('sco');
         d.style.display = "block";
+        <% ArticleBean.setRadioB("scolastico");%>
     }
 </script>
 
 
 <script type="text/javascript">
-    var allRadios = document.getElementsByName('radiob');
+    var allRadios = document.getElementsByName('radioB');
     var booRadio;
     var x;
     for(x = 0; x < allRadios.length; x++){
@@ -137,6 +140,7 @@
                 b.style.display = "none";
                 var d = document.getElementById('sco');
                 d.style.display = "none";
+                <% ArticleBean.setRadioB(null);%>
             }else{
                 booRadio = this;
             }

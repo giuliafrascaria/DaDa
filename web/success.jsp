@@ -1,8 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="entity.articles.Article" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
-<jsp:setProperty name="ArticleBean" property="*"/>
+<jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
 <html>
 <head>
     <title>Successo</title>
@@ -12,6 +11,7 @@
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
+
 
 <div class="container">
     <div class="row" id ="riga">
@@ -29,6 +29,7 @@
                 <h2><a href="article.jsp"> <%= anA.getNome() %> </a></h2>
                 <div class="product-carousel-price">
                     <ins>$<%= anA.getPrezzo() %></ins> <del>$<%= anA.getPrezzo()*2 %></del>
+                    <ins>$<%= anA.getImage() %></ins>
                 </div>
 
                 <div class="product-option-shop">

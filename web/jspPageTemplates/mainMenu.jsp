@@ -1,4 +1,5 @@
 
+<jsp:setProperty name="ArticleBean" property="*"/>
 <jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
 
 <div class="mainmenu-area">
@@ -76,48 +77,6 @@
 <script src="jspPageTemplates/js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script>
-    function valueChanged1(){
-        var i = document.getElementById('informatic');
-        i.style.display = "block";
-        var c = document.getElementById('abbigli');
-        c.style.display = "none";
-        var b = document.getElementById('lib');
-        b.style.display = "none";
-        var d = document.getElementById('sco');
-        d.style.display = "none";
-    }
-    function valueChanged2(){
-        var i = document.getElementById('informatic');
-        i.style.display = "none";
-        var c = document.getElementById('abbigli');
-        c.style.display = "block";
-        var b = document.getElementById('lib');
-        b.style.display = "none";
-        var d = document.getElementById('sco');
-        d.style.display = "none";
-    }
-    function valueChanged3(){
-        var i = document.getElementById('informatic');
-        i.style.display = "none";
-        var c = document.getElementById('abbigli');
-        c.style.display = "none";
-        var b = document.getElementById('lib');
-        b.style.display = "block";
-        var d = document.getElementById('sco');
-        d.style.display = "none";
-    }
-    function valueChanged4(){
-        var i = document.getElementById('informatic');
-        i.style.display = "none";
-        var c = document.getElementById('abbigli');
-        c.style.display = "none";
-        var b = document.getElementById('lib');
-        b.style.display = "none";
-        var d = document.getElementById('sco');
-        d.style.display = "block";
-    }
-</script>
 
 <script type="text/javascript">
     var allRadios = document.getElementsByName('radiob');

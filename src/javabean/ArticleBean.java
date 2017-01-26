@@ -24,6 +24,7 @@ public class ArticleBean implements Serializable  {
     private String tipoArticolo = "";
     private String radioB;
     private ArrayList<Article> lista;
+    private String image = "";
 
     public String getNome() {
         return nome;
@@ -136,8 +137,9 @@ public class ArticleBean implements Serializable  {
 
     public void setLista(){
 
+        System.out.println("valore del radio botton = " + radioB);
         if(radioB != null) {
-            System.out.println("valore del radio botton = " + radioB);
+
             if (radioB.equals("inf")) {
                 tipoArticolo = "Electronics";
             } else if (radioB.equals("cloth")) {
@@ -165,4 +167,11 @@ public class ArticleBean implements Serializable  {
     }
 
 
+    public String getImage() {
+        return image;
+    }
+
+    private void setImage(String image) {
+        this.image = image;
+    }
 }

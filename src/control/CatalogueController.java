@@ -52,7 +52,6 @@ public class CatalogueController {
 
         } else if (tipoArticolo.equals("Electronics")) {
             rq = ArticleFactory.getInstance().getElectronics();
-
             rq.setNome(checkString(nome));
             rq.setProprietario(checkString(proprietario));
             ((Electronics) rq).setTipo(checkString(tipo));
@@ -96,15 +95,6 @@ public class CatalogueController {
         articoli = getCatalogue(rq);
 
         return articoli;
-        /*int i = 0;
-        while (i<articoli.size()) {
-            JLabel row = new JLabel();
-            row.setText(articoli.get(i).getNome());
-            model.addElement(articoli.get(i).getNome());
-            i++;
-        }
-        return model;*/
-
     }
 
     /* -------------------------------------------------------------------------------------------------------
@@ -119,10 +109,16 @@ public class CatalogueController {
         String sql = sqlCreator(rq);
         ArrayList<Article> articoli;
         if(!sqlCheck(sql)){
-            articoli = new ArrayList<Article>();
-            return articoli;
+            if (rq.getClass().equals(Book.class))
+                sql = "SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO";
+            else if (rq.getClass().equals(Book.class))
+                sql = "SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO";
+            else if(rq.getClass().equals(Clothing.class))
+                sql = "SELECT * FROM ARTICLES.Abbigliamento, ARTICLES.articolo WHERE ARTICLES.Abbigliamento.NOME = ARTICLES.articolo.NOME AND ARTICLES.Abbigliamento.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO";
+            else if (rq.getClass().equals(TextBook.class))
+                sql = "SELECT * FROM ARTICLES.Scolastico, ARTICLES.articolo WHERE ARTICLES.Scolastico.NOME = ARTICLES.articolo.NOME AND ARTICLES.Scolastico.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO";
         }
-        System.out.println(sql);
+        System.out.println("stringa sql = " + sql);
         if (rq.getClass().equals(Book.class)) {
             articoli = DatabaseController.getInstance().searchArticle(sql, "Book");
         } else if (rq.getClass().equals(Electronics.class)) {
@@ -226,7 +222,6 @@ public class CatalogueController {
 
         } else if (rq.getClass().equals(Electronics.class)) {
             sql = "SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ";
-            System.out.println(((Electronics) rq).getModello());
             if (!((Electronics) rq).getTipo().equals("")) {
                 sql = sql + "UPPER(ARTICLES.informatica.TIPO) LIKE UPPER('%" + ((Electronics) rq).getTipo() + "%') ";
                 isItTheFirst++;

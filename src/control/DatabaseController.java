@@ -47,6 +47,7 @@ public class DatabaseController {
                     nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
+                    nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
                     ((Book) nuovoArticolo).setTitolo(rs.getString("TITOLO"));
                     ((Book) nuovoArticolo).setAutore(rs.getString("AUTORE"));
                     ((Book) nuovoArticolo).setEditore(rs.getString("CASA"));
@@ -58,6 +59,7 @@ public class DatabaseController {
                     nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
+                    nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
                     ((Electronics) nuovoArticolo).setModello(rs.getString("MODELLO"));
                     ((Electronics) nuovoArticolo).setMarca(rs.getString("MARCA"));
 
@@ -67,6 +69,7 @@ public class DatabaseController {
                     nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
+                    nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
                     ((Clothing) nuovoArticolo).setTaglia(rs.getInt("TAGLIA"));
                     ((Clothing) nuovoArticolo).setTipo(rs.getString("TIPO"));
                     ((Clothing) nuovoArticolo).setMarca(rs.getString("MARCA"));
@@ -77,6 +80,7 @@ public class DatabaseController {
                     nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
+                    nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
                     ((TextBook) nuovoArticolo).setEdizione(rs.getInt("EDIZIONE"));
                     ((TextBook) nuovoArticolo).setMateria(rs.getString("MATERIA"));
 
@@ -86,6 +90,7 @@ public class DatabaseController {
                     nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
+                    nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
 
                 } else {
                     return null;
