@@ -14,12 +14,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home.jsp">Acquista</a></li>
-                    <li><a href="article.jsp">Vendi</a></li>
-                    <li><a href="article.jsp">Dona</a></li>
+                    <li class="active"><a href="home.jsp">Home</a></li>
+                    <li onclick="showSlide()"><a>Ricerca</a></li>
+                    <li><a href="ricerca.jsp">Ricerca avanzata</a></li>
+                    <li><a href="#">Vendi</a></li>
+                    <li><a href="#">Dona</a></li>
                     <li><a href="template.jsp">Recensisci</a></li>
-                    <li><a href="ricerca.jsp">Cerca</a></li>
-                    <li onclick="showSlide()"><a>Barra</a></li>
                     <li><a href="#">Aiuto</a></li>
                 </ul>
                 <div class="add-to-cart-link"  style="display: none" id="product-big-title-area">
@@ -28,11 +28,8 @@
                             <div class="col-md-12">
                                 <div class="product-bit-title text-center">
                                     <form action="success.jsp" name="myform" method="post">
-                                        <input name="nome" type="text" id="nome" placeholder="Cerca.." class="extendedInput">
-                                    </form>
-                                    <form action="ricerca.jsp" method="get">
-                                        <div style="padding: 5px"><input type="submit" value="Ricerca avanzata"
-                                               name="Submit" id="frm1_submit" /></div>
+                                        <input name="nome" type="text" id="nome" placeholder="Cerca.." class="extendedInput"><br>
+                                        <input name="cerca" type="submit" id="cerca" value="OK" class="OKButton">
                                     </form>
                                 </div>
                             </div>

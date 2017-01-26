@@ -13,19 +13,10 @@
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
-
-nome : <jsp:getProperty name="ArticleBean" property="nome"/><br>
-proprietario : <jsp:getProperty name="ArticleBean" property="proprietario"/><br>
-editore : <jsp:getProperty name="ArticleBean" property="editore"/><br>
-tipo : <jsp:getProperty name="ArticleBean" property="tipo"/><br>
-tipoArticolo : <jsp:getProperty name="ArticleBean" property="tipoArticolo"/><br>
-
-
 <div class="container">
     <div class="row" id ="riga">
         <%
             ArticleBean.setLista();
-            System.out.println("fatto");
             ArrayList<Article> a = ArticleBean.getLista();
             for (Article anA : a) {
         %>
@@ -33,7 +24,7 @@ tipoArticolo : <jsp:getProperty name="ArticleBean" property="tipoArticolo"/><br>
         <div class="col-md-3 col-sm-6">
             <div class="single-shop-product">
                 <div class="product-upper">
-                    <img src="img/product-2.jpg" alt="">
+                    <img src="img/product-2.jpg" alt="" style="border-radius: 10px;">
                 </div>
                 <h2><a href="article.jsp"> <%= anA.getNome() %> </a></h2>
                 <div class="product-carousel-price">
@@ -50,31 +41,6 @@ tipoArticolo : <jsp:getProperty name="ArticleBean" property="tipoArticolo"/><br>
             }
         %>
 
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="product-pagination text-center">
-                <nav>
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
     </div>
 </div>
 

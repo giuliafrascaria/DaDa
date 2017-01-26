@@ -72,6 +72,7 @@ CREATE TABLE ARTICLES.articolo(
     REFERENCES USERS.UtenteRegistrato(EMAIL),
   PREZZO            FLOAT                ,
   QUANTITA        INT                ,
+  IMMAGINE        SERIAL4 ,
   PRIMARY KEY (NOME, PROPRIETARIO)
 );
 
