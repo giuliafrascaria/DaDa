@@ -25,7 +25,7 @@
 
 <%--<jsp:forward page="home.jsp" />&ndash;%&gt;--%>
 <%
-            response.sendRedirect("registrationSummary.jsp");
+            response.sendRedirect("home.jsp");
         }
     }
 %>
