@@ -1,24 +1,31 @@
 package javabean;
 
 
+import control.DatabaseController;
+import entity.users.RegisteredUser;
+import exceptions.IncompleteFormException;
+import exceptions.UserDoNotExistsException;
+import exceptions.WrongPasswordException;
 
 public class LoginBean {
-    private String username;
+
+
+    private String email;
     private String password;
-    private String nome;
-    private String cognome;
+    private String name;
 
     public LoginBean() {
-        this.username = "";
+        this.email = "";
         this.password = "";
+        this.name = "";
     }
 
-    public void setUsername(String user) {
-        this.username = user;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUsername() {
-        return this.username;
+    public String getEmail() {
+        return this.email;
     }
 
     public void setPassword(String pwd) {
@@ -29,37 +36,67 @@ public class LoginBean {
         return this.password;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNome() {
-        return this.nome;
+    public String getName() {
+        return this.name;
     }
 
-    public void setCognome(String cogn) {
-        this.cognome = cogn;
-    }
 
-    public String getCognome() {
-        return this.cognome;
-    }
+    public int validate() {
 
-    /*public boolean validate() {
-        // Controllo sintattico
-        if (this.username.equals("") || this.password.equals("")) {
-            return false;
+        try {
+            // Controllo sintattico
+            if (this.email.equals("") || this.password.equals("")) {
+                throw new IncompleteFormException();
+            }
+
+            // Controllo nel db
+            DatabaseController controller = DatabaseController.getInstance();
+            if(controller.checkUser(this.email))
+            {
+                RegisteredUser user = controller.findByPrimaryKey(this.email);
+                if (user != null)
+                {
+                    // Controllo dati di accesso
+                    if( this.email.equals(user.getEmail()) && this.getPassword().equals(user.getPwd()))
+                    {
+                        // Controllo se è utente privato o azienda
+                        setName("non pervenuto");
+                        return 1;
+                    }
+                    else
+                    {
+                        throw new WrongPasswordException();
+                    }
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            else
+            {
+                throw new UserDoNotExistsException();
+            }
+        }catch (IncompleteFormException e)
+        {
+            return 2;
         }
-
-        LoginController controller = LoginController.getInstance();
-        Utente found = controller.login(this.username, this.password);
-        if(found != null) {
-            this.nome = found.getNome();
-            this.cognome = found.getCognome();
-            return true;
+        catch (UserDoNotExistsException e)
+        {
+            return 3;
         }
-
-        return false;
-    }*/
+        catch (WrongPasswordException e)
+        {
+            return 4;
+        }
+        catch (Exception e)
+        {
+            return 5;
+        }
+    }
 
 }

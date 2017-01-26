@@ -47,7 +47,7 @@
 
             <div class="col-sm-6">
                 <div class="shopping-item2">
-                    <span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="name"/> </span> <img class="img-circle" src="img/slide-2.jpg">
+                    <span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="name"/> </span> <img class="img-circle" src="img/cats-politics-TN.jpg">
                 </div>
 
             </div>
@@ -56,7 +56,7 @@
                 <ul>
 
                     <li><a href="registrationSummary.jsp"><i class="fa fa-user"></i>Ciao, <jsp:getProperty name="UserBean" property="name"/></a></li>
-                    <li><a href="login.jsp"><i class="fa fa-user"></i>Logout</a></li>
+                    <li><a href="/logout.jsp"><i class="fa fa-user"></i>Logout</a></li>
                 </ul>
             </div>
 

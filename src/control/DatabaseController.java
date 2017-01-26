@@ -107,7 +107,7 @@ public class DatabaseController {
 
     }
 
-    private RegisteredUser findByPrimaryKey(String userID) throws Exception
+    public RegisteredUser findByPrimaryKey(String userID) throws Exception
     {
 
         Connection connection = null;
@@ -129,6 +129,7 @@ public class DatabaseController {
                 if (user == null) {
                     user = new RegisteredUser();
                     user.setEmail(result.getString("EMAIL"));
+                    user.setPwd(result.getString("PASSWORD"));
                     //user.setName(result.getString("NOME"));
                     System.out.println(user.getEmail());
                 }
@@ -165,20 +166,15 @@ public class DatabaseController {
         {
             connection = provider.getConnection();
 
-
-            System.out.println("connessione 1 presa");
-
             statement = connection.prepareStatement(insert);
             statement.setString(1, newUser.getEmail());
             statement.setString(2, String.valueOf((newUser.getPwd())));
 
             statement.executeUpdate();
-            System.out.println("update effettuato per utente registrato");
 
         }
         catch (Exception e)
         {
-            System.out.println("oppure qui");
             e.printStackTrace();
         }
         finally
@@ -193,7 +189,6 @@ public class DatabaseController {
                 connection.close();
             }
 
-            System.out.println("fine connessione 1");
         }
 
 

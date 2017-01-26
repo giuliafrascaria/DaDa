@@ -14,9 +14,12 @@
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
 
 <%
-    if (request.getParameter("submit") != null) {
-        if (CorpRegistrationBean.validate())
-        {
+    if (request.getParameter("submit") != null) {%>
+<%! int result ;%>
+<%
+    result = CorpRegistrationBean.validate();
+    if (result == 1)
+    {
 
 %>
 <!-- Passa il controllo alla nuova pagina -->
@@ -43,6 +46,20 @@
 
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
+    <%if (request.getParameter("submit") != null) {
+        if (result == 2) {%>
+    <div class="alert alert-danger" role="alert">This email is already associated with a user.</div><%
+        } if (result == 3) {%>
+    <div class="alert alert-danger" role="alert">An error occur during the process. Please try again later</div><%
+        } if(result == 4) {%>
+    <div class="alert alert-danger" role="alert">Passwords do not match</div><%
+        } if(result == 5) {%>
+    <div class="alert alert-danger" role="alert">Missing fields found</div><%
+        }
+    }
+    %>
+
+
     <form action="registrationFormAzienda.jsp" name="myform" method="post">
         Nome Azienda: <br>
         <input type = "text" name = "name" id="name"><br>
@@ -53,9 +70,11 @@
         Password: <br>
         <input type = "password" name = "password" ><br>
         Conferma password: <br>
-        <input type = "password" name = "confirmpassword" ><br>
+        <input type = "password" name = "confirmpassword" id="confirmpassword"><br>
         <input type="submit" name = "submit" value="submit"> <br>
     </form>
+
+
 
 </body>
 </html>
