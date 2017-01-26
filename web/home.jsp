@@ -17,18 +17,17 @@
 <body>
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
 
-<jsp:include page="jspPageTemplates/brandingArea.jsp"/>
+<jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true"/>
 
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
-
-
-<div style="max-width:500px" id="slideshow">
-    <img class="mySlides" src="img/product-1.jpg" style="width:100%">
-    <img class="mySlides" src="img/product-2.jpg" style="width:100%">
-    <img class="mySlides" src="img/product-3.jpg" style="width:100%">
+<div style="text-align: center">
+    <div class='slider'>
+        <div class='slide1'></div>
+        <div class='slide2'></div>
+        <div class='slide3'></div>
+    </div>
 </div>
-
-
+<%--
 
 <div class="slider-area">
     <div class="zigzag-bottom"></div>
@@ -115,6 +114,7 @@
 
     </div>
 </div> <!-- End slider area -->
+--%>
 
 
 
