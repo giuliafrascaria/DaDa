@@ -71,15 +71,30 @@
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
 
-<div class="slider" id="main-slider"><!-- outermost container element -->
-    <div class="slider-wrapper"><!-- innermost wrapper element -->
-        <img src="http://lorempixel.com/1024/400/animals" alt="First" class="slide" /><!-- slides -->
-        <img src="http://lorempixel.com/1024/400/business" alt="Second" class="slide" />
-        <img src="http://lorempixel.com/1024/400/city" alt="Third" class="slide" />
-    </div>
+<div style="max-width:500px">
+    <img class="mySlides" src="img/product-1.jpg" style="width:100%">
+    <img class="mySlides" src="img/product-2.jpg" style="width:100%">
+    <img class="mySlides" src="img/product-3.jpg" style="width:100%">
 </div>
 
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+
 <jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
-<script src="jspPageTemplates/js/slideshow.js"></script>
+<script src="jspPageTemplates/js/sliderImages.js"></script>
 </body>
 </html>
