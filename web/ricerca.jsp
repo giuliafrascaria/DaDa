@@ -17,7 +17,7 @@
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
-<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
+<jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
 
 <form action="success.jsp" name="myform" method="post">
     <div style="text-align: center">
@@ -67,11 +67,12 @@
         <div><label for="scocasa">Casa Editrice</label> <br><input name="edizione" type="text" id="scocasa" class="extendedInput"></div>
     </div>
 
-    <div style="text-align: center">
+    <div style="text-align: center; padding: 10px">
         <input name="cerca" type="submit" id="cerca" value="Cerca">
     </div>
 </form>
 
+<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
 
 
 <script>

@@ -99,11 +99,12 @@ public class DatabaseController {
     public boolean checkUser(String mail) throws Exception
     {
 
-            RegisteredUser user;
-            System.out.println("sto per cercare l'utente");
-            user = this.findByPrimaryKey(mail);
-            System.out.println("ricerca finita");
-            return user == null;
+        RegisteredUser user;
+        System.out.println("sto per cercare l'utente");
+        user = this.findByPrimaryKey(mail);
+        System.out.println("ricerca finita");
+/*            return user == null;*/
+        return user != null;
 
     }
 
@@ -126,13 +127,13 @@ public class DatabaseController {
             result = statement.executeQuery();
 
             if (result.next()) {
-                if (user == null) {
+/*                if (user == null) {*/
                     user = new RegisteredUser();
                     user.setEmail(result.getString("EMAIL"));
                     user.setPwd(result.getString("PASSWORD"));
                     //user.setName(result.getString("NOME"));
-                    System.out.println(user.getEmail());
-                }
+                    System.out.println("email presa dal database controller = " + user.getEmail());
+/*                }*/
             } else {
                 return null;
             }

@@ -47,7 +47,7 @@
 
             <div class="col-sm-6">
                 <div class="shopping-item2">
-                    <span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="name"/> </span> <img class="img-circle" src="img/cats-politics-TN.jpg">
+                    <span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="email"/> </span> <img class="img-circle" src="img/cats-politics-TN.jpg">
                 </div>
 
             </div>
@@ -71,19 +71,15 @@
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
 
-    <div id="slideshow">
-        <div>
-            <img src="img/product-1.jpg">
-        </div>
-        <div>
-            <img src="img/product-2.jpg">
-        </div>
-        <div>
-            <img src="img/product-3.jpg">
-        </div>
+<div class="slider" id="main-slider"><!-- outermost container element -->
+    <div class="slider-wrapper"><!-- innermost wrapper element -->
+        <img src="http://lorempixel.com/1024/400/animals" alt="First" class="slide" /><!-- slides -->
+        <img src="http://lorempixel.com/1024/400/business" alt="Second" class="slide" />
+        <img src="http://lorempixel.com/1024/400/city" alt="Third" class="slide" />
     </div>
+</div>
 
 <jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
-
+<script src="jspPageTemplates/js/slideshow.js"></script>
 </body>
 </html>

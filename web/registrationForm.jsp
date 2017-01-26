@@ -43,6 +43,7 @@
 
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
+<div style="text-align: center">
         <%if (request.getParameter("submit") != null) {
             if (result == 2) {%>
         <div class="alert alert-danger" role="alert">This email is already associated with a user, try to log in.</div><%
@@ -68,10 +69,13 @@
                 <input type = "password" name = "password" id="password"><br>
                 Conferma Password: <br>
                 <input type = "password" name = "confirmpassword" id="confirmpassword"><br>
-                <input type="submit" name = "submit" value="submit"> <br>
+                <input type="submit" name = "submit" value="submit" style="padding: 5px"> <br>
 
         </form>
 <%--<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />--%>
+</div>
+
+<jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
 
 </body>
 </html>
