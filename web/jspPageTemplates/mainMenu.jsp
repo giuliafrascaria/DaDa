@@ -19,7 +19,7 @@
                     <li><a href="product.jsp">Compra</a></li>
                     <li onclick="showSlide()"><a>Ricerca</a></li>
                     <li><a href="ricerca.jsp">Ricerca avanzata</a></li>
-                    <li><a href="article.jsp">Vendi</a></li>
+                    <li><a href="insertArticle.jsp">Vendi</a></li>
                     <li><a href="#">Dona</a></li>
                     <li><a href="recensione1.jsp">Recensisci</a></li>
                     <li><a href="#">Aiuto</a></li>
