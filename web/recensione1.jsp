@@ -3,13 +3,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
-<%--
-<jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
---%>
 
-<%--
-<%@ page import="javabean.UserBean" %>
---%>
+<jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
+<jsp:setProperty name="ArticleBean" property="*"/>
+
+
 <%
     if(UserBean.getEmail() == null) {
         System.out.println("faccio il redirect");
@@ -17,9 +15,7 @@
         return;
     }
 %>
-<%--
-<jsp:setProperty name="ArticleBean" property="*"/>
---%>
+
 
 <html>
 <head>
@@ -34,28 +30,30 @@
 
 <div class="container">
     <div class="row" id ="riga">
+        <form action="recensione2.jsp" name="myform">
         <%
-            System.out.println("valore della mail (recensione) = " + UserBean.getEmail());
             ArrayList<Article> a = UserBean.getArticleList();
-            System.out.println("sono arrivato fin qui");
             if(a!=null){
                 for (Article anA : a) {
         %>
-        <form action="home.jsp" name="myform" method="post">
+
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="containerx">
-                            <img src="img/<%= anA.getImage() %>" class="imagex">
+                            <img src="img/<%=anA.getImage()%>" class="imagex">
                             <div class="middlex">
-                                <div class="textx" >
-                                    <input type="hidden" name="nome" value="<%= anA.getNome() %>">
-                                    <input type="hidden" name="proprietario" value="<%= anA.getProprietario()%>">
-                                </div>
+
+                                    <div class="textx" >
+                                        <label for="nome"><%=anA.getNome()%> </label><br><input name="nome" type="hidden" id="nome">
+                                        <label for="proprietario"><%=anA.getProprietario()%> </label><br><input name="proprietario" type="hidden" id="proprietario">
+                                        <input type="submit" name = "submit" value="Recensisci" >
+                                    </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-        </form>
+
         <%
                 }
             }
@@ -68,6 +66,7 @@
         <%
             }
         %>
+        </form>
     </div>
 </div>
 
