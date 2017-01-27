@@ -58,7 +58,7 @@ public class PrivateDBcontroller extends DatabaseController
 
     }
 
-    @Override
+
     public PrivateUser findUser(String email) throws Exception
     {
         Connection connection = null;
@@ -81,7 +81,7 @@ public class PrivateDBcontroller extends DatabaseController
                 user = new PrivateUser();
                 user.setEmail(result.getString("EMAIL"));
                 user.setName(result.getString("NOME"));
-                System.out.println("email presa dal database controller = " + user.getEmail());
+                System.out.println("nome ritrovato: " + user.getName());
 /*                }*/
             } else {
                 return null;
@@ -100,6 +100,7 @@ public class PrivateDBcontroller extends DatabaseController
             }
 
         }
+        System.out.println("nome utente: " + user.getName());
         return user;
     }
 }

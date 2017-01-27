@@ -59,40 +59,31 @@ public class LoginBean {
 
             // Controllo nel db
             DatabaseController controller = DatabaseController.getInstance();
-            if(!(controller.checkUser(this.email)))
+            RegisteredUser user = controller.findByPrimaryKey(this.email);
+            if(user != null)
             {
-                RegisteredUser user = controller.findByPrimaryKey(this.email);
-                if (user != null)
+                // Controllo dati di accesso
+                if( this.email.equals(user.getEmail()) && this.getPassword().equals(user.getPwd()))
                 {
-                    // Controllo dati di accesso
-                    if( this.email.equals(user.getEmail()) && this.getPassword().equals(user.getPwd()))
+                    if(user.getType() == 1)
                     {
-                        if(user.getType() == 1)
-                        {
-                            controller = PrivateDBcontroller.getInstance();
-                            user = (PrivateUser) user;
-                            user = controller.findUser(email);
-                            this.name = ((PrivateUser) user).getName();
-                        }
-                        else if(user.getType() == 2)
-                        {
-                            controller = CorporateDBcontroller.getInstance();
-                            user = (CorporateUser) user;
-                            user = controller.findUser(email);
-                            this.name = ((CorporateUser) user).getName();
-                        }
-
-
-                        return 1;
+                        System.out.println("cerco un privato");
+                        PrivateUser user1 = PrivateDBcontroller.getOurInstance().findUser(email);
+                        this.name = user1.getName();
+                        System.out.println("nome ritrovato: " + user1.getName());
                     }
-                    else
+                    else if(user.getType() == 2)
                     {
-                        throw new WrongPasswordException();
+                        System.out.println("cerco un'azienda");
+                        CorporateUser user2 = CorporateDBcontroller.getOurInstance().findUser(email);
+                        this.name = user2.getName();
+                        System.out.println("nome ritrovato: " + user2.getName());
                     }
+                    return 1;
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new WrongPasswordException();
                 }
             }
             else

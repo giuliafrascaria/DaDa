@@ -1,7 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="LoginBean" scope="session" class="javabean.LoginBean"/>
-
 <jsp:setProperty name="LoginBean" property="*"/>
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
 
@@ -13,10 +12,10 @@
         result = LoginBean.validate();
         if (result == 1)
         {
-%>
-            <jsp:setProperty name="UserBean" property="email"/>
-            <jsp:setProperty name="UserBean" property="name"/>
-<%
+            UserBean.setName(LoginBean.getName());
+            UserBean.setEmail(LoginBean.getEmail());
+
+            System.out.println(UserBean.getName());
             response.sendRedirect("home.jsp");
         }
     }

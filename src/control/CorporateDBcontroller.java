@@ -53,7 +53,7 @@ public class CorporateDBcontroller extends DatabaseController
 
     }
 
-    @Override
+
     public CorporateUser findUser(String email) throws Exception
     {
         Connection connection = null;
@@ -75,8 +75,8 @@ public class CorporateDBcontroller extends DatabaseController
 /*                if (user == null) {*/
                 user = new CorporateUser();
                 user.setEmail(result.getString("EMAIL"));
-                user.setName(result.getString("NOME"));
-                System.out.println("email presa dal database controller = " + user.getEmail());
+                user.setName(result.getString("NOMEAZIENDA"));
+                System.out.println("nome: "+ user.getName());
 /*                }*/
             } else {
                 return null;
