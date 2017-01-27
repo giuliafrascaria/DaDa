@@ -70,7 +70,7 @@ CREATE TABLE ARTICLES.articolo(
   NOME            VARCHAR                ,
   PROPRIETARIO        VARCHAR
     REFERENCES USERS.UtenteRegistrato(EMAIL),
-  PREZZO            FLOAT                ,
+  PREZZO            FLOAT                NOT NULL,
   QUANTITA        INT                ,
   IMMAGINE        SERIAL4 ,
   PRIMARY KEY (NOME, PROPRIETARIO)

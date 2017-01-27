@@ -1,7 +1,8 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
+<jsp:useBean id="ReviewBean" scope="session" class="javabean.ReviewBean"/>
+<jsp:setProperty name="ReviewBean" property="*"/>
 <jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
 
 
@@ -9,6 +10,12 @@
     if(UserBean.getEmail() == null) {
         response.sendRedirect("login.jsp");
         return;
+    }
+    else
+    {
+        ReviewBean.setUtente(UserBean.getEmail());
+        ReviewBean.setArticolo(ArticleBean.getNome());
+        ReviewBean.setProprietario(ArticleBean.getProprietario());
     }
 %>
 
@@ -22,13 +29,30 @@
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
-<div>
-<%--
-    nome articolo = <jsp:getProperty name="ArticleBean" property="nome"/>
---%>
-    nome articolo = <%=ArticleBean.getNome()%>
 
-</div>
+<form action="recensione2.jsp" name="myform">
+    <div style="text-align: center; padding:20px">
+        <label>
+            <textarea name="testo" rows="10" cols="50" class="myTextArea">Inserisci la tua recensione qui</textarea>
+        </label>Recensione<br>
+        <div class="stars">
+            <form action="">
+                <input class="star star-5" id="star-5" type="radio" name="star" onclick="<%ReviewBean.setRating(5);%>"/>
+                <label class="star star-5" for="star-5"></label>
+                <input class="star star-4" id="star-4" type="radio" name="star" onclick="<%ReviewBean.setRating(4);%>"/>
+                <label class="star star-4" for="star-4"></label>
+                <input class="star star-3" id="star-3" type="radio" name="star" onclick="<%ReviewBean.setRating(3);%>"/>
+                <label class="star star-3" for="star-3"></label>
+                <input class="star star-2" id="star-2" type="radio" name="star" onclick="<%ReviewBean.setRating(2);%>"/>
+                <label class="star star-2" for="star-2"></label>
+                <input class="star star-1" id="star-1" type="radio" name="star" onclick="<%ReviewBean.setRating(1);%>"/>
+                <label class="star star-1" for="star-1"></label>
+            </form>
+        </div>
+        <input type="submit" name = "submit" value="Recensisci" >
+    </div>
+</form>
+
 <jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
 
 

@@ -30,7 +30,6 @@
 
 <div class="container">
     <div class="row" id ="riga">
-        <form action="recensione2.jsp" name="myform">
         <%
             ArrayList<Article> a = UserBean.getArticleList();
             if(a!=null){
@@ -42,12 +41,14 @@
                         <div class="containerx">
                             <img src="img/<%=anA.getImage()%>" class="imagex">
                             <div class="middlex">
+                                <form action="recensione2.jsp" name="myform">
 
-                                    <div class="textx" >
-                                        <label for="nome"><%=anA.getNome()%> </label><br><input name="nome" type="hidden" id="nome">
-                                        <label for="proprietario"><%=anA.getProprietario()%> </label><br><input name="proprietario" type="hidden" id="proprietario">
+                                <div class="textx" >
+                                        <label for="nome"><%=anA.getNome()%> </label><br><input name="nome" type="hidden" id="nome" value="<%=anA.getNome()%>">
+                                        <label for="proprietario"><%=anA.getProprietario()%> </label><br><input name="proprietario" type="hidden" id="proprietario" value="<%=anA.getProprietario()%>">
                                         <input type="submit" name = "submit" value="Recensisci" >
                                     </div>
+                                </form>
 
                             </div>
                         </div>
@@ -66,7 +67,6 @@
         <%
             }
         %>
-        </form>
     </div>
 </div>
 

@@ -23,13 +23,15 @@ public class DatabaseController {
     protected DatabaseController() {
     }
 
-    public static DatabaseController getInstance(){
+    public static DatabaseController getInstance()
+    {
         return instance;
     }
 
     //protected DataSource dataSource;
 
-    public ArrayList<Article> searchArticle(String sql, String kind) throws SQLException {
+    public ArrayList<Article> searchArticle(String sql, String kind) throws SQLException
+    {
 
         Article nuovoArticolo;
         ArrayList<Article> array = new ArrayList<Article>();
@@ -163,8 +165,6 @@ public class DatabaseController {
 
     }
 
-
-
     void addRegisteredUser(RegisteredUser newUser) throws SQLException
     {
 
@@ -208,113 +208,36 @@ public class DatabaseController {
 
 
     }
-}
-/*
-public class DatabaseController
-{
-    protected DataSource dataSource;
-    private static DatabaseController ourInstance = new DatabaseController();
-    public static DatabaseController getInstance() {
-        return ourInstance;
+
+    public boolean setReview(Review review) throws ClassNotFoundException
+    {
+        String sql = "INSERT INTO ARTICLES.recensione (SEGNALAZIONE, UTENTE, ARTICOLO, PROPRIETARIO, TESTO, RAITNG, TOCHECK) VALUES ("+
+                review.isWarning() +", '" + review.getUser()+"', '" +
+                review.getArticle()+"', '"+ review.getOwner() +"' , '" + review.getReview()+
+                "' , '" + review.getRating()+"' , TRUE)";
+
+        try {
+            Statement stmt = provider.getConnection().createStatement();
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("fallimento");
+            return false;
+        }
+        return true;
     }
 
-    protected DatabaseController()
+    ArrayList<String> getArticles(String sql) throws SQLException, ClassNotFoundException
     {
-        this.dataSource = new DataSource();
-    }
-
-
-    public boolean checkUser(String mail) throws Exception
-    {
-        RegisteredUser user;
-        System.out.println("sto per cercare l'utente");
-        user = this.findByPrimaryKey(mail);
-        System.out.println("ricerca finita");
-        return user == null;
-    }
-
-    private RegisteredUser findByPrimaryKey(String userID) throws Exception
-    {
-
-        Connection connection = null;
-        PreparedStatement statement = null;
-        RegisteredUser user = null;
-        ResultSet result = null;
-        final String query = "select * from USERS.UtenteRegistrato where EMAIL=?";
-        //final String query = "select * from USERS.UtenteRegistrato";
-
-
-        try{
-            connection = this.dataSource.getConnection();
-
-            statement = connection.prepareStatement(query);
-            statement.setString(1, userID);
-            result = statement.executeQuery();
-
-            if (result.next()) {
-                if (user == null) {
-                    user = new RegisteredUser();
-                    user.setEmail(result.getString("EMAIL"));
-                    //user.setName(result.getString("NOME"));
-                    System.out.println(user.getEmail());
-                }
-            } else {
-                return null;
-            }
-        }finally{
-            // release resources
-            if(result != null){
-                result.close();
-            }
-            // release resources
-            if(statement != null){
-                statement.close();
-            }
-            if(connection  != null){
-                connection.close();
+        ArrayList<String> articoli = new ArrayList<String>();
+        Statement stmt = provider.getConnection().createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        if(rs != null){
+            while(rs.next()){
+                articoli.add(rs.getString("NOME"));
+                articoli.add(rs.getString("PROPRIETARIO"));
             }
         }
-        return user;
-    }
-
-    void addRegisteredUser(RegisteredUser newUser) throws Exception
-    {
-
-        Connection connection = null;
-
-        PreparedStatement statement = null;
-
-        final String insert = "INSERT INTO USERS.UtenteRegistrato(EMAIL, PASSWORD) values (?,?)";
-
-        try
-        {
-            connection = this.dataSource.getConnection();
-
-
-            statement = connection.prepareStatement(insert);
-            statement.setString(1, newUser.getEmail());
-            statement.setString(2, String.valueOf((newUser.getPwd())));
-
-            statement.executeUpdate();
-
-
-        }
-        finally
-        {
-            // release resources
-            if(statement != null)
-            {
-                statement.close();
-            }
-            if(connection  != null)
-            {
-                connection.close();
-            }
-        }
-
-
-
+        return articoli;
     }
 
 }
-*/
