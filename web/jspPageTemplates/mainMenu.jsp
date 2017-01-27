@@ -20,7 +20,7 @@
                     <li><a href="ricerca.jsp">Ricerca avanzata</a></li>
                     <li><a href="#">Vendi</a></li>
                     <li><a href="#">Dona</a></li>
-                    <li><a href="template.jsp">Recensisci</a></li>
+                    <li><a href="recensione1.jsp">Recensisci</a></li>
                     <li><a href="#">Aiuto</a></li>
                 </ul>
                 <div class="add-to-cart-link"  style="display: none" id="product-big-title-area">

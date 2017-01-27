@@ -4,7 +4,12 @@ package javabean;
  * Created by giogge on 23/01/17.
  */
 
+import control.DatabaseController;
+import entity.articles.Article;
 import entity.users.PrivateUser;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 /**
@@ -96,5 +101,19 @@ public class UserBean
             return 3;
         }*/
         return 1;
+    }
+
+    public ArrayList<Article> getArticleList(){
+        ArrayList<Article> lista = null;
+        String generic = "generic";
+        String sql = "SELECT * FROM ARTICLES.acquisti WHERE UPPER(UTENTE) LIKE UPPER('"+ this.email +"')";
+        try {
+            lista = DatabaseController.getInstance().searchArticle(sql, generic);
+            if(lista.size() == 0)
+                lista = null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
     }
 }
