@@ -106,14 +106,21 @@ public class UserBean
     public ArrayList<Article> getArticleList(){
         ArrayList<Article> lista = null;
         String generic = "generic";
-        String sql = "SELECT * FROM ARTICLES.acquisti WHERE UPPER(UTENTE) LIKE UPPER('"+ this.email +"')";
+        String sql = "SELECT * FROM ARTICLES.acquisti, ARTICLES.articolo WHERE ARTICLES.acquisti.ARTICOLO = ARTICLES.articolo.NOME " +
+                "AND ARTICLES.acquisti.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND " +
+                "UPPER(ARTICLES.acquisti.UTENTE) LIKE UPPER('"+ this.email+"')";
         try {
+            System.out.println("faccio la ricerca");
             lista = DatabaseController.getInstance().searchArticle(sql, generic);
-            if(lista.size() == 0)
+            System.out.println("esco dalla ricerca");
+            if(lista.size() == 0) {
+                System.out.println("è a null");
                 lista = null;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("ritorno la lista");
         return lista;
     }
 }

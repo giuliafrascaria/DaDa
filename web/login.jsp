@@ -52,9 +52,10 @@
         Email: <br>
         <input type = "text" name = "email" id="email"><br>
         Password: <br>
-        <input type = "password" name = "password" id="password"><br>
-        <input type="submit" name = "submit" value="submit" style="padding: 10px"> <br>
-
+        <input type = "password" name = "password" id="password">
+        <div style="padding: 10px">
+        <input type="submit" name = "submit" value="submit" >
+        </div>
     </form>
 </div>
 

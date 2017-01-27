@@ -136,7 +136,7 @@ CREATE TABLE ARTICLES.acquisti(
   ARTICOLO         VARCHAR,
   PROPRIETARIO     VARCHAR,
   FOREIGN KEY (ARTICOLO, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO),
-  FOREIGN KEY (UTENTE) REFERENCES USERS.Privato(EMAIL)
+  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL)
 );
 
 /*---------------------------------------------------------------------------first values*/
@@ -212,4 +212,8 @@ INSERT INTO ARTICLES.Abbigliamento VALUES ('gonna', 'simone@gmail.com', 'gonna l
 INSERT INTO ARTICLES.articolo VALUES ('gonna corta', 'simone@gmail.com', '12', '10');
 INSERT INTO ARTICLES.Abbigliamento VALUES ('gonna', 'simone@gmail.com', 'gonna corta', '42', 'Oviesse');
 
+
+INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','Lenovo ThinkPad', 'simone@gmail.com' );
+INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','HP pavilion', 'simone@gmail.com' );
+INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','Asus touch', 'simone@gmail.com' );
 

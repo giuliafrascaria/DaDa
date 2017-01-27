@@ -104,7 +104,6 @@
         c.style.display = "none";
         var b = document.getElementById('lib');
         b.style.display = "block";
-        <% ArticleBean.setRadioB("libri");%>
         var d = document.getElementById('sco');
         d.style.display = "none";
     }
@@ -117,7 +116,6 @@
         b.style.display = "none";
         var d = document.getElementById('sco');
         d.style.display = "block";
-        <% ArticleBean.setRadioB("scolastico");%>
     }
 </script>
 
@@ -140,7 +138,6 @@
                 b.style.display = "none";
                 var d = document.getElementById('sco');
                 d.style.display = "none";
-                <% ArticleBean.setRadioB(null);%>
             }else{
                 booRadio = this;
             }

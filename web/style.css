@@ -1184,4 +1184,46 @@ input[type=text]:focus {
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------*/
 
+.containerx {
+    position: relative;
+    width: 50%;
+}
 
+.imagex {
+    opacity: 1;
+    display: block;
+/*    width: 100%;
+    height: auto;*/
+    transition: .5s ease;
+    backface-visibility: hidden;
+
+
+    border-radius: 10px;
+    height: 300px;
+    width: 300px
+}
+
+.middlex {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.containerx:hover .imagex {
+    opacity: 0.3;
+}
+
+.containerx:hover .middlex {
+    opacity: 1;
+}
+
+.textx {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
