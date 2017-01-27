@@ -1,7 +1,11 @@
 package javabean;
 
 
+import control.CorporateDBcontroller;
 import control.DatabaseController;
+import control.PrivateDBcontroller;
+import entity.users.CorporateUser;
+import entity.users.PrivateUser;
 import entity.users.RegisteredUser;
 import exceptions.IncompleteFormException;
 import exceptions.UserDoNotExistsException;
@@ -63,8 +67,22 @@ public class LoginBean {
                     // Controllo dati di accesso
                     if( this.email.equals(user.getEmail()) && this.getPassword().equals(user.getPwd()))
                     {
-                        // Controllo se è utente privato o azienda
-                        setName("non pervenuto");
+                        if(user.getType() == 1)
+                        {
+                            controller = PrivateDBcontroller.getInstance();
+                            user = (PrivateUser) user;
+                            user = controller.findUser(email);
+                            this.name = ((PrivateUser) user).getName();
+                        }
+                        else if(user.getType() == 2)
+                        {
+                            controller = CorporateDBcontroller.getInstance();
+                            user = (CorporateUser) user;
+                            user = controller.findUser(email);
+                            this.name = ((CorporateUser) user).getName();
+                        }
+
+
                         return 1;
                     }
                     else

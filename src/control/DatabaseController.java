@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import databaseINIT.Provider;
 import entity.articles.*;
+import entity.users.CorporateUser;
+import entity.users.PrivateUser;
 import entity.users.RegisteredUser;
 
 /**
@@ -160,6 +162,52 @@ public class DatabaseController {
 
     }
 
+    public RegisteredUser findUser(String userID) throws Exception
+    {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        RegisteredUser user = null;
+        ResultSet result = null;
+        final String query = "select * from USERS.UtenteRegistrato where EMAIL=?";
+        //final String query = "select * from USERS.UtenteRegistrato";
+
+
+        try{
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            statement.setString(1, userID);
+            result = statement.executeQuery();
+
+            if (result.next()) {
+/*                if (user == null) {*/
+                user = new RegisteredUser();
+                user.setEmail(result.getString("EMAIL"));
+                user.setPwd(result.getString("PASSWORD"));
+                System.out.println("email presa dal database controller = " + user.getEmail());
+/*                }*/
+            } else {
+                return null;
+            }
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+
+        }
+        return user;
+
+    }
+
     void addRegisteredUser(RegisteredUser newUser) throws SQLException
     {
 
@@ -168,7 +216,7 @@ public class DatabaseController {
 
         PreparedStatement statement = null;
 
-        final String insert = "INSERT INTO USERS.UtenteRegistrato(EMAIL, PASSWORD) values (?,?)";
+        final String insert = "INSERT INTO USERS.UtenteRegistrato(EMAIL, ACCOUNTTYPE, PASSWORD) values (?, ?, ?)";
 
         try
         {
@@ -176,7 +224,8 @@ public class DatabaseController {
 
             statement = connection.prepareStatement(insert);
             statement.setString(1, newUser.getEmail());
-            statement.setString(2, String.valueOf((newUser.getPwd())));
+            statement.setString(2, String.valueOf((newUser.getType())));
+            statement.setString(3, String.valueOf((newUser.getPwd())));
 
             statement.executeUpdate();
 
