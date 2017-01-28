@@ -38,7 +38,7 @@ class ArticleFactory {
     TextBook getTextBook(){
         return new TextBook();
     }
-    public Review getReview(int rating, String text, String user, String article, String owner, boolean warning){
+    Review getReview(int rating, String text, String user, String article, String owner, boolean warning){
 
         Review review = new Review();
 

@@ -2,32 +2,16 @@ package javabean;
 
 
 import control.ArticlesController;
+import control.DatabaseController;
 
 public class ReviewBean {
 
-    private boolean segnalazione;
-    private boolean tocheck;
     private String utente = "";
     private String articolo = "";
     private String proprietario = "";
     private String testo = "";
     private int rating = 3;
 
-    public boolean isSegnalazione() {
-        return segnalazione;
-    }
-
-    private void setSegnalazione(boolean segnalazione) {
-        this.segnalazione = segnalazione;
-    }
-
-    public boolean isTocheck() {
-        return tocheck;
-    }
-
-    private void setTocheck(boolean tocheck) {
-        this.tocheck = tocheck;
-    }
 
     public String getUtente() {
         return utente;
@@ -70,16 +54,19 @@ public class ReviewBean {
     }
 
     public boolean setReview(int kind) {
-        if(kind == 0)
-            this.setSegnalazione(false);
-        else
-            this.setSegnalazione(true);
 
-        this.setTocheck(true);
         System.out.println("inizio l'operazione");
         try {
-            if(ArticlesController.getInstance().sendReview(testo, articolo, utente, rating, proprietario) == 0)
-                return false;
+            if(kind == 0) {
+                System.out.println("entro in review");
+                if (ArticlesController.getInstance().sendReview(testo, articolo, utente, rating, proprietario) == 0)
+                    return false;
+            }
+            else{
+                System.out.println("entro in warning");
+                if (DatabaseController.getInstance().setWarningUser(testo, proprietario, utente) == 0)
+                    return false;
+            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             System.out.println("torno false");
@@ -96,4 +83,5 @@ public class ReviewBean {
         this.testo = "";
         this.rating = 3;
     }
+
 }

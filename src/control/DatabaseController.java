@@ -227,6 +227,23 @@ public class DatabaseController {
         return true;
     }
 
+    public int setWarningUser(String testo, String proprietario, String utente) throws ClassNotFoundException
+    {
+        String sql = "INSERT INTO ARTICLES.segnalazioneUtente (UTENTE, PROPRIETARIO, TESTO, TOCHECK) VALUES ("+
+                "'" + utente +"', '"+ proprietario +"' , '" + testo +
+                "' , TRUE)";
+
+        System.out.println(sql);
+        try {
+            Statement stmt = provider.getConnection().createStatement();
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("fallito");
+            return 0;
+        }
+        return 1;
+    }
+
     ArrayList<String> getArticles(String sql) throws SQLException, ClassNotFoundException
     {
         ArrayList<String> articoli = new ArrayList<String>();

@@ -34,11 +34,7 @@
     ReviewBean.setProprietario(ArticleBean.getProprietario());
 %>
 <jsp:setProperty name="ReviewBean" property="utente" value="<%=UserBean.getEmail()%>"/>
-<%
-    System.out.println("email r = " + ReviewBean.getUtente());
-    System.out.println("nome r = " + ReviewBean.getArticolo());
-    System.out.println("proprietario r = " + ReviewBean.getProprietario());
-%>
+
 
 
 <form action="recensione3.jsp" name="myform">

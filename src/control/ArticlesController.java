@@ -5,8 +5,7 @@ import entity.articles.Review;
 public class ArticlesController {
 
     private static ArticlesController instance = new ArticlesController();
-    private String articlename;
-    private String username;
+
 
     private ArticlesController(){
     }
@@ -34,10 +33,10 @@ public class ArticlesController {
         }
     }
 
-    public int sendWarning(String text, String vendor) throws ClassNotFoundException {
+    public int sendWarning(String text, String vendor, String username,String articlename) throws ClassNotFoundException {
 
     /*come sendReview ma invia una segnalazione e non una recensione*/
-
+        System.out.println("sono qui ------------");
         Review review = ArticleFactory.getInstance().getReview(0, text.replace("\'", "\""), username, articlename, vendor, true);
         if(DatabaseController.getInstance().setReview(review))
             return 1;

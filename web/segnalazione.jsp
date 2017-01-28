@@ -28,26 +28,20 @@
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
-<%
-    /*ReviewBean.setUtente(UserBean.getEmail());*/
-    ReviewBean.setArticolo(ArticleBean.getNome());
-    ReviewBean.setProprietario(ArticleBean.getProprietario());
-%>
+
 <jsp:setProperty name="ReviewBean" property="utente" value="<%=UserBean.getEmail()%>"/>
-<%
-    System.out.println("email r = " + ReviewBean.getUtente());
-    System.out.println("nome r = " + ReviewBean.getArticolo());
-    System.out.println("proprietario r = " + ReviewBean.getProprietario());
-%>
 
 
-<form action="recensione3.jsp" name="myform">
+<form action="segnalazione2.jsp" name="myform">
     <div style="text-align: center; padding:20px">
-        <label style="padding: 20px; font-family: 'Titillium Web', sans-serif; font-size: 16px;">Invia la tua segnalazione</label>
+        <label style="padding: 20px; font-family: 'Titillium Web', sans-serif; font-size: 16px;">Invia la tua segnalazione</label> <br>
+        <label style="padding: 20px; font-family: 'Titillium Web', sans-serif; font-size: 14px">Utente da segnalare</label><br>
+        <input type = "text" name = "proprietario" id="proprietario" style="border-color: #F62 "><br>
         <br>
         <label>
-            <textarea name="testo" rows="10" cols="50" class="myTextArea">Inserisci la tua recensione qui</textarea>
+            <textarea name="testo" rows="10" cols="50" class="myTextArea">Inserisci la tua segnalazione qui</textarea>
         </label> <br>
+        <input type="submit" name = "submit" value="Invia Segnalazione" >
     </div>
 </form>
 
