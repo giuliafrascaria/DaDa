@@ -3,6 +3,9 @@ package javabean;
 
 import control.CatalogueController;
 import entity.articles.Article;
+import exceptions.ArticleAlreadyPresentException;
+import exceptions.IncompleteFormException;
+import control.ArticleFactory;
 
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -12,6 +15,8 @@ public class ArticleBean implements Serializable  {
 
     private String nome = "";
     private String proprietario = "";
+    private String prezzo = "";
+    private String quantita = "";
     private String editore = "";
     private String autore = "";
     private String titolo = "";
@@ -22,9 +27,10 @@ public class ArticleBean implements Serializable  {
     private String edizione = "0";
     private String modello = "";
     private String tipoArticolo = "";
-    private String radioB;
+    private String radioB = "";
     private ArrayList<Article> lista;
     private String image = "";
+    private Article article;
 
     public String getNome() {
         return nome;
@@ -40,6 +46,22 @@ public class ArticleBean implements Serializable  {
 
     public void setProprietario(String proprietario) {
         this.proprietario = proprietario;
+    }
+
+    public String getPrezzo() {
+        return prezzo;
+    }
+
+    public void setPrezzo(String prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    public String getQuantita() {
+        return quantita;
+    }
+
+    public void setQuantita(String quantita) {
+        this.quantita = quantita;
     }
 
     public String getEditore() {
@@ -122,7 +144,6 @@ public class ArticleBean implements Serializable  {
         this.tipoArticolo = tipoArticolo;
     }
 
-
     public String getRadioB() {
         return radioB;
     }
@@ -175,6 +196,80 @@ public class ArticleBean implements Serializable  {
         this.image = image;
     }
 
+    private void saveArticle()
+    {
+        article = ArticleFactory.getInstance().getArticle();
+
+        article.setNome(this.nome);
+        article.setPrezzo(Float.parseFloat(this.prezzo));
+        article.setProprietario(this.proprietario);
+        article.setQuantità(Integer.parseInt(this.quantita));
+
+    }
+
+    public int insert()
+    {
+        try {
+            // Controllo sintattico
+            System.out.println("controllo campi");
+            if (this.nome.equals("") || this.prezzo.equals("") || this.quantita.equals(""))
+            {
+                throw new IncompleteFormException();
+            }
+            else {
+
+                saveArticle();
+                System.out.println("inserisco");
+                if (CatalogueController.getInstance().checkArticle(nome, proprietario)) {
+
+                    System.out.println("articolo non presente");
+                    CatalogueController.getInstance().addArticle(article);
+                    System.out.println("articolo inseritoooooooooooooooooo");
+
+                    if(!(image.equals("")))
+                    {
+                        //devo ottenere il nome dell'immagine nel db
+                        System.out.println("immagine presente");
+                    }
+                    if (!(radioB.equals(""))) {
+                        if (radioB.equals("inf")) {
+                            //ottieni un articolo di informatica dal factory e aggiungilo al db
+                            System.out.println("informatica");
+                        } else if (radioB.equals("cloth")) {
+                            //vestiti
+                            System.out.println("vestiti");
+                        } else if (radioB.equals("libri")) {
+                            //libri
+                            System.out.println("libri");
+                        } else if (radioB.equals("scolastico")) {
+                            System.out.println("scolastico");
+
+                        }
+                    }
+                    System.out.println("inserito articolo");
+                    return 1;
+                }
+                else
+                {
+                    throw new ArticleAlreadyPresentException();
+                }
+            }
+        }
+        catch(IncompleteFormException e)
+        {
+            return 2;
+        }
+        catch (ArticleAlreadyPresentException e)
+        {
+            return 4;
+        }
+        catch (Exception e)
+        {
+            return 3;
+        }
+
+    }
+
 /*    public void reset(){
         nome = "";
         proprietario = "";
@@ -193,3 +288,7 @@ public class ArticleBean implements Serializable  {
         image = "";
     }*/
 }
+
+
+
+
