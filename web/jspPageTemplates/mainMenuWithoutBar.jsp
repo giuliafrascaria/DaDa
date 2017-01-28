@@ -16,7 +16,7 @@
                     <li><a href="#">Vendi</a></li>
                     <li><a href="#">Dona</a></li>
                     <li><a href="recensione1.jsp">Recensisci</a></li>
-                    <li><a href="#">Aiuto</a></li>
+                    <li><a href="aiuto.jsp">Aiuto</a></li>
                 </ul>
 
             </div>

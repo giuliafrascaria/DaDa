@@ -1042,31 +1042,12 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
  }
 
 .extendedInput:focus {
-    width: 100%;
+    width: 50%;
 }
 
 #informatica {display:inline-block;margin-right:10px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px;color: white;}
 #abbigliamento {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
 #libri {display:inline-block; width:200px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: white;}
-
-/*
-.input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-    width: 100%;
-}*/
 
 #wrapSlider {
     text-align: center;
@@ -1236,7 +1217,6 @@ input[type=text]:focus {
 .myTextArea {
     resize: none;
     overflow: auto;
-    border-color: #ff9900;
 }
 
 div.stars {
@@ -1273,5 +1253,7 @@ label.star:before {
     content: '\f006';
     font-family: FontAwesome;
 }
+
+
 
 
