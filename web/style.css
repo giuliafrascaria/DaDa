@@ -29,8 +29,6 @@ h6 {
 }
 body { font-family: 'Titillium Web', sans-serif; }
 
-
-
 .header-area {
     background: none repeat scroll 0 0 #f4f4f4;
 }
@@ -79,8 +77,6 @@ body { font-family: 'Titillium Web', sans-serif; }
     text-transform: uppercase;
     width: 100%;
     z-index: 999;}
-
-
 
 .logo h1 {
     font-size: 40px;
@@ -613,6 +609,9 @@ input[type="submit"], button[type=submit] {
     padding: 11px 20px;
     text-transform: uppercase;
 }
+
+
+
 input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
 .single-sidebar input[type="text"] {
     margin-bottom: 10px;
@@ -1228,6 +1227,12 @@ input[type=text]:focus {
     padding: 16px 32px;
 }
 
+
+#inp {
+    text-align: center;
+    margin: auto;
+    width: auto;
+}
 .myTextArea {
     resize: none;
     overflow: auto;
