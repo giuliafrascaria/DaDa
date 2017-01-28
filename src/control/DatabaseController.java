@@ -209,13 +209,14 @@ public class DatabaseController {
 
     }
 
-    public boolean setReview(Review review) throws ClassNotFoundException
+    boolean setReview(Review review) throws ClassNotFoundException
     {
         String sql = "INSERT INTO ARTICLES.recensione (SEGNALAZIONE, UTENTE, ARTICOLO, PROPRIETARIO, TESTO, RAITNG, TOCHECK) VALUES ("+
                 review.isWarning() +", '" + review.getUser()+"', '" +
                 review.getArticle()+"', '"+ review.getOwner() +"' , '" + review.getReview()+
                 "' , '" + review.getRating()+"' , TRUE)";
 
+        System.out.println(sql);
         try {
             Statement stmt = provider.getConnection().createStatement();
             stmt.executeUpdate(sql);

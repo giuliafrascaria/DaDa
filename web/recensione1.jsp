@@ -3,6 +3,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
+<%--
+<jsp:setProperty name="UserBean" property="*"/>
+--%>
 
 <jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
 <jsp:setProperty name="ArticleBean" property="*"/>
@@ -10,7 +13,6 @@
 
 <%
     if(UserBean.getEmail() == null) {
-        System.out.println("faccio il redirect");
         response.sendRedirect("login.jsp");
         return;
     }
@@ -41,15 +43,14 @@
                         <div class="containerx">
                             <img src="img/<%=anA.getImage()%>" class="imagex">
                             <div class="middlex">
-                                <form action="recensione2.jsp" name="myform">
 
+                                <form action="recensione2.jsp" name="myform">
                                 <div class="textx" >
                                         <label for="nome"><%=anA.getNome()%> </label><br><input name="nome" type="hidden" id="nome" value="<%=anA.getNome()%>">
                                         <label for="proprietario"><%=anA.getProprietario()%> </label><br><input name="proprietario" type="hidden" id="proprietario" value="<%=anA.getProprietario()%>">
                                         <input type="submit" name = "submit" value="Recensisci" >
                                     </div>
                                 </form>
-
                             </div>
                         </div>
                     </div>

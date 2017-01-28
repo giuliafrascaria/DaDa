@@ -1032,8 +1032,8 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 .extendedInput{
      width: 130px;
      box-sizing: border-box;
-     border: 2px solid #ccc;
-     border-radius: 4px;
+    border: 2px solid #F62;
+    border-radius: 4px;
      font-family: 'Titillium Web', sans-serif;
      font-size: 16px;
      background: white no-repeat 10px 10px;
@@ -1235,7 +1235,7 @@ input[type=text]:focus {
 }
 
 div.stars {
-    width: 270px;
+    width: 400px;
     display: inline-block;
 }
 
@@ -1243,7 +1243,7 @@ input.star { display: none; }
 
 label.star {
     float: right;
-    padding: 10px;
+    padding: 5px;
     font-size: 36px;
     color: #444;
     transition: all .2s;

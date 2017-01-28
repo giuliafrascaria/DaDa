@@ -174,4 +174,22 @@ public class ArticleBean implements Serializable  {
     private void setImage(String image) {
         this.image = image;
     }
+
+/*    public void reset(){
+        nome = "";
+        proprietario = "";
+        editore = "";
+        autore = "";
+        titolo = "";
+        tipo = "";
+        marca = "";
+        taglia = "0";
+        materia = "";
+        edizione = "0";
+        modello = "";
+        tipoArticolo = "";
+        radioB = "";
+        lista = null;
+        image = "";
+    }*/
 }

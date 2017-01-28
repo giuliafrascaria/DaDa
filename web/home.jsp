@@ -19,7 +19,7 @@
 
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true"/>
 
-<jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
+<jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
 <div style="text-align: center" class="container">
     <div class='slider'>

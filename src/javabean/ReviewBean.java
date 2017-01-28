@@ -11,7 +11,7 @@ public class ReviewBean {
     private String articolo = "";
     private String proprietario = "";
     private String testo = "";
-    private int rating;
+    private int rating = 3;
 
     public boolean isSegnalazione() {
         return segnalazione;
@@ -71,18 +71,29 @@ public class ReviewBean {
 
     public boolean setReview(int kind) {
         if(kind == 0)
-            setSegnalazione(false);
+            this.setSegnalazione(false);
         else
-            setSegnalazione(true);
+            this.setSegnalazione(true);
 
-        setTocheck(true);
-
+        this.setTocheck(true);
+        System.out.println("inizio l'operazione");
         try {
-            ArticlesController.getInstance().sendReview(testo, articolo, utente, rating, proprietario);
+            if(ArticlesController.getInstance().sendReview(testo, articolo, utente, rating, proprietario) == 0)
+                return false;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            System.out.println("torno false");
             return false;
         }
+        System.out.println("torno true");
         return true;
+    }
+
+    public void resetBean(){
+        this.utente = "";
+        this.articolo = "";
+        this.proprietario = "";
+        this.testo = "";
+        this.rating = 3;
     }
 }
