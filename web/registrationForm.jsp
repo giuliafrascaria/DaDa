@@ -26,6 +26,8 @@
 
             <%--<jsp:forward page="home.jsp" />&ndash;%&gt;--%>
 <%
+            UserBean.setAccountType(1);
+            UserBean.setBalance(RegistrationBean.getBalance());
             response.sendRedirect("home.jsp");
         }
     }

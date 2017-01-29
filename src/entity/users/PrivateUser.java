@@ -5,6 +5,8 @@ public class PrivateUser extends RegisteredUser
 {
     private String name, surname;
 
+    private float balance;
+
     public PrivateUser() {}
 
     public String getName()
@@ -25,9 +27,11 @@ public class PrivateUser extends RegisteredUser
         this.surname = surname;
     }
 
+    public float getBalance() {
+        return balance;
+    }
 
-
-
-
-
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
 }

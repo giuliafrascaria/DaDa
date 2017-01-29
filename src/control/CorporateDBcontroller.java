@@ -76,6 +76,7 @@ public class CorporateDBcontroller extends DatabaseController
                 user = new CorporateUser();
                 user.setEmail(result.getString("EMAIL"));
                 user.setName(result.getString("NOMEAZIENDA"));
+                user.setType(2);
                 System.out.println("nome: "+ user.getName());
 /*                }*/
             } else {

@@ -35,6 +35,7 @@ CREATE TABLE USERS.Azienda(
 
 CREATE TABLE USERS.Privato(
   NOME            VARCHAR                ,
+  SALDO           FLOAT          NOT NULL,
   COGNOME        VARCHAR                ,
   TELEFONO        VARCHAR                ,
   EMAIL            VARCHAR

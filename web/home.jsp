@@ -22,24 +22,56 @@
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
 
-<div class="slides">
-    <ul> <!-- slides -->
-        <li><img src="img/intro1(dada).jpg" alt="image01" />
-            <div>Benvenuto in DaDa</div>
-        </li>
-        <li><img src="img/intro2(compra).jpg" alt="image02" />
-            <div>Compra l'articolo che desideri</div>
-        </li>
-        <li><img src="img/intro3(vendi).jpg" alt="image03" />
-            <div>Fai affari</div>
-        </li>
-        <li><img src="img/intro4(dona).jpg" alt="image04" />
-            <div>Dona</div>
-        </li>
-    </ul>
-</div>
+    <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
+    <div class="slides">
 
-
+        <ul> <!-- slides -->
+            <li><img src="img/intro1(dada).jpg" alt="image01" />
+                <div>Benvenuto in DaDa</div>
+            </li>
+            <li><img src="img/intro2(compra).jpg" alt="image02" />
+                <div>Compra l'articolo che desideri</div>
+            </li>
+            <li><img src="img/intro3(vendi).jpg" alt="image03" />
+                <div>Fai affari</div>
+            </li>
+            <li><img src="img/intro4(dona).jpg" alt="image04" />
+                <div>Dona</div>
+            </li>
+        </ul>
+    </div>
+<%--
+<div class="promo-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo">
+                    <i class="fa fa-refresh"></i>
+                    <p>30 Days return</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo">
+                    <i class="fa fa-truck"></i>
+                    <p>Free shipping</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo">
+                    <i class="fa fa-lock"></i>
+                    <p>Secure payments</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-promo">
+                    <i class="fa fa-gift"></i>
+                    <p>New products</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End promo area -->--%>
 
 
 

@@ -21,6 +21,8 @@ public class UserBean
 {
     private String name;
     private String email;
+    private int accountType;
+    private float balance;
 
 
 
@@ -65,10 +67,25 @@ public class UserBean
     }
 
 
+    public int getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(int accountType) {
+        this.accountType = accountType;
+    }
 
     private void fillUserBean(PrivateUser user) {
         this.name = user.getName();
         this.email = user.getEmail();
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
 
     /**

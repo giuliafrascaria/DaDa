@@ -19,6 +19,8 @@ public class RegistrationBean implements Serializable {
 
     private String name, surname, email, password, confirmpassword;
 
+    private Float balance = 0f;
+
 
     private PrivateUser user;
 
@@ -72,6 +74,14 @@ public class RegistrationBean implements Serializable {
         this.confirmpassword = confirmpassword;
     }
 
+    public Float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Float balance) {
+        this.balance = balance;
+    }
+
     private void saveData(String name, String email, String surname, String pwd, int type)
     {
         user = UserFactory.getInstance().createUser();
@@ -85,6 +95,7 @@ public class RegistrationBean implements Serializable {
         user.setPwd(pwd);
         System.out.println(user.getPwd());
         user.setType(type);
+        user.setBalance(balance);
 
     }
 

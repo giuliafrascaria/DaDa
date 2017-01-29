@@ -57,6 +57,13 @@ else
         <li ><span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="email"/> </span></li>
         <li style="width:20%"><img class="img-circle" src="img/martinapala.jpg"></li>
 
+        <%
+        if (UserBean.getAccountType() == 1) {
+        %>
+            <li> <div class="shopping-item">
+                <a href="wallet.jsp">Saldo - <span class="cart-amunt">$<jsp:getProperty name="UserBean" property="balance"/></span> <i class="fa fa-shopping-cart"></i></a>
+            </div></li>
+        <%}%>
     </ul>
 </div>
 

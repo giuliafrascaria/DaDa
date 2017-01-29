@@ -24,7 +24,7 @@ public class PrivateDBcontroller extends DatabaseController
 
         PreparedStatement statement2 = null;
 
-        final String insert2 = "INSERT INTO USERS.Privato(NOME, COGNOME, EMAIL) values (?,?,?)";
+        final String insert2 = "INSERT INTO USERS.Privato(NOME, COGNOME, EMAIL, SALDO) values (?,?,?, 0)";
 
         try
         {
@@ -78,6 +78,8 @@ public class PrivateDBcontroller extends DatabaseController
                 user = new PrivateUser();
                 user.setEmail(result.getString("EMAIL"));
                 user.setName(result.getString("NOME"));
+                user.setType(1);
+                user.setBalance(result.getFloat("SALDO"));
                 System.out.println("nome ritrovato: " + user.getName());
 /*                }*/
             } else {

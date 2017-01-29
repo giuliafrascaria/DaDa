@@ -14,6 +14,8 @@
         {
             UserBean.setName(LoginBean.getName());
             UserBean.setEmail(LoginBean.getEmail());
+            UserBean.setAccountType(LoginBean.getAccountType());
+            UserBean.setBalance(LoginBean.getBalance());
 
             System.out.println(UserBean.getName());
             response.sendRedirect("home.jsp");
