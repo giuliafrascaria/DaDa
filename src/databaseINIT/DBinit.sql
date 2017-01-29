@@ -71,8 +71,10 @@ CREATE TABLE ARTICLES.articolo(
   PROPRIETARIO        VARCHAR
     REFERENCES USERS.UtenteRegistrato(EMAIL),
   PREZZO            FLOAT                NOT NULL,
-  QUANTITA        INT                ,
+  QUANTITA        INT                    NOT NULL,
+  ISVALID         BOOLEAN               NOT NULL,
   IMMAGINE        SERIAL4 ,
+
   PRIMARY KEY (NOME, PROPRIETARIO)
 );
 
@@ -109,6 +111,8 @@ CREATE TABLE ARTICLES.Abbigliamento(
   MARCA            VARCHAR                ,
   PRIMARY KEY (NOME, PROPRIETARIO)
 );
+
+
 CREATE TABLE ARTICLES.Scolastico(
   MATERIA        VARCHAR                ,
   PROPRIETARIO        VARCHAR,
@@ -131,6 +135,7 @@ CREATE TABLE ARTICLES.recensione(
   PRIMARY KEY (UTENTE, ARTICOLO, SEGNALAZIONE)
 );
 
+
 CREATE TABLE ARTICLES.segnalazioneUtente(
   UTENTE              VARCHAR,
   PROPRIETARIO        VARCHAR,
@@ -140,6 +145,7 @@ CREATE TABLE ARTICLES.segnalazioneUtente(
   FOREIGN KEY (PROPRIETARIO) REFERENCES USERS.UtenteRegistrato(EMAIL),
   PRIMARY KEY (UTENTE, PROPRIETARIO)
 );
+
 
 CREATE TABLE ARTICLES.acquisti(
   UTENTE           VARCHAR,
@@ -166,60 +172,60 @@ INSERT INTO USERS.Admin VALUES ('giulia', 'frascaria', 'giogge@gmail.com');
 INSERT INTO USERS.Admin VALUES ('giulia', 'cassara', 'giuliac@gmail.com');
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Santa Croce', 'simone@gmail.com', '10', '100' );
+INSERT INTO ARTICLES.articolo VALUES ('Santa Croce', 'simone@gmail.com', '10', '100', TRUE );
 INSERT INTO ARTICLES.libro VALUES ('origine della Santa Croce', 'simone@gmail.com', 'Santa Croce', 'Simone D'' Aniello', 'Mondadori', '350' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Sant'' Anna', 'simone@gmail.com', '15', '100' );
+INSERT INTO ARTICLES.articolo VALUES ('Sant'' Anna', 'simone@gmail.com', '15', '100' , TRUE );
 INSERT INTO ARTICLES.libro VALUES ('origine della Santa Anna', 'simone@gmail.com', 'Sant'' Anna', 'Simone D'' Aniello', 'Mondadori', '80' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Lieve', 'simone@gmail.com', '4.90', '100' );
+INSERT INTO ARTICLES.articolo VALUES ('Lieve', 'simone@gmail.com', '4.90', '100' , TRUE );
 INSERT INTO ARTICLES.libro VALUES ('origine della Lieve', 'simone@gmail.com', 'Lieve', 'Simone D'' Aniello', 'Mondadori', '100' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('A scuola con l'' acqua', 'simone@gmail.com', '50', '100' );
+INSERT INTO ARTICLES.articolo VALUES ('A scuola con l'' acqua', 'simone@gmail.com', '50', '100', TRUE  );
 INSERT INTO ARTICLES.libro VALUES ('A scuola con l'' acqua', 'simone@gmail.com', 'A scuola con l'' acqua', 'Simone D'' Aniello', 'Mondadori', '100' );
 INSERT INTO ARTICLES.Scolastico VALUES ('Acquologia', 'simone@gmail.com', 'A scuola con l'' acqua', '1' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Lenovo ThinkPad', 'simone@gmail.com', '500', '10');
+INSERT INTO ARTICLES.articolo VALUES ('Lenovo ThinkPad', 'simone@gmail.com', '500', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'Lenovo ThinkPad', 'thinkPad Costoso', 'Lenovo');
 
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 2', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 2', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 2', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 3', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 3', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 3', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 4', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 4', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 4', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 5', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 5', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 5', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 6', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 6', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 6', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 7', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 7', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 7', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 8', 'simone@gmail.com', '800', '10');
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 8', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 8', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('Asus touch', 'simone@gmail.com', '1200', '10');
+INSERT INTO ARTICLES.articolo VALUES ('Asus touch', 'simone@gmail.com', '1200', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'Asus touch', 'Asus touch', 'Asus');
 
 
-INSERT INTO ARTICLES.articolo VALUES ('gonna lunga', 'simone@gmail.com', '12', '10');
+INSERT INTO ARTICLES.articolo VALUES ('gonna lunga', 'simone@gmail.com', '12', '10', TRUE );
 INSERT INTO ARTICLES.Abbigliamento VALUES ('gonna', 'simone@gmail.com', 'gonna lunga', '42', 'Oviesse');
 
 
-INSERT INTO ARTICLES.articolo VALUES ('gonna corta', 'simone@gmail.com', '12', '10');
+INSERT INTO ARTICLES.articolo VALUES ('gonna corta', 'simone@gmail.com', '12', '10', TRUE );
 INSERT INTO ARTICLES.Abbigliamento VALUES ('gonna', 'simone@gmail.com', 'gonna corta', '42', 'Oviesse');
 
 

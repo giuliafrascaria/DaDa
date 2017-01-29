@@ -2,14 +2,18 @@ package javabean;
 
 
 import control.CatalogueController;
-import entity.articles.Article;
+import entity.articles.*;
 import exceptions.ArticleAlreadyPresentException;
 import exceptions.IncompleteFormException;
 import control.ArticleFactory;
 
-import java.io.Serializable;
+import javax.servlet.http.Part;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 public class ArticleBean implements Serializable  {
 
@@ -29,7 +33,8 @@ public class ArticleBean implements Serializable  {
     private String tipoArticolo = "";
     private String radioB = "";
     private ArrayList<Article> lista;
-    private String image = "";
+    private Part image;
+    private String imageName = "";
     private Article article;
 
     public String getNome() {
@@ -188,12 +193,32 @@ public class ArticleBean implements Serializable  {
     }
 
 
-    public String getImage() {
+    public Part getImage() {
         return image;
     }
 
-    private void setImage(String image) {
+    public void setImage(Part image) {
         this.image = image;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getFileName(final Part part) {
+        final String partHeader = part.getHeader("content-disposition");
+        LOGGER.log(Level.INFO, "Part Header = {0}", partHeader);
+        for (String content : part.getHeader("content-disposition").split(";")) {
+            if (content.trim().startsWith("filename")) {
+                return content.substring(
+                        content.indexOf('=') + 1).trim().replace("\"", "");
+            }
+        }
+        return null;
     }
 
     private void saveArticle()
@@ -205,6 +230,38 @@ public class ArticleBean implements Serializable  {
         article.setProprietario(this.proprietario);
         article.setQuantità(Integer.parseInt(this.quantita));
 
+    }
+
+    private void saveExtraData(Article article)
+    {
+        if(article.getClass().equals(Clothing.class))
+        {
+            ((Clothing) article).setTipo(tipo);
+            ((Clothing) article).setMarca(marca);
+            ((Clothing) article).setTaglia(Integer.parseInt(taglia));
+        }
+        else if(article.getClass().equals(Electronics.class))
+        {
+            ((Electronics) article).setMarca(marca);
+            ((Electronics) article).setModello(modello);
+            ((Electronics) article).setTipo(tipo);
+        }
+        else if(article.getClass().equals(Book.class))
+        {
+            ((Book) article).setAutore(autore);
+            ((Book) article).setTitolo(titolo);
+            ((Book) article).setEditore(editore);
+
+        }
+        if(article.getClass().equals(TextBook.class))
+        {
+            ((TextBook) article).setEdizione(Integer.parseInt(edizione));
+            ((TextBook) article).setMateria(materia);
+
+        }
+
+        article.setNome(nome);
+        article.setProprietario(proprietario);
     }
 
     public int insert()
@@ -226,24 +283,64 @@ public class ArticleBean implements Serializable  {
                     CatalogueController.getInstance().addArticle(article);
                     System.out.println("articolo inseritoooooooooooooooooo");
 
-                    if(!(image.equals("")))
+                    if(!(image == null))
                     {
                         //devo ottenere il nome dell'immagine nel db
                         System.out.println("immagine presente");
+                        String imagename = CatalogueController.getInstance().getImageName(nome, proprietario);
+                        System.out.println("salverò immagine con nome " + image);
+
+                        OutputStream out = null;
+                        InputStream filecontent = null;
+
+
+                        try {
+                            out = new FileOutputStream(new File("/web/img/" + File.separator
+                                    + imagename));
+                            filecontent = image.getInputStream();
+
+                            int read = 0;
+                            final byte[] bytes = new byte[1024];
+
+                            while ((read = filecontent.read(bytes)) != -1) {
+                                out.write(bytes, 0, read);
+                            }
+
+                        } catch (FileNotFoundException fne) {
+
+                            System.out.println("ho scazzato");
+                            LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}",
+                                    new Object[]{fne.getMessage()});
+                        } finally {
+                            if (out != null) {
+                                out.close();
+                            }
+                            if (filecontent != null) {
+                                filecontent.close();
+                            }
+                        }
                     }
                     if (!(radioB.equals(""))) {
                         if (radioB.equals("inf")) {
                             //ottieni un articolo di informatica dal factory e aggiungilo al db
                             System.out.println("informatica");
+                            Electronics electronics = ArticleFactory.getInstance().getElectronics();
+                            saveExtraData(electronics);
                         } else if (radioB.equals("cloth")) {
                             //vestiti
                             System.out.println("vestiti");
+                            Clothing clothing = ArticleFactory.getInstance().getClothing();
+                            saveExtraData(clothing);
                         } else if (radioB.equals("libri")) {
                             //libri
                             System.out.println("libri");
+                            Book book = ArticleFactory.getInstance().getBook();
+                            saveExtraData(book);
+                            CatalogueController.getInstance().addBook(book);
                         } else if (radioB.equals("scolastico")) {
                             System.out.println("scolastico");
-
+                            TextBook textBook = ArticleFactory.getInstance().getTextBook();
+                            saveExtraData(textBook);
                         }
                     }
                     System.out.println("inserito articolo");

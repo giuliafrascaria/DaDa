@@ -362,7 +362,7 @@ public class CatalogueController {
 
         PreparedStatement statement = null;
 
-        final String insert = "INSERT INTO ARTICLES.Articolo(NOME, PROPRIETARIO, PREZZO, QUANTITA) values (?,?,?,?)";
+        final String insert = "INSERT INTO ARTICLES.Articolo(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
 
         try
         {
@@ -394,6 +394,171 @@ public class CatalogueController {
 
         }
     }
+
+    public void addBook(Book book) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.libro(TITOLO, PROPRIETARIO, NOME, AUTORE, CASA) values (?,?,?,?,?)";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, book.getTitolo());
+            statement.setString(2, book.getProprietario());
+            statement.setString(3, book.getNome());
+            statement.setString(4, book.getAutore());
+            statement.setString(4, book.getEditore());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    /*public void addElectronics(Electronics electronics) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.informatica(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, article.getNome());
+            statement.setString(2, article.getProprietario());
+            statement.setFloat(3, article.getPrezzo());
+            statement.setInt(4, article.getQuantità());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public void addClothing(Clothing clothing) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.Abbigliamento(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, article.getNome());
+            statement.setString(2, article.getProprietario());
+            statement.setFloat(3, article.getPrezzo());
+            statement.setInt(4, article.getQuantità());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public void addTextBook(TextBook textBook) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.Scolastico(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, article.getNome());
+            statement.setString(2, article.getProprietario());
+            statement.setFloat(3, article.getPrezzo());
+            statement.setInt(4, article.getQuantità());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }*/
 
     public boolean checkArticle(String name, String mail) throws Exception
     {
@@ -453,6 +618,48 @@ public class CatalogueController {
         }
         return article;
 
+    }
+
+    public String getImageName(String name, String owner) throws Exception
+    {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String imageName;
+        ResultSet result = null;
+        final String query = "select IMMAGINE from ARTICLES.Articolo where NOME=? AND PROPRIETARIO=?";
+        //final String query = "select * from USERS.UtenteRegistrato";
+
+
+        try{
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            statement.setString(1, name);
+            statement.setString(2, owner);
+            result = statement.executeQuery();
+
+            if (result.next()) {
+                imageName = result.getString("IMMAGINE");
+                System.out.println("nome immagine: " + imageName);
+
+            } else {
+                return null;
+            }
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+
+        }
+        return imageName;
     }
 
 }

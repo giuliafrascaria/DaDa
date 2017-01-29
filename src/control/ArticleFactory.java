@@ -26,16 +26,16 @@ public class ArticleFactory {
     public Article getArticle(){
         return new Article();
     }
-    Book getBook(){
+    public Book getBook(){
         return new Book();
     }
-    Clothing getClothing(){
+    public Clothing getClothing(){
         return new Clothing();
     }
-    Electronics getElectronics(){
+    public Electronics getElectronics(){
         return new Electronics();
     }
-    TextBook getTextBook(){
+    public TextBook getTextBook(){
         return new TextBook();
     }
     Review getReview(int rating, String text, String user, String article, String owner, boolean warning){

@@ -21,11 +21,11 @@
 %>
         <%! int result ;%>
 <%
-            System.out.println("zono cvi");
-        System.out.println(ArticleBean.getNome());
-        System.out.println(ArticleBean.getQuantita());
-        System.out.println(ArticleBean.getPrezzo());
+
         ArticleBean.setProprietario(UserBean.getEmail());
+        //ArticleBean.setImage(request.getPart("image"));
+        System.out.println("immagina, puoi");
+
         result = ArticleBean.insert();
         if (result == 1)
         {
@@ -52,7 +52,7 @@
     }if (result == 3) {%>
 <div class="alert alert-danger" role="alert">An error occurred, please try again later</div><%
     }if (result == 4) {%>
-<div class="alert alert-danger" role="alert">Un articolo con questo nome è già registrato, se ne hai due copie incrementane la quantità, altrimenti inserisci un nome più specifico</div><%
+<div class="alert alert-danger" role="alert">Un articolo con questo nome è già registrato a tuo nome, se ne hai due copie incrementane la quantità, altrimenti inserisci un nome più specifico</div><%
         }
     }%>
 
@@ -70,7 +70,7 @@
         <br>
         <h2>Dettagli aggiuntivi:</h2>
         <br>
-        <label for="inp">Immagine</label> <br> <input id="inp" type="file" accept="image/*"> <br>
+        <label for="image">Immagine</label> <br> <input id="image" type="file" accept="image/*"> <br>
 
         <div style="align-items: baseline">
             <label>
@@ -87,8 +87,6 @@
             </label> Libri scolastici <br>
         </div>
     </div>
-
-
 
     <div id="informatic" style="text-align: center; display: none">
         <div><label for="inftipo">Tipo </label><br><input name="tipo" type="text" id="inftipo" class="extendedInput"></div>
