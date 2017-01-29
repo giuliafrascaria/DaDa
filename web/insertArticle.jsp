@@ -70,7 +70,7 @@
         <br>
         <h2>Dettagli aggiuntivi:</h2>
         <br>
-        <label for="image">Immagine</label> <br> <input id="image" type="file" accept="image/*"> <br>
+        <label for="image">Immagine</label> <br> <input id="image" type="file"> <br>
 
         <div style="align-items: baseline">
             <label>
