@@ -326,11 +326,13 @@ public class ArticleBean implements Serializable  {
                             System.out.println("informatica");
                             Electronics electronics = ArticleFactory.getInstance().getElectronics();
                             saveExtraData(electronics);
+                            CatalogueController.getInstance().addElectronics(electronics);
                         } else if (radioB.equals("cloth")) {
                             //vestiti
                             System.out.println("vestiti");
                             Clothing clothing = ArticleFactory.getInstance().getClothing();
                             saveExtraData(clothing);
+                            CatalogueController.getInstance().addClothing(clothing);
                         } else if (radioB.equals("libri")) {
                             //libri
                             System.out.println("libri");
@@ -341,6 +343,7 @@ public class ArticleBean implements Serializable  {
                             System.out.println("scolastico");
                             TextBook textBook = ArticleFactory.getInstance().getTextBook();
                             saveExtraData(textBook);
+                            CatalogueController.getInstance().addTextBook(textBook);
                         }
                     }
                     System.out.println("inserito articolo");

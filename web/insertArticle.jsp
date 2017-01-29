@@ -57,7 +57,7 @@
     }%>
 
 
-<form action="insertArticle.jsp" name="myform" method="post">
+<form action="insertArticle.jsp" name="myform" method="post" >
     <div style="text-align: center">
         <br>
         <h2>Dati obbligatori:</h2>

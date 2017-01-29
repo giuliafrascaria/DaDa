@@ -437,7 +437,7 @@ public class CatalogueController {
         }
     }
 
-    /*public void addElectronics(Electronics electronics) throws Exception
+    public void addElectronics(Electronics electronics) throws Exception
     {
 
 
@@ -445,17 +445,18 @@ public class CatalogueController {
 
         PreparedStatement statement = null;
 
-        final String insert = "INSERT INTO ARTICLES.informatica(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
+        final String insert = "INSERT INTO ARTICLES.informatica(TIPO, PROPRIETARIO, NOME, MODELLO, MARCA) values (?,?,?,?,? )";
 
         try
         {
             connection = provider.getConnection();
 
             statement = connection.prepareStatement(insert);
-            statement.setString(1, article.getNome());
-            statement.setString(2, article.getProprietario());
-            statement.setFloat(3, article.getPrezzo());
-            statement.setInt(4, article.getQuantità());
+            statement.setString(1, electronics.getTipo());
+            statement.setString(2, electronics.getProprietario());
+            statement.setString(3, electronics.getNome());
+            statement.setString(4, electronics.getModello());
+            statement.setString(5, electronics.getMarca());
 
             statement.executeUpdate();
         }
@@ -486,17 +487,19 @@ public class CatalogueController {
 
         PreparedStatement statement = null;
 
-        final String insert = "INSERT INTO ARTICLES.Abbigliamento(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
+        final String insert = "INSERT INTO ARTICLES.Abbigliamento(TIPO, PROPRIETARIO, NOME, TAGLIA, MARCA) values (?,?,?,?,?)";
 
         try
         {
             connection = provider.getConnection();
 
             statement = connection.prepareStatement(insert);
-            statement.setString(1, article.getNome());
-            statement.setString(2, article.getProprietario());
-            statement.setFloat(3, article.getPrezzo());
-            statement.setInt(4, article.getQuantità());
+            statement.setString(2, clothing.getTipo());
+            statement.setString(2, clothing.getProprietario());
+            statement.setString(3, clothing.getNome());
+            statement.setInt(4, clothing.getTaglia());
+            statement.setString(5, clothing.getMarca());
+
 
             statement.executeUpdate();
         }
@@ -527,17 +530,17 @@ public class CatalogueController {
 
         PreparedStatement statement = null;
 
-        final String insert = "INSERT INTO ARTICLES.Scolastico(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
+        final String insert = "INSERT INTO ARTICLES.Scolastico(MATERIA, PROPRIETARIO, NOME, EDIZIONE) values (?,?,?,?)";
 
         try
         {
             connection = provider.getConnection();
 
             statement = connection.prepareStatement(insert);
-            statement.setString(1, article.getNome());
-            statement.setString(2, article.getProprietario());
-            statement.setFloat(3, article.getPrezzo());
-            statement.setInt(4, article.getQuantità());
+            statement.setString(1, textBook.getMateria());
+            statement.setString(2, textBook.getProprietario());
+            statement.setString(3, textBook.getNome());
+            statement.setString(4, textBook.getEditore());
 
             statement.executeUpdate();
         }
@@ -558,7 +561,7 @@ public class CatalogueController {
             }
 
         }
-    }*/
+    }
 
     public boolean checkArticle(String name, String mail) throws Exception
     {
