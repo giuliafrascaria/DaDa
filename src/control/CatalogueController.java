@@ -2,10 +2,15 @@ package control;
 
 import entity.articles.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.*;
+
+import static control.DatabaseController.provider;
 
 /**
  * @author dandi
@@ -347,6 +352,107 @@ public class CatalogueController {
         }
         else
             return articoli;
+    }
+
+    public void addArticle(Article article) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.Articolo(NOME, PROPRIETARIO, PREZZO, QUANTITA) values (?,?,?,?)";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, article.getNome());
+            statement.setString(2, article.getProprietario());
+            statement.setFloat(3, article.getPrezzo());
+            statement.setInt(4, article.getQuantità());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public boolean checkArticle(String name, String mail) throws Exception
+    {
+
+        Article article;
+        System.out.println("sto per cercare l'articolo");
+        article = this.findByPrimaryKey(name, mail);
+        System.out.println("ricerca finita");
+        return article == null;
+
+    }
+
+    private Article findByPrimaryKey(String name, String owner) throws Exception
+    {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        Article article = null;
+        ResultSet result = null;
+        final String query = "select * from ARTICLES.Articolo where NOME=? AND PROPRIETARIO=?";
+        //final String query = "select * from USERS.UtenteRegistrato";
+
+
+        try{
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            statement.setString(1, name);
+            statement.setString(2, owner);
+            result = statement.executeQuery();
+
+            if (result.next()) {
+
+                article = ArticleFactory.getInstance().getArticle();
+
+                article.setNome(result.getString("NOME"));
+                article.setProprietario(result.getString("PROPRIETARIO"));
+                //user.setName(result.getString("NOME"));
+                System.out.println("articolo già presente nel database");
+
+            } else {
+                return null;
+            }
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+
+        }
+        return article;
+
     }
 
 }

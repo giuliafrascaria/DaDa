@@ -52,10 +52,7 @@ public class PrivateDBcontroller extends DatabaseController
             {
                 connection2.close();
             }
-
         }
-
-
     }
 
 

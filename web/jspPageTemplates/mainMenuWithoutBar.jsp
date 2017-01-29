@@ -13,7 +13,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="home.jsp">Home</a></li>
                     <li><a href="ricerca.jsp">Ricerca avanzata</a></li>
-                    <li><a href="#">Vendi</a></li>
+                    <li><a href="insertArticle.jsp">Vendi</a></li>
                     <li><a href="dona.jsp">Dona</a></li>
                     <li><a href="recensione1.jsp">Recensisci</a></li>
                     <li><a href="aiuto.jsp">Aiuto</a></li>

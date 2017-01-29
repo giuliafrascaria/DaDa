@@ -11,7 +11,7 @@ import entity.articles.*;
  * <p>
  */
 
-class ArticleFactory {
+public class ArticleFactory {
 
     //Singleton
     private static ArticleFactory instance = new ArticleFactory();
@@ -19,11 +19,11 @@ class ArticleFactory {
     private ArticleFactory() {
     }
 
-    static ArticleFactory getInstance(){
+    public static ArticleFactory getInstance(){
         return instance;
     }
 
-    Article getArticle(){
+    public Article getArticle(){
         return new Article();
     }
     Book getBook(){

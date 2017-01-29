@@ -16,8 +16,23 @@
         response.sendRedirect("login.jsp");
         return;
     }
-%>
 
+    if(request.getParameter("submit") != null){
+%>
+        <%! int result ;%>
+<%
+            System.out.println("zono cvi");
+        System.out.println(ArticleBean.getNome());
+        System.out.println(ArticleBean.getQuantita());
+        System.out.println(ArticleBean.getPrezzo());
+        ArticleBean.setProprietario(UserBean.getEmail());
+        result = ArticleBean.insert();
+        if (result == 1)
+        {
+            response.sendRedirect("home.jsp");
+        }
+    }
+%>
 <html>
 <head>
     <title>DaDa - Vendi un prodotto</title>
@@ -30,13 +45,26 @@
 <jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
 
 
+
+<%if (request.getParameter("submit") != null) {
+    if(result == 2) {%>
+<div class="alert alert-danger" role="alert">Missing fields found</div><%
+    }if (result == 3) {%>
+<div class="alert alert-danger" role="alert">An error occurred, please try again later</div><%
+    }if (result == 4) {%>
+<div class="alert alert-danger" role="alert">Un articolo con questo nome è già registrato, se ne hai due copie incrementane la quantità, altrimenti inserisci un nome più specifico</div><%
+        }
+    }%>
+
+
 <form action="insertArticle.jsp" name="myform" method="post">
     <div style="text-align: center">
         <br>
         <h2>Dati obbligatori:</h2>
         <br>
-        <label for="nome">Nome del prodotto*</label> <br> <input name="nome" type="text" id="nome" ><br>
-        <label for="prezzo">Prezzo*</label> <br> <input name="prezzo" type="number" id="prezzo" ><br>
+        <label for="nome">Nome del prodotto*</label> <br> <input name="nome" type="text" id="nome" class="extendedInput"><br>
+        <label for="prezzo">Prezzo*</label> <br> <input name="prezzo" type="text" id="prezzo" class="extendedInput"><br>
+        <label for="quantita">Quantità*</label> <br> <input name="quantita" type="text" id="quantita" class="extendedInput"><br>
         <%--<button id="selectFile" onclick="return selectFileClick();" ></button>--%>
 
         <br>
@@ -85,7 +113,7 @@
     </div>
 
     <div style="text-align: center; padding: 10px">
-        <input name="inserisci" type="submit" id="inserisci" value="Inserisci">
+        <input name="submit" type="submit" id="submit" value="Inserisci">
     </div>
 </form>
 
