@@ -12,7 +12,7 @@
     <title>DaDa - HOMEPAGE </title>
     <jsp:include page="jspPageTemplates/head.jsp" flush="true" />
 
-
+    <link rel="stylesheet" href="fade-slider.css">
 </head>
 <body>
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
@@ -20,42 +20,30 @@
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true"/>
 
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
-<div>
-    <div style="text-align: center" class="container">
-        <div class='slider'>
-            <div class='slide1'></div>
-            <div class='slide2'></div>
-            <div class='slide3'></div>
-        </div>
-    </div>
+
+
+<div class="slides">
+    <ul> <!-- slides -->
+        <li><img src="img/intro1(dada).jpg" alt="image01" />
+            <div>Benvenuto in DaDa</div>
+        </li>
+        <li><img src="img/intro2(compra).jpg" alt="image02" />
+            <div>Compra l'articolo che desideri</div>
+        </li>
+        <li><img src="img/intro3(vendi).jpg" alt="image03" />
+            <div>Fai affari</div>
+        </li>
+        <li><img src="img/intro4(dona).jpg" alt="image04" />
+            <div>Dona</div>
+        </li>
+    </ul>
 </div>
 
 
 
 
 
-
 <jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
-
-<script>
-    var myIndex = 0;
-    carousel();
-
-    function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}
-        x[myIndex-1].style.display = "block";
-        setTimeout(carousel, 2000); // Change image every 2 seconds
-    }
-</script>
-
-<script src="jspPageTemplates/js/sliderImages.js"></script>
-
 
 </body>
 </html>

@@ -1042,7 +1042,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
  }
 
 .extendedInput:focus {
-    width: 50%;
+    width: 75%;
 }
 
 #informatica {display:inline-block;margin-right:10px; font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px;color: white;}
@@ -1106,37 +1106,40 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     height: 500px;
     width: 300px;
 }
+/*
 
-.slider {
+.slider3 {
     max-width: 300px;
     height: 200px;
     margin: 20px auto;
     position: relative;
 }
-.slide1,.slide2,.slide3,.slide4,.slide5 {
+.slide1,.slide2,.slide3{
     position: absolute;
     width: 100%;
     height: 100%;
 }
+
 .slide1 {
-    background: url(img/intro1.jpg)no-repeat center;
+    background: url(img/DaDalogo.png)no-repeat center;
     background-size: cover;
     animation:fade 8s infinite;
     -webkit-animation:fade 8s infinite;
 
 }
 .slide2 {
-    background: url(img/intro2.jpg)no-repeat center;
+    background: url(img/dona2.jpg)no-repeat center;
     background-size: cover;
     animation:fade2 8s infinite;
     -webkit-animation:fade2 8s infinite;
 }
 .slide3 {
-    background: url(img/intro3.jpg)no-repeat center;
+    background: url(img/dona3.jpg) no-repeat center;
     background-size: cover;
-    animation:fade3 8s infinite;
-    -webkit-animation:fade3 8s infinite;
+    animation: fade3 8s infinite;
+    -webkit-animation: fade3 8s infinite;
 }
+
 @keyframes fade
 {
     0%   {opacity:1}
@@ -1158,6 +1161,8 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
     66.666% { opacity: 1}
     100% { opacity: 0}
 }
+*/
+
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------*/

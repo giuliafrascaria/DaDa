@@ -62,9 +62,14 @@ public class ReviewBean {
                 if (ArticlesController.getInstance().sendReview(testo, articolo, utente, rating, proprietario) == 0)
                     return false;
             }
-            else{
+            else if(kind==1){
                 System.out.println("entro in warning");
                 if (DatabaseController.getInstance().setWarningUser(testo, proprietario, utente) == 0)
+                    return false;
+            }
+            else{
+                System.out.println("entro in warning articolo");
+                if (ArticlesController.getInstance().sendWarning(testo,proprietario , utente, articolo) == 0)
                     return false;
             }
         } catch (ClassNotFoundException e) {

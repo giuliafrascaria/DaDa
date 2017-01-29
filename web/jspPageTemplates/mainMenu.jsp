@@ -20,7 +20,7 @@
                     <li onclick="showSlide()"><a>Ricerca</a></li>
                     <li><a href="ricerca.jsp">Ricerca avanzata</a></li>
                     <li><a href="insertArticle.jsp">Vendi</a></li>
-                    <li><a href="#">Dona</a></li>
+                    <li><a href="dona.jsp">Dona</a></li>
                     <li><a href="recensione1.jsp">Recensisci</a></li>
                     <li><a href="#">Aiuto</a></li>
                 </ul>
