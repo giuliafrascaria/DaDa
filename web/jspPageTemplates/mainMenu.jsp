@@ -22,7 +22,7 @@
                     <li><a href="insertArticle.jsp">Vendi</a></li>
                     <li><a href="dona.jsp">Dona</a></li>
                     <li><a href="recensione1.jsp">Recensisci</a></li>
-                    <li><a href="#">Aiuto</a></li>
+                    <li><a href="aiuto.jsp">Aiuto</a></li>
                 </ul>
                 <div class="add-to-cart-link"  style="display: none" id="product-big-title-area">
                     <div class="container">
