@@ -1,7 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="entity.articles.Article" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
+<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
 <html>
 <head>
     <title>Successo</title>

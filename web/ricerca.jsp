@@ -18,7 +18,7 @@
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
 <jsp:setProperty name="ArticleBean" property="*"/>
-<jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
+<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
 
 <form action="success.jsp" name="myform" method="post">
     <div style="text-align: center">

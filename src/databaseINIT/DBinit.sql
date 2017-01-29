@@ -155,6 +155,14 @@ CREATE TABLE ARTICLES.acquisti(
   FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL)
 );
 
+CREATE TABLE ARTICLES.wishlist(
+  UTENTE           VARCHAR,
+  ARTICOLO         VARCHAR,
+  FOREIGN KEY (ARTICOLO) REFERENCES ARTICLES.articolo(NOME),
+  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL),
+  PRIMARY KEY (UTENTE, ARTICOLO)
+);
+
 /*---------------------------------------------------------------------------first values*/
 
 
