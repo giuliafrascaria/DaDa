@@ -370,7 +370,7 @@ public class ArticleBean implements Serializable  {
 
     }
 
-/*    public void reset(){
+    public void reset(){
         nome = "";
         proprietario = "";
         editore = "";
@@ -385,8 +385,7 @@ public class ArticleBean implements Serializable  {
         tipoArticolo = "";
         radioB = "";
         lista = null;
-        image = "";
-    }*/
+    }
 }
 
 
