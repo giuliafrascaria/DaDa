@@ -7,7 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
-<jsp:useBean id="WalletBean" scope="request" class="javabean.WalletBean"/>
+
+<jsp:useBean id="WalletBean" scope="session" class="javabean.WalletBean"/>
+<jsp:setProperty name="WalletBean" property="*"/>
 
 
 <%
@@ -15,9 +17,11 @@
 
     <%! float result ;%>
     <%
+        System.out.println("sto per incrementare il bilancio");
         WalletBean.setBalance(UserBean.getBalance());
+        WalletBean.setUser(UserBean.getEmail());
         result = WalletBean.incrementBalance();
-        if (result == 1)
+        if (result > 0)
         {
             UserBean.setBalance(result);
             response.sendRedirect("home.jsp");
@@ -34,7 +38,7 @@
 
 <jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
 <jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
-<jsp:include page="jspPageTemplates/mainMenu.jsp" flush="true" />
+<jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
 <div style="text-align: center">
 

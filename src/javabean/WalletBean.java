@@ -1,5 +1,7 @@
 package javabean;
 
+import control.PrivateDBcontroller;
+
 /**
  * Created by giogge on 30/01/17.
  */
@@ -8,11 +10,20 @@ package javabean;
 public class WalletBean {
 
     private float balance, importo;
+    private String user;
 
     public float incrementBalance()
     {
-        float newBalance = balance+importo;
-        return newBalance;
+        try {
+            float newBalance = balance+importo;
+            PrivateDBcontroller.getOurInstance().addMoney(user, newBalance);
+            return newBalance;
+        }
+        catch (Exception e)
+        {
+            return 0;
+        }
+
         //aggiorna nel DB
     }
 
@@ -30,5 +41,13 @@ public class WalletBean {
 
     public void setImporto(float importo) {
         this.importo = importo;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }
