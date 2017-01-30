@@ -9,6 +9,7 @@ public class Article {
     private String nome;
     private float prezzo;
     private String proprietario;
+    private String image;
     private int quantità;
 
 
@@ -42,5 +43,13 @@ public class Article {
 
     public void setQuantità(int quantità) {
         this.quantità = quantità;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = String.valueOf(image) + ".jpg";
     }
 }

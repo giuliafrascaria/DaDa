@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="logo">
-                    <h1><a href="index.html">DaDa</a></h1>
+                    <h1><a href="index.jsp">DaDa</a></h1>
                 </div>
             </div>
 

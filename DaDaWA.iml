@@ -33,26 +33,17 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/mysql-connector-java-5.0.8" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/mysql-connector-java-5.0.8/src" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/mysql-connector-java-5.0.8" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/servlet-api.jar!/" />
+          <root url="jar://$MODULE_DIR$/apache-tomcat-8.5.6/lib/postgresql-9.4.1210.jre6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>
