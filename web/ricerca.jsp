@@ -6,6 +6,18 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
+<jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
+<jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
+
+<jsp:setProperty name="ArticleBean" property="*"/>
+<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
+
+<%
+    ArticleBean.reset();
+%>
+
+
 <html>
 <head>
     <title>Ricerca</title>
@@ -13,12 +25,7 @@
 </head>
 
 <body>
-<jsp:include page="jspPageTemplates/headerArea.jsp" flush="true" />
-<jsp:include page="jspPageTemplates/brandingArea.jsp" flush="true" />
-<jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
-<jsp:setProperty name="ArticleBean" property="*"/>
-<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
 
 <form action="success.jsp" name="myform" method="post">
     <div style="text-align: center">
