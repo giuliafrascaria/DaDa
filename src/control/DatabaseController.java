@@ -258,4 +258,18 @@ public class DatabaseController {
         return articoli;
     }
 
+    public boolean decreaseQuantity(String articleName, String proprietario, int quantitatot){
+        String sql = "UPDATE ARTCILES.articolo SET QUANTITA='"+ quantitatot+ "' WHERE NOME = '"+ articleName+"' AND PROPRIETARIO = '"+proprietario+"'";
+        System.out.println(sql);
+        try{
+            Statement stmt = provider.getConnection().createStatement();
+            stmt.executeUpdate(sql);
+            System.out.println("successo");
+        } catch (SQLException e) {
+            System.out.println("fallimento");
+            return false;
+        }
+        return true;
+    }
+
 }

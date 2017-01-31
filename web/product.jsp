@@ -1,18 +1,41 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: giogge
-  Date: 26/01/17
-  Time: 18:49
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="ArticleBean" scope="session" class="javabean.ArticleBean"/>
+<jsp:setProperty name="ArticleBean" property="*"/>
+
+<jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
+
+<jsp:useBean id="BuyArticleBean" scope="session" class="javabean.BuyArticleBean"/>
+<jsp:setProperty name="BuyArticleBean" property="*"/>
+
+
+
+<%
+    if(request.getParameter("submit") != null) {
+        if(UserBean.getEmail() == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+        BuyArticleBean.setProprietario(ArticleBean.getProprietario());
+        BuyArticleBean.setNome(UserBean.getEmail());
+        BuyArticleBean.setPrezzo(Float.parseFloat(ArticleBean.getPrezzo()));
+        BuyArticleBean.setPrezzocorrente(UserBean.getBalance());
+        BuyArticleBean.setQuantitatot(Integer.parseInt(ArticleBean.getQuantita()));
+        BuyArticleBean.setArticolo(ArticleBean.getNome());
+
+        if(BuyArticleBean.SpendYourMoney())
+        {
+            response.sendRedirect("home.jsp");
+        }
+
+    }
+%>
 <html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eElectronics - HTML eCommerce Template</title>
+    <title>DaDa- Articolo</title>
 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -53,51 +76,45 @@
                 <div class="product-content-right">
                     <div class="product-breadcroumb">
                         <a href="home.jsp">Home</a>
-                        <a href="success.jsp">Category Name</a>
-                        <a href="#">Sony Smart TV - 2015</a>
+                        <a href="success.jsp">Ricerca</a>
+                        <a href="#"><%=ArticleBean.getNome()%></a>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="product-images">
                                 <div class="product-main-img">
-                                    <img src="img/product-2.jpg" alt="">
+                                    <img src="img/<%=ArticleBean.getImageName()%>" alt="">
                                 </div>
 
-                                <div class="product-gallery">
-                                    <img src="img/product-thumb-1.jpg" alt="">
-                                    <img src="img/product-thumb-2.jpg" alt="">
-                                    <img src="img/product-thumb-3.jpg" alt="">
-                                    <img src="img/product-thumb-4.jpg" alt="">
-                                </div>
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="product-inner">
-                                <h2 class="product-name">Sony Smart TV - 2015</h2>
+                                <h2 class="product-name"><%=ArticleBean.getNome()%></h2>
                                 <div class="product-inner-price">
-                                    <ins>$700.00</ins> <del>$800.00</del>
+                                    <ins>$<%=ArticleBean.getPrezzo()%></ins> <%--<del>$800.00</del>--%>
                                 </div>
 
-                                <form action="" class="cart">
+                                <form action="product.jsp">
                                     <div class="quantity">
-                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantitaBuy" min="1" step="1" id="quantita">
                                     </div>
-                                    <button class="add_to_cart_button" type="submit">Add to cart</button>
+                                    <button class="add_to_cart_button" type="submit" name ="submit" id="submit" value="submit">Compra tramite DaDa</button>
                                 </form>
 
                                 <div role="tabpanel">
                                     <ul class="product-tab" role="tablist">
-                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Descrizione</a></li>
+                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recensioni</a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                            <h2>Product Description</h2>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta. Quisque magna arcu, blandit quis felis vehicula, feugiat gravida diam. Nullam nec turpis ligula. Aliquam quis blandit elit, ac sodales nisl. Aliquam eget dolor eget elit malesuada aliquet. In varius lorem lorem, semper bibendum lectus lobortis ac.</p>
+                                            <h2>Descrizione del prodotto</h2>
+                                            <p>Questa è una descrizione di prova. in future release verrà inserito nel database un campo descrizione che permette all'utente di visualizzare la descrizione dell'articolo. Momentaneamente per ciascun prodotto viene riportato il seguente testo di prova</p>
 
-                                            <p>Mauris placerat vitae lorem gravida viverra. Mauris in fringilla ex. Nulla facilisi. Etiam scelerisque tincidunt quam facilisis lobortis. In malesuada pulvinar neque a consectetur. Nunc aliquam gravida purus, non malesuada sem accumsan in. Morbi vel sodales libero.</p>
+                                            <p>Ci scusiamo per il disagio ma ricordiamo che il sito è in versione non commerciale. Non può essere venduto e non ha fini di lucro. In una eventuale versione finale, ciascuna mancanza verrà colmata con la stessa cura posta nelle altre sezioni.</p>
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="profile">
                                             <h2>Reviews</h2>

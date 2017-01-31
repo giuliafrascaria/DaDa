@@ -1,11 +1,10 @@
 package control;
 
 
+import entity.articles.Electronics;
 import entity.users.PrivateUser;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class PrivateDBcontroller extends DatabaseController
 {
@@ -55,7 +54,6 @@ public class PrivateDBcontroller extends DatabaseController
         }
     }
 
-
     public PrivateUser findUser(String email) throws Exception
     {
         Connection connection = null;
@@ -101,5 +99,49 @@ public class PrivateDBcontroller extends DatabaseController
         }
         System.out.println("nome utente: " + user.getName());
         return user;
+    }
+
+    public float addMoney(String email, float money) throws Exception
+    {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        PrivateUser user = null;
+        ResultSet result = null;
+        final String query = "UPDATE USERS.Privato SET SALDO=? WHERE EMAIL=?";
+        //final String query = "select * from USERS.UtenteRegistrato";
+
+        try{
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            statement.setFloat(1, money);
+            statement.setString(2, email);
+
+            statement.executeUpdate();
+        }finally{
+
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+        }
+        return money;
+    }
+
+    public boolean removeMoney(String user, float newbalance)
+    {
+        String sql = "UPDATE USERS.Privato SET SALDO='"+ newbalance +"' WHERE EMAIL = '"+ user+"'";
+        try{
+            Statement stmt = provider.getConnection().createStatement();
+            System.out.println("successo");
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("fallimento");
+            return false;
+        }
+        return true;
     }
 }
