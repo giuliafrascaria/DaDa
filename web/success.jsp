@@ -32,13 +32,13 @@
                     <div >
                         <img src="img/<%= anA.getImage() %>" alt="" style="border-radius: 10px; height: 300px; width: 300px">
                     </div>
-                    <h2><a href="article.jsp"> <%= anA.getNome() %> </a></h2>
+                    <h2><%= anA.getNome() %> </a></h2>
                     <div class="product-carousel-price">
                         <ins>$<%= anA.getPrezzo() %></ins> <del>$<%= anA.getPrezzo()*2 %></del>
                     </div>
 
                     <div class="product-option-shop">
-                        <input type="submit" name = "submit" value="Vai alla pagina" >
+                        <input type="submit" name = "submit" value="Vai alla pagina">
                     </div>
                 </div>
             </form>

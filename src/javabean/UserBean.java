@@ -5,6 +5,7 @@ package javabean;
  */
 
 import control.DatabaseController;
+import control.PrivateDBcontroller;
 import entity.articles.Article;
 import entity.users.PrivateUser;
 
@@ -141,4 +142,5 @@ public class UserBean
         System.out.println("ritorno la lista");
         return lista;
     }
+
 }
