@@ -2,14 +2,17 @@ package javabean;
 
 
 import control.CorporateDBcontroller;
+import control.AdminDBController;
 import control.DatabaseController;
 import control.PrivateDBcontroller;
+import entity.users.Admin;
 import entity.users.CorporateUser;
 import entity.users.PrivateUser;
 import entity.users.RegisteredUser;
 import exceptions.IncompleteFormException;
 import exceptions.UserDoNotExistsException;
 import exceptions.WrongPasswordException;
+
 
 public class LoginBean {
 
@@ -99,8 +102,18 @@ public class LoginBean {
                         this.accountType = 2;
                         System.out.println("nome ritrovato: " + user2.getName());
                     }
+
+                    else if(user.getType() == 0) //find admin on my db
+                    {
+                        System.out.println("cerco un'azienda");
+                        Admin admin = AdminDBController.getOurInstance().findAdmin(email);
+                        this.name = admin.getName();
+                        this.accountType = 0;
+                        System.out.println("admin ritrovato: " + admin.getName());
+                    }
                     return 1;
                 }
+
                 else
                 {
                     throw new WrongPasswordException();

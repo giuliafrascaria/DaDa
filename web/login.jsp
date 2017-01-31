@@ -10,14 +10,17 @@
         <%! int result ;%>
 <%
         result = LoginBean.validate();
-        if (result == 1)
-        {
+        if (result == 1) {
+
             UserBean.setName(LoginBean.getName());
             UserBean.setEmail(LoginBean.getEmail());
             UserBean.setAccountType(LoginBean.getAccountType());
             UserBean.setBalance(LoginBean.getBalance());
 
             System.out.println(UserBean.getName());
+            if(LoginBean.getAccountType() == 0){ //root user
+                response.sendRedirect("AdminPage.jsp");
+            }
             response.sendRedirect("home.jsp");
         }
     }

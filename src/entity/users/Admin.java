@@ -5,7 +5,7 @@ package entity.users;
  */
 public class Admin extends RegisteredUser
 {
-    private String name;
+    private String name, surname;
 
     public String getName() {
         return name;
@@ -13,5 +13,17 @@ public class Admin extends RegisteredUser
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    private float balance;
+
+    public Admin() {}
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }
