@@ -11,11 +11,12 @@
 
 
 <%
-    if(request.getParameter("submit") != null) {
+/*    if(request.getParameter("submit") != null) {
+        System.out.println("sono qui dentro");
         if(UserBean.getEmail() == null) {
             response.sendRedirect("login.jsp");
             return;
-        }
+        }*/
         BuyArticleBean.setProprietario(ArticleBean.getProprietario());
         BuyArticleBean.setNome(UserBean.getEmail());
         BuyArticleBean.setPrezzo(Float.parseFloat(ArticleBean.getPrezzo()));
@@ -23,12 +24,12 @@
         BuyArticleBean.setQuantitatot(Integer.parseInt(ArticleBean.getQuantita()));
         BuyArticleBean.setArticolo(ArticleBean.getNome());
 
-        if(BuyArticleBean.SpendYourMoney())
+        /*if(BuyArticleBean.SpendYourMoney())
         {
             response.sendRedirect("home.jsp");
-        }
+        }*/
 
-    }
+/*    }*/
 %>
 <html>
 <head>
@@ -97,7 +98,7 @@
                                     <ins>$<%=ArticleBean.getPrezzo()%></ins> <%--<del>$800.00</del>--%>
                                 </div>
 
-                                <form action="product.jsp">
+                                <form action="acquistoEffettuato.jsp">
                                     <div class="quantity">
                                         <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantitaBuy" min="1" step="1" id="quantita">
                                     </div>

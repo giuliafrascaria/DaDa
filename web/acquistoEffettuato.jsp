@@ -14,7 +14,10 @@
         return;
     }
     else{
-%><%! boolean check; %><%
+        System.out.println("sono qui dentro");
+%>
+        <%! boolean check; %>
+<%
         check = BuyArticleBean.SpendYourMoney();
     }
 
@@ -35,6 +38,7 @@
 <%
     if(check)
     {
+        UserBean.setBalance(UserBean.getBalance() - (BuyArticleBean.getPrezzo()*BuyArticleBean.getQuantitaBuy()));
 %>
 <div style="text-align: center">
     <label style=" font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: black;"> Segnalazione Inviata con Successo</label>

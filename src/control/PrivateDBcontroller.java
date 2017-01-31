@@ -134,6 +134,7 @@ public class PrivateDBcontroller extends DatabaseController
     public boolean removeMoney(String user, float newbalance)
     {
         String sql = "UPDATE USERS.Privato SET SALDO='"+ newbalance +"' WHERE EMAIL = '"+ user+"'";
+        System.out.println(sql);
         try{
             Statement stmt = provider.getConnection().createStatement();
             System.out.println("successo");
