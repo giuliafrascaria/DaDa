@@ -67,12 +67,19 @@ public class BuyArticleBean implements Serializable  {
         return null;
     }
 
-    public boolean SpendYourMoney(){
-        if(quantitaBuy < quantitatot)
+    public boolean SpendYourMoney() {
+        if (quantitaBuy > quantitatot) {
+            System.out.println("quantità richiesta : " + quantitaBuy +"quantità totale : " + quantitaBuy);
             return false;
-        if(prezzocorrente < prezzo*quantitaBuy)
+        }
+        else
+            System.out.println("ok");
+        if (prezzocorrente < prezzo * quantitaBuy){
+            System.out.println("prezzo corrente : " + prezzocorrente + " prezzo da scalare = " + prezzo*quantitaBuy);
             return false;
-
+        }
+        else
+            System.out.println("ok");
         if(PrivateDBcontroller.getOurInstance().removeMoney(nome, (prezzocorrente - prezzo*quantitaBuy)))
             return DatabaseController.getInstance().decreaseQuantity(articolo, proprietario, quantitatot-quantitaBuy);
         else

@@ -259,7 +259,7 @@ public class DatabaseController {
     }
 
     public boolean decreaseQuantity(String articleName, String proprietario, int quantitatot){
-        String sql = "UPDATE ARTCILES.articolo SET QUANTITA='"+ quantitatot+ "' WHERE NOME = '"+ articleName+"' AND PROPRIETARIO = '"+proprietario+"'";
+        String sql = "UPDATE ARTICLES.articolo SET QUANTITA='"+ quantitatot+ "' WHERE NOME = '"+ articleName+"' AND PROPRIETARIO = '"+proprietario+"'";
         System.out.println(sql);
         try{
             Statement stmt = provider.getConnection().createStatement();
