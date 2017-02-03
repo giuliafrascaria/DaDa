@@ -33,7 +33,7 @@ public class ArticleBean implements Serializable  {
     private String tipoArticolo = "";
     private String radioB = "";
     private ArrayList<Article> lista;
-    private Part image;
+    private Part image;                             //serializzare in base 64 lato client e salvare nel database come long
     private String imageName = "";
     private Article article;
 

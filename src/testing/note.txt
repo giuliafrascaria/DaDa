@@ -1,0 +1,5 @@
+
+
+test di unità, input previsti e casi estremi
+
+test di carico con thread che simulano il comportamento degli utenti di vario tipo che svolgono operazioni sul sito
