@@ -9,10 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 
 
-/**
- * Created by giogge on 07/02/17.
- */
-public class DaDaSystem {
+public class DaDaSystem{
+
     private static DaDaSystem ourInstance = new DaDaSystem();
 
     public static DaDaSystem getInstance() {
@@ -24,6 +22,7 @@ public class DaDaSystem {
 
     public RegisteredUser findByPrimaryKey(String userID)
     {
+
         RegisteredUser user = null;
         try {
             user = DatabaseController.getInstance().findByPrimaryKey(userID);
@@ -44,7 +43,6 @@ public class DaDaSystem {
             e.printStackTrace();
         }
         return user;
-
     }
 
     public CorporateUser findCorporateUser(String email)
@@ -56,6 +54,30 @@ public class DaDaSystem {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public PrivateUser saveDataPrivate(String name, String email, String surname, String pwd, int type)
+    {
+        PrivateUser user;
+        user = UserFactory.getInstance().createUser();
+
+        user.setName(name);
+        user.setSurname(surname);
+        user.setEmail(email);
+        user.setPwd(pwd);
+        user.setType(type);
+
+        return user;
+    }
+
+    public boolean checkUserPriv(String mail) throws Exception
+    {
+        return DatabaseController.getInstance().checkUser(mail);
+    }
+
+    public void addUserPriv(PrivateUser newUser) throws Exception
+    {
+        PrivateDBcontroller.getOurInstance().addUser(newUser);
     }
 
     public void addArticle(Article article) throws Exception
