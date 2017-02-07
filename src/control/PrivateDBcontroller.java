@@ -3,7 +3,10 @@ package control;
 
 import entity.articles.Electronics;
 import entity.users.PrivateUser;
+import entity.users.RegisteredUser;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.*;
 
 public class PrivateDBcontroller extends DatabaseController
@@ -53,6 +56,7 @@ public class PrivateDBcontroller extends DatabaseController
             }
         }
     }
+
 
     public PrivateUser findUser(String email) throws Exception
     {
