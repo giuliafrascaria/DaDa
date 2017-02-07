@@ -16,8 +16,6 @@ public class UserFactory
 
     private UserFactory() {}
 
-    public RegisteredUser createRegisteredUser(){return new RegisteredUser();}
-
     public PrivateUser createUser()
     {
         return new PrivateUser();
