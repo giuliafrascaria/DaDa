@@ -2,6 +2,7 @@ package javabean;
 
 
 import control.ArticlesController;
+import control.DaDaSystem;
 import control.DatabaseController;
 
 public class ReviewBean {
@@ -64,7 +65,7 @@ public class ReviewBean {
             }
             else if(kind==1){
                 System.out.println("entro in warning");
-                if (DatabaseController.getInstance().setWarningUser(testo, proprietario, utente) == 0)
+                if (DaDaSystem.getInstance().setWarningUser(testo, proprietario, utente) == 0)
                     return false;
             }
             else{

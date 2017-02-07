@@ -10,11 +10,12 @@ public class UserFactory
 {
 
     private static UserFactory ourInstance = new UserFactory();
+
     public static UserFactory getInstance() {
         return ourInstance;
     }
 
-    private UserFactory() {}
+    private UserFactory(){}
 
     public PrivateUser createUser()
     {

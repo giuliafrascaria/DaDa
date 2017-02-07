@@ -1,5 +1,6 @@
 package javabean;
 
+import control.DaDaSystem;
 import control.PrivateDBcontroller;
 
 /**
@@ -16,7 +17,7 @@ public class WalletBean {
     {
         try {
             float newBalance = balance+importo;
-            PrivateDBcontroller.getOurInstance().addMoney(user, newBalance);
+            DaDaSystem.getInstance().addMoney(user, newBalance);
             return newBalance;
         }
         catch (Exception e)
