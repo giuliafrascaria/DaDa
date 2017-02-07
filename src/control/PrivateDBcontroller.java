@@ -63,7 +63,6 @@ public class PrivateDBcontroller extends DatabaseController
         final String query = "select * from USERS.Privato where EMAIL=?";
         //final String query = "select * from USERS.UtenteRegistrato";
 
-
         try{
             connection = provider.getConnection();
 

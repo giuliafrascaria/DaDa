@@ -173,7 +173,7 @@ public class DatabaseController {
 
         PreparedStatement statement = null;
 
-        final String insert = "INSERT INTO USERS.UtenteRegistrato(EMAIL, ACCOUNTTYPE, PASSWORD) values (?, ?, ?)";
+        final String insert = "INSERT INTO USERS.UtenteRegistrato(EMAIL, ACCOUNTTYPE, PASSWORD, ISVALID) values (?, ?, ?, FALSE )";
 
         try
         {
