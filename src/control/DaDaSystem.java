@@ -147,4 +147,8 @@ public class DaDaSystem{
         return PrivateDBcontroller.getOurInstance().addMoney(email, money);
     }
 
+    public boolean addAcquisto(String nome, String proprietario, String articolo) {
+        System.out.println("proprietario = " + proprietario);
+        return PrivateDBcontroller.getOurInstance().addAcquisto(nome, proprietario, articolo);
+    }
 }

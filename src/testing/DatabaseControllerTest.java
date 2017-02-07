@@ -4,11 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.After;
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.junit.Assert.*;
 
-/**
- * Created by giogge on 07/02/17.
- */
+
 public class DatabaseControllerTest {
     @Before
     public void setUp() throws Exception {

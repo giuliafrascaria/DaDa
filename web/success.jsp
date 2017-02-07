@@ -25,7 +25,7 @@
             <form action="product.jsp" name="myform">
                 <input name="nome" type="hidden" value="<%=anA.getNome()%>">
                 <input name="imageName" type="hidden" value="<%=anA.getImage()%>">
-                <input name="proprietario" type="hidden" value="<%=anA.getProprietario()%>">
+                <input name="proprietario" type="hidden" value="<%=anA.getProprietario().getEmail()%>">
                 <input name="quantita" type="hidden" value="<%=anA.getQuantità()%>">
                 <input name="prezzo" type="hidden" value="<%=anA.getPrezzo()%>">
                 <div class="single-shop-product">

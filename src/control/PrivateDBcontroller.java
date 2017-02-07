@@ -144,4 +144,20 @@ public class PrivateDBcontroller extends DatabaseController
         }
         return true;
     }
+
+    public boolean addAcquisto(String nome, String proprietario, String articolo) {
+        String sql = "INSERT INTO ARTICLES.acquisti (UTENTE, ARTICOLO, PROPRIETARIO) VALUES ('" +
+                nome + "', '" + articolo + "', '" +
+                proprietario + "')";
+
+        System.out.println(sql);
+        try {
+            Statement stmt = provider.getConnection().createStatement();
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("errore nell'inserimento dell'acquisto");
+            return false;
+        }
+        return true;
+    }
 }

@@ -82,7 +82,11 @@ public class BuyArticleBean implements Serializable  {
         else
             System.out.println("ok");
         if(DaDaSystem.getInstance().removeMoney(nome, (prezzocorrente - prezzo*quantitaBuy)))
-            return DaDaSystem.getInstance().decreaseQuantity(articolo.replaceAll("'", "''"), proprietario, quantitatot-quantitaBuy);
+            if(DaDaSystem.getInstance().decreaseQuantity(articolo.replaceAll("'", "''"), proprietario, quantitatot-quantitaBuy)){
+                return DaDaSystem.getInstance().addAcquisto(nome, proprietario, articolo.replaceAll("'", "''"));
+            }
+            else
+                return false;
         else
             return false;
     }
