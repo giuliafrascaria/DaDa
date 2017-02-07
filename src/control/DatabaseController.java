@@ -137,7 +137,8 @@ public class DatabaseController {
 
             if (result.next()) {
 /*                if (user == null) {*/
-                    user = new RegisteredUser();
+                    user = UserFactory.getInstance().createRegisteredUser();
+
                     user.setEmail(result.getString("EMAIL"));
                     user.setPwd(result.getString("PASSWORD"));
                     user.setType(result.getInt("ACCOUNTTYPE"));
@@ -147,6 +148,7 @@ public class DatabaseController {
             } else {
                 return null;
             }
+
         }finally{
             // release resources
             if(result != null){
