@@ -1,5 +1,7 @@
 package entity.articles;
 
+import entity.users.RegisteredUser;
+
 /**
  * @author dandi
  */
@@ -8,7 +10,7 @@ public class Article {
 
     private String nome;
     private float prezzo;
-    private String proprietario;
+    private RegisteredUser proprietario;
     private String image;
     private int quantità;
 
@@ -29,11 +31,11 @@ public class Article {
         this.prezzo = prezzo;
     }
 
-    public String getProprietario() {
+    public RegisteredUser getProprietario() {
         return proprietario;
     }
 
-    public void setProprietario(String proprietario) {
+    public void setProprietario(RegisteredUser proprietario) {
         this.proprietario = proprietario;
     }
 

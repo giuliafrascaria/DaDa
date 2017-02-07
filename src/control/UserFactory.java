@@ -3,6 +3,7 @@ package control;
 
 import entity.users.CorporateUser;
 import entity.users.PrivateUser;
+import entity.users.RegisteredUser;
 
 
 public class UserFactory
@@ -20,6 +21,12 @@ public class UserFactory
         return new PrivateUser();
     }
 
-    public CorporateUser createCorporateUser() {return new CorporateUser();}
+    public CorporateUser createCorporateUser() {
+        return new CorporateUser();
+    }
+
+    public RegisteredUser createRegisteredUser() {
+        return new RegisteredUser();
+    }
 
 }

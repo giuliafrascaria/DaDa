@@ -2,7 +2,10 @@ package javabean;
 
 
 import control.CatalogueController;
+import control.DatabaseController;
+import control.UserFactory;
 import entity.articles.*;
+import entity.users.RegisteredUser;
 import exceptions.ArticleAlreadyPresentException;
 import exceptions.IncompleteFormException;
 import control.ArticleFactory;
@@ -227,7 +230,9 @@ public class ArticleBean implements Serializable  {
 
         article.setNome(this.nome);
         article.setPrezzo(Float.parseFloat(this.prezzo));
-        article.setProprietario(this.proprietario);
+        RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+        ru.setEmail(proprietario);
+        article.setProprietario(ru);
         article.setQuantità(Integer.parseInt(this.quantita));
 
     }
@@ -261,7 +266,9 @@ public class ArticleBean implements Serializable  {
         }
 
         article.setNome(nome);
-        article.setProprietario(proprietario);
+        RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+        ru.setEmail(proprietario);
+        article.setProprietario(ru);
     }
 
     public int insert()
@@ -277,17 +284,17 @@ public class ArticleBean implements Serializable  {
 
                 saveArticle();
                 System.out.println("inserisco");
-                if (CatalogueController.getInstance().checkArticle(nome, proprietario)) {
+                if (DatabaseController.getInstance().checkArticle(nome, proprietario)) {
 
                     System.out.println("articolo non presente");
-                    CatalogueController.getInstance().addArticle(article);
-                    System.out.println("articolo inseritoooooooooooooooooo");
+                    DatabaseController.getInstance().addArticle(article);
+                    System.out.println("articolo inserito");
 
                     if(!(image == null))
                     {
                         //devo ottenere il nome dell'immagine nel db
                         System.out.println("immagine presente");
-                        String imagename = CatalogueController.getInstance().getImageName(nome, proprietario);
+                        String imagename = DatabaseController.getInstance().getImageName(nome, proprietario);
                         System.out.println("salverò immagine con nome " + image);
 
                         OutputStream out = null;
@@ -308,7 +315,6 @@ public class ArticleBean implements Serializable  {
 
                         } catch (FileNotFoundException fne) {
 
-                            System.out.println("ho scazzato");
                             LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}",
                                     new Object[]{fne.getMessage()});
                         } finally {
@@ -326,24 +332,24 @@ public class ArticleBean implements Serializable  {
                             System.out.println("informatica");
                             Electronics electronics = ArticleFactory.getInstance().getElectronics();
                             saveExtraData(electronics);
-                            CatalogueController.getInstance().addElectronics(electronics);
+                            DatabaseController.getInstance().addElectronics(electronics);
                         } else if (radioB.equals("cloth")) {
                             //vestiti
                             System.out.println("vestiti");
                             Clothing clothing = ArticleFactory.getInstance().getClothing();
                             saveExtraData(clothing);
-                            CatalogueController.getInstance().addClothing(clothing);
+                            DatabaseController.getInstance().addClothing(clothing);
                         } else if (radioB.equals("libri")) {
                             //libri
                             System.out.println("libri");
                             Book book = ArticleFactory.getInstance().getBook();
                             saveExtraData(book);
-                            CatalogueController.getInstance().addBook(book);
+                            DatabaseController.getInstance().addBook(book);
                         } else if (radioB.equals("scolastico")) {
                             System.out.println("scolastico");
                             TextBook textBook = ArticleFactory.getInstance().getTextBook();
                             saveExtraData(textBook);
-                            CatalogueController.getInstance().addTextBook(textBook);
+                            DatabaseController.getInstance().addTextBook(textBook);
                         }
                     }
                     System.out.println("inserito articolo");
