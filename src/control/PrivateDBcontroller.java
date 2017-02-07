@@ -72,7 +72,7 @@ public class PrivateDBcontroller extends DatabaseController
 
             if (result.next()) {
 /*                if (user == null) {*/
-                user = new PrivateUser();
+                user = UserFactory.getInstance().createUser();
                 user.setEmail(result.getString("EMAIL"));
                 user.setName(result.getString("NOME"));
                 user.setType(1);

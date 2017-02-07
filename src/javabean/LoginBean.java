@@ -1,15 +1,12 @@
 package javabean;
 
-
-import control.CorporateDBcontroller;
-import control.DatabaseController;
-import control.PrivateDBcontroller;
 import entity.users.CorporateUser;
 import entity.users.PrivateUser;
 import entity.users.RegisteredUser;
 import exceptions.IncompleteFormException;
 import exceptions.UserDoNotExistsException;
 import exceptions.WrongPasswordException;
+import control.DaDaSystem;
 
 public class LoginBean {
 
@@ -75,8 +72,8 @@ public class LoginBean {
             }
 
             // Controllo nel db
-            DatabaseController controller = DatabaseController.getInstance();
-            RegisteredUser user = controller.findByPrimaryKey(this.email);
+            DaDaSystem system = DaDaSystem.getInstance();
+            RegisteredUser user = system.findByPrimaryKey(this.email);
             if(user != null)
             {
                 // Controllo dati di accesso
@@ -85,7 +82,7 @@ public class LoginBean {
                     if(user.getType() == 1)
                     {
                         System.out.println("cerco un privato");
-                        PrivateUser user1 = PrivateDBcontroller.getOurInstance().findUser(email);
+                        PrivateUser user1 = system.findPrivateUser(email);
                         this.name = user1.getName();
                         this.accountType = 1;
                         this.balance = user1.getBalance();
@@ -94,7 +91,7 @@ public class LoginBean {
                     else if(user.getType() == 2)
                     {
                         System.out.println("cerco un'azienda");
-                        CorporateUser user2 = CorporateDBcontroller.getOurInstance().findUser(email);
+                        CorporateUser user2 = system.findCorporateUser(email);
                         this.name = user2.getName();
                         this.accountType = 2;
                         System.out.println("nome ritrovato: " + user2.getName());
