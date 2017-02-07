@@ -1,6 +1,7 @@
 package javabean;
 
 
+import control.DaDaSystem;
 import control.DatabaseController;
 import control.PrivateDBcontroller;
 import javax.servlet.http.Part;
@@ -80,8 +81,12 @@ public class BuyArticleBean implements Serializable  {
         }
         else
             System.out.println("ok");
-        if(PrivateDBcontroller.getOurInstance().removeMoney(nome, (prezzocorrente - prezzo*quantitaBuy)))
-            return DatabaseController.getInstance().decreaseQuantity(articolo, proprietario, quantitatot-quantitaBuy);
+        if(DaDaSystem.getInstance().removeMoney(nome, (prezzocorrente - prezzo*quantitaBuy)))
+            if(DaDaSystem.getInstance().decreaseQuantity(articolo.replaceAll("'", "''"), proprietario, quantitatot-quantitaBuy)){
+                return DaDaSystem.getInstance().addAcquisto(nome, proprietario, articolo.replaceAll("'", "''"));
+            }
+            else
+                return false;
         else
             return false;
     }

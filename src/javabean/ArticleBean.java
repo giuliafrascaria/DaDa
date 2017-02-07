@@ -1,11 +1,11 @@
 package javabean;
 
 
-import control.CatalogueController;
+import control.*;
 import entity.articles.*;
+import entity.users.RegisteredUser;
 import exceptions.ArticleAlreadyPresentException;
 import exceptions.IncompleteFormException;
-import control.ArticleFactory;
 
 import javax.servlet.http.Part;
 import java.io.*;
@@ -33,7 +33,7 @@ public class ArticleBean implements Serializable  {
     private String tipoArticolo = "";
     private String radioB = "";
     private ArrayList<Article> lista;
-    private Part image;
+    private Part image;                             //serializzare in base 64 lato client e salvare nel database come long
     private String imageName = "";
     private Article article;
 
@@ -227,7 +227,9 @@ public class ArticleBean implements Serializable  {
 
         article.setNome(this.nome);
         article.setPrezzo(Float.parseFloat(this.prezzo));
-        article.setProprietario(this.proprietario);
+        RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+        ru.setEmail(proprietario);
+        article.setProprietario(ru);
         article.setQuantità(Integer.parseInt(this.quantita));
 
     }
@@ -261,7 +263,9 @@ public class ArticleBean implements Serializable  {
         }
 
         article.setNome(nome);
-        article.setProprietario(proprietario);
+        RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+        ru.setEmail(proprietario);
+        article.setProprietario(ru);
     }
 
     public int insert()
@@ -277,17 +281,17 @@ public class ArticleBean implements Serializable  {
 
                 saveArticle();
                 System.out.println("inserisco");
-                if (CatalogueController.getInstance().checkArticle(nome, proprietario)) {
+                if (DaDaSystem.getInstance().checkArticle(nome, proprietario)) {
 
                     System.out.println("articolo non presente");
-                    CatalogueController.getInstance().addArticle(article);
-                    System.out.println("articolo inseritoooooooooooooooooo");
+                    DaDaSystem.getInstance().addArticle(article);
+                    System.out.println("articolo inserito");
 
                     if(!(image == null))
                     {
                         //devo ottenere il nome dell'immagine nel db
                         System.out.println("immagine presente");
-                        String imagename = CatalogueController.getInstance().getImageName(nome, proprietario);
+                        String imagename = DaDaSystem.getInstance().getImageName(nome, proprietario);
                         System.out.println("salverò immagine con nome " + image);
 
                         OutputStream out = null;
@@ -308,7 +312,6 @@ public class ArticleBean implements Serializable  {
 
                         } catch (FileNotFoundException fne) {
 
-                            System.out.println("ho scazzato");
                             LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}",
                                     new Object[]{fne.getMessage()});
                         } finally {
@@ -326,24 +329,24 @@ public class ArticleBean implements Serializable  {
                             System.out.println("informatica");
                             Electronics electronics = ArticleFactory.getInstance().getElectronics();
                             saveExtraData(electronics);
-                            CatalogueController.getInstance().addElectronics(electronics);
+                            DaDaSystem.getInstance().addElectronics(electronics);
                         } else if (radioB.equals("cloth")) {
                             //vestiti
                             System.out.println("vestiti");
                             Clothing clothing = ArticleFactory.getInstance().getClothing();
                             saveExtraData(clothing);
-                            CatalogueController.getInstance().addClothing(clothing);
+                            DaDaSystem.getInstance().addClothing(clothing);
                         } else if (radioB.equals("libri")) {
                             //libri
                             System.out.println("libri");
                             Book book = ArticleFactory.getInstance().getBook();
                             saveExtraData(book);
-                            CatalogueController.getInstance().addBook(book);
+                            DaDaSystem.getInstance().addBook(book);
                         } else if (radioB.equals("scolastico")) {
                             System.out.println("scolastico");
                             TextBook textBook = ArticleFactory.getInstance().getTextBook();
                             saveExtraData(textBook);
-                            CatalogueController.getInstance().addTextBook(textBook);
+                            DaDaSystem.getInstance().addTextBook(textBook);
                         }
                     }
                     System.out.println("inserito articolo");

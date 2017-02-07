@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
 <div class="footer-top-area">
@@ -18,21 +19,9 @@
                 </div>
             </div>
 
-            <%--<div class="col-md-3 col-sm-6">
-                <div class="footer-menu">
-                    <h2 class="footer-wid-title">User Navigation </h2>
-                    <ul>
-                        <li><a href="">Cronologia</a></li>
-                        <li><a href="">Wishlist</a></li>
-                        <li><a href="">Vendor contact</a></li>
-                        <li><a href="">Front page</a></li>
-                    </ul>
-                </div>
-            </div>--%>
-
             <div class="col-md-3 col-sm-6">
                 <div class="footer-menu">
-                    <h2 class="footer-wid-title">Categories</h2>
+                    <h2 class="footer-wid-title">Categorie</h2>
                     <ul>
                         <li><a href="">Informatica</a></li>
                         <li><a href="">Libri</a></li>

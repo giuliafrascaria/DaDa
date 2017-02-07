@@ -28,8 +28,6 @@ public class DatabaseController {
         return instance;
     }
 
-    //protected DataSource dataSource;
-
     public ArrayList<Article> searchArticle(String sql, String kind) throws SQLException
     {
 
@@ -48,7 +46,9 @@ public class DatabaseController {
                 if (kind.equals("Book")) {
                     nuovoArticolo = ArticleFactory.getInstance().getBook();
                     nuovoArticolo.setNome(rs.getString("NOME"));
-                    nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
+                    RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                    ru.setEmail(rs.getString("PROPRIETARIO"));
+                    nuovoArticolo.setProprietario(ru);
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
                     nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
@@ -60,7 +60,9 @@ public class DatabaseController {
                 } else if (kind.equals("Electronics")) {
                     nuovoArticolo = ArticleFactory.getInstance().getElectronics();
                     nuovoArticolo.setNome(rs.getString("NOME"));
-                    nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
+                    RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                    ru.setEmail(rs.getString("PROPRIETARIO"));
+                    nuovoArticolo.setProprietario(ru);
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
                     nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
@@ -70,7 +72,9 @@ public class DatabaseController {
                 } else if (kind.equals("Clothing")) {
                     nuovoArticolo = ArticleFactory.getInstance().getClothing();
                     nuovoArticolo.setNome(rs.getString("NOME"));
-                    nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
+                    RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                    ru.setEmail(rs.getString("PROPRIETARIO"));
+                    nuovoArticolo.setProprietario(ru);
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
                     nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
@@ -81,7 +85,9 @@ public class DatabaseController {
                 } else if (kind.equals("TextBook")) {
                     nuovoArticolo = ArticleFactory.getInstance().getTextBook();
                     nuovoArticolo.setNome(rs.getString("NOME"));
-                    nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
+                    RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                    ru.setEmail(rs.getString("PROPRIETARIO"));
+                    nuovoArticolo.setProprietario(ru);
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
                     nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
@@ -91,7 +97,9 @@ public class DatabaseController {
                 } else if (kind.equals("generic")) {
                     nuovoArticolo = ArticleFactory.getInstance().getArticle();
                     nuovoArticolo.setNome(rs.getString("NOME"));
-                    nuovoArticolo.setProprietario(rs.getString("PROPRIETARIO"));
+                    RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                    ru.setEmail(rs.getString("PROPRIETARIO"));
+                    nuovoArticolo.setProprietario(ru);
                     nuovoArticolo.setPrezzo(rs.getFloat("PREZZO"));
                     nuovoArticolo.setQuantità(rs.getInt("QUANTITA"));
                     nuovoArticolo.setImage(rs.getInt("IMMAGINE"));
@@ -137,7 +145,8 @@ public class DatabaseController {
 
             if (result.next()) {
 /*                if (user == null) {*/
-                    user = new RegisteredUser();
+                    user = UserFactory.getInstance().createRegisteredUser();
+
                     user.setEmail(result.getString("EMAIL"));
                     user.setPwd(result.getString("PASSWORD"));
                     user.setType(result.getInt("ACCOUNTTYPE"));
@@ -147,6 +156,7 @@ public class DatabaseController {
             } else {
                 return null;
             }
+
         }finally{
             // release resources
             if(result != null){
@@ -270,6 +280,319 @@ public class DatabaseController {
             return false;
         }
         return true;
+    }
+
+    public void addArticle(Article article) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.Articolo(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, article.getNome());
+            statement.setString(2, article.getProprietario().getEmail());
+            statement.setFloat(3, article.getPrezzo());
+            statement.setInt(4, article.getQuantità());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public void addBook(Book book) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.libro(TITOLO, PROPRIETARIO, NOME, AUTORE, CASA) values (?,?,?,?,?)";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, book.getTitolo());
+            statement.setString(2, book.getProprietario().getEmail());
+            statement.setString(3, book.getNome());
+            statement.setString(4, book.getAutore());
+            statement.setString(4, book.getEditore());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public void addElectronics(Electronics electronics) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.informatica(TIPO, PROPRIETARIO, NOME, MODELLO, MARCA) values (?,?,?,?,? )";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, electronics.getTipo());
+            statement.setString(2, electronics.getProprietario().getEmail());
+            statement.setString(3, electronics.getNome());
+            statement.setString(4, electronics.getModello());
+            statement.setString(5, electronics.getMarca());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public void addClothing(Clothing clothing) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.Abbigliamento(TIPO, PROPRIETARIO, NOME, TAGLIA, MARCA) values (?,?,?,?,?)";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(2, clothing.getTipo());
+            statement.setString(2, clothing.getProprietario().getEmail());
+            statement.setString(3, clothing.getNome());
+            statement.setInt(4, clothing.getTaglia());
+            statement.setString(5, clothing.getMarca());
+
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public void addTextBook(TextBook textBook) throws Exception
+    {
+
+
+        Connection connection = null;
+
+        PreparedStatement statement = null;
+
+        final String insert = "INSERT INTO ARTICLES.Scolastico(MATERIA, PROPRIETARIO, NOME, EDIZIONE) values (?,?,?,?)";
+
+        try
+        {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(insert);
+            statement.setString(1, textBook.getMateria());
+            statement.setString(2, textBook.getProprietario().getEmail());
+            statement.setString(3, textBook.getNome());
+            statement.setString(4, textBook.getEditore());
+
+            statement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if(statement != null)
+            {
+                statement.close();
+            }
+
+            if(connection != null)
+            {
+                connection.close();
+            }
+
+        }
+    }
+
+    public boolean checkArticle(String name, String mail) throws Exception
+    {
+
+        Article article;
+        System.out.println("sto per cercare l'articolo");
+        article = this.findByPrimaryKey(name, mail);
+        System.out.println("ricerca finita");
+        return article == null;
+
+    }
+
+    private Article findByPrimaryKey(String name, String owner) throws Exception
+    {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        Article article = null;
+        ResultSet result = null;
+        final String query = "select * from ARTICLES.Articolo where NOME=? AND PROPRIETARIO=?";
+        //final String query = "select * from USERS.UtenteRegistrato";
+
+
+        try{
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            statement.setString(1, name);
+            statement.setString(2, owner);
+            result = statement.executeQuery();
+
+            if (result.next()) {
+
+                article = ArticleFactory.getInstance().getArticle();
+
+                article.setNome(result.getString("NOME"));
+                RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                ru.setEmail(result.getString("PROPRIETARIO"));
+                article.setProprietario(ru);
+                //user.setName(result.getString("NOME"));
+                System.out.println("articolo già presente nel database");
+
+            } else {
+                return null;
+            }
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+
+        }
+        return article;
+
+    }
+
+    public String getImageName(String name, String owner) throws Exception
+    {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String imageName;
+        ResultSet result = null;
+        final String query = "select IMMAGINE from ARTICLES.Articolo where NOME=? AND PROPRIETARIO=?";
+        //final String query = "select * from USERS.UtenteRegistrato";
+
+
+        try{
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            statement.setString(1, name);
+            statement.setString(2, owner);
+            result = statement.executeQuery();
+
+            if (result.next()) {
+                imageName = result.getString("IMMAGINE");
+                System.out.println("nome immagine: " + imageName);
+
+            } else {
+                return null;
+            }
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+
+        }
+        return imageName;
     }
 
 }

@@ -41,7 +41,7 @@
         UserBean.setBalance(UserBean.getBalance() - (BuyArticleBean.getPrezzo()*BuyArticleBean.getQuantitaBuy()));
 %>
 <div style="text-align: center">
-    <label style=" font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: black;"> Segnalazione Inviata con Successo</label>
+    <label style=" font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: black;"> Acquisto effettuato con Successo</label>
     <form action="home.jsp">
         <input type="submit" name = "submit" value="Torna alla home" >
     </form>
@@ -53,7 +53,7 @@ else
 %>
 <div style="text-align: center">
     <label style=" font-family: 'Titillium Web', sans-serif; font-size: 16px; padding: 12px 20px 12px 40px; color: black;"> C'è stato un problema. <br>
-        Probabilmente hai già inviato una segnalazione per questo articolo</label>
+    Ci scusiamo per il disagio e ti invitiamo e riprovare la transazione</label>
     <form action="home.jsp">
         <input type="submit" name = "submit" value="Torna alla home" >
     </form>

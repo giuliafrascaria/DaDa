@@ -1,8 +1,7 @@
 package javabean;
 
 
-import control.PrivateDBcontroller;
-import control.UserFactory;
+import control.DaDaSystem;
 import entity.users.PrivateUser;
 import exceptions.IncompleteFormException;
 import exceptions.PasswordMismatchException;
@@ -14,7 +13,7 @@ import java.sql.SQLException;
 
 public class RegistrationBean implements Serializable {
 
-    private PrivateDBcontroller dbController = PrivateDBcontroller.getOurInstance();
+    //private PrivateDBcontroller dbController = PrivateDBcontroller.getOurInstance();
 
 
     private String name, surname, email, password, confirmpassword;
@@ -84,24 +83,12 @@ public class RegistrationBean implements Serializable {
 
     private void saveData(String name, String email, String surname, String pwd, int type)
     {
-        user = UserFactory.getInstance().createUser();
-
-        user.setName(name);
-        System.out.println(user.getName());
-        user.setSurname(surname);
-        System.out.println(user.getSurname());
-        user.setEmail(email);
-        System.out.println(user.getEmail());
-        user.setPwd(pwd);
-        System.out.println(user.getPwd());
-        user.setType(type);
-        user.setBalance(balance);
+        user = DaDaSystem.getInstance().saveDataPrivate(name, email, surname, pwd, type);
 
     }
 
     public int validate()
     {
-
         try {
             if(email.equals("") || name.equals("") || password.equals("") || confirmpassword.equals(""))
             {
@@ -112,10 +99,10 @@ public class RegistrationBean implements Serializable {
             {
                 throw new PasswordMismatchException();
             }
-            if (dbController.checkUser(email)) {
+            if (DaDaSystem.getInstance().checkUserPriv(email)) {
 
                 saveData(this.name, this.email, this.surname, this.password, 1);
-                dbController.addUser(this.user);
+                DaDaSystem.getInstance().addUserPriv(this.user);
 
                 return 1;
             }

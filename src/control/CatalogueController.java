@@ -1,6 +1,7 @@
 package control;
 
 import entity.articles.*;
+import entity.users.RegisteredUser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,14 +43,17 @@ public class CatalogueController {
     public  ArrayList<Article> createCatalogue(String nome,  String proprietario,
                                 String tipoArticolo, String editore, String autore, String titolo,
                                      String tipo, String marca, int taglia, String materia,
-                                     int edizione, String modello) throws SQLException {
+                                     int edizione, String modello) throws SQLException
+    {
 
         Article rq = null;
         if (tipoArticolo.equals("Book")) {
             rq = ArticleFactory.getInstance().getBook();
 
             rq.setNome(checkString(nome));
-            rq.setProprietario(checkString(proprietario));
+            RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+            ru.setEmail(proprietario);
+            rq.setProprietario(ru);
             ((Book) rq).setEditore(checkString(editore));
             ((Book) rq).setAutore(checkString(autore));
             ((Book) rq).setTitolo(checkString(titolo));
@@ -58,7 +62,9 @@ public class CatalogueController {
         } else if (tipoArticolo.equals("Electronics")) {
             rq = ArticleFactory.getInstance().getElectronics();
             rq.setNome(checkString(nome));
-            rq.setProprietario(checkString(proprietario));
+            RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+            ru.setEmail(proprietario);
+            rq.setProprietario(ru);
             ((Electronics) rq).setTipo(checkString(tipo));
             ((Electronics) rq).setMarca(checkString(marca));
             ((Electronics) rq).setModello(checkString(modello));
@@ -68,7 +74,9 @@ public class CatalogueController {
             rq = ArticleFactory.getInstance().getClothing();
 
             rq.setNome(checkString(nome));
-            rq.setProprietario(checkString(proprietario));
+            RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+            ru.setEmail(proprietario);
+            rq.setProprietario(ru);
             ((Clothing) rq).setTipo(checkString(tipo));
             ((Clothing) rq).setMarca(checkString(marca));
             if (taglia < 0)
@@ -81,7 +89,9 @@ public class CatalogueController {
             rq = ArticleFactory.getInstance().getTextBook();
 
             rq.setNome(checkString(nome));
-            rq.setProprietario(checkString(proprietario));
+            RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+            ru.setEmail(proprietario);
+            rq.setProprietario(ru);
             ((Book) rq).setEditore(checkString(editore));
             ((Book) rq).setAutore(checkString(autore));
             ((Book) rq).setTitolo(checkString(titolo));
@@ -109,7 +119,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : createCatalogue() , CatalogueController                                                   |
     * --------------------------------------------------------------------------------------------------------*/
-    private ArrayList<Article> getCatalogue(Article rq) throws SQLException {
+    private ArrayList<Article> getCatalogue(Article rq) throws SQLException
+    {
 
         String sql = sqlCreator(rq);
         ArrayList<Article> articoli;
@@ -160,7 +171,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : createCatalogue(), CatalogueController                                                    |
     * --------------------------------------------------------------------------------------------------------*/
-    private String checkString(String string) {
+    private String checkString(String string)
+    {
         String s;
         if(string.contains("''")){
             s = "";
@@ -175,7 +187,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : getCatalogue(), CatalogueController                                                       |
     * --------------------------------------------------------------------------------------------------------*/
-    private String sqlCreator(Article rq){
+    private String sqlCreator(Article rq)
+    {
         int proprietario = 0;
         String sql;
         int isItTheFirst = 0;
@@ -291,7 +304,8 @@ public class CatalogueController {
 *                                                                                                             |
     * Invocata da : getCatalogue(), CatalogueController                                                       |
     * --------------------------------------------------------------------------------------------------------*/
-    private boolean sqlCheck(String sql){
+    private boolean sqlCheck(String sql)
+    {
         return !(sql.equals("SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
                 sql.equals("SELECT * FROM ARTICLES.Abbigliamento, ARTICLES.articolo WHERE ARTICLES.Abbigliamento.NOME = ARTICLES.articolo.NOME AND ARTICLES.Abbigliamento.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
                 sql.equals("SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
@@ -303,7 +317,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : levenshteinCheck(), CatalogueController                                                   |
     * --------------------------------------------------------------------------------------------------------*/
-    private int levenshtein (CharSequence stringa1, CharSequence stringa2) {
+    private int levenshtein (CharSequence stringa1, CharSequence stringa2)
+    {
         int len0 = stringa1.length() + 1;
         int len1 = stringa2.length() + 1;
 
@@ -338,7 +353,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : getCatalogue(), CatalogueController                                                       |
     * --------------------------------------------------------------------------------------------------------*/
-    private ArrayList<Article> levenshteinCheck(String nome) throws SQLException {
+    private ArrayList<Article> levenshteinCheck(String nome) throws SQLException
+    {
         ArrayList<Article> articoliVicini = new ArrayList<Article>();
         String sql = "SELECT * FROM ARTICLES.articolo";
         articoli = DatabaseController.getInstance().searchArticle(sql, "generic");
@@ -354,315 +370,5 @@ public class CatalogueController {
             return articoli;
     }
 
-    public void addArticle(Article article) throws Exception
-    {
-
-
-        Connection connection = null;
-
-        PreparedStatement statement = null;
-
-        final String insert = "INSERT INTO ARTICLES.Articolo(NOME, PROPRIETARIO, PREZZO, QUANTITA, ISVALID) values (?,?,?,?, FALSE )";
-
-        try
-        {
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(insert);
-            statement.setString(1, article.getNome());
-            statement.setString(2, article.getProprietario());
-            statement.setFloat(3, article.getPrezzo());
-            statement.setInt(4, article.getQuantità());
-
-            statement.executeUpdate();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            if(statement != null)
-            {
-                statement.close();
-            }
-
-            if(connection != null)
-            {
-                connection.close();
-            }
-
-        }
-    }
-
-    public void addBook(Book book) throws Exception
-    {
-
-
-        Connection connection = null;
-
-        PreparedStatement statement = null;
-
-        final String insert = "INSERT INTO ARTICLES.libro(TITOLO, PROPRIETARIO, NOME, AUTORE, CASA) values (?,?,?,?,?)";
-
-        try
-        {
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(insert);
-            statement.setString(1, book.getTitolo());
-            statement.setString(2, book.getProprietario());
-            statement.setString(3, book.getNome());
-            statement.setString(4, book.getAutore());
-            statement.setString(4, book.getEditore());
-
-            statement.executeUpdate();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            if(statement != null)
-            {
-                statement.close();
-            }
-
-            if(connection != null)
-            {
-                connection.close();
-            }
-
-        }
-    }
-
-    public void addElectronics(Electronics electronics) throws Exception
-    {
-
-
-        Connection connection = null;
-
-        PreparedStatement statement = null;
-
-        final String insert = "INSERT INTO ARTICLES.informatica(TIPO, PROPRIETARIO, NOME, MODELLO, MARCA) values (?,?,?,?,? )";
-
-        try
-        {
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(insert);
-            statement.setString(1, electronics.getTipo());
-            statement.setString(2, electronics.getProprietario());
-            statement.setString(3, electronics.getNome());
-            statement.setString(4, electronics.getModello());
-            statement.setString(5, electronics.getMarca());
-
-            statement.executeUpdate();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            if(statement != null)
-            {
-                statement.close();
-            }
-
-            if(connection != null)
-            {
-                connection.close();
-            }
-
-        }
-    }
-
-    public void addClothing(Clothing clothing) throws Exception
-    {
-
-
-        Connection connection = null;
-
-        PreparedStatement statement = null;
-
-        final String insert = "INSERT INTO ARTICLES.Abbigliamento(TIPO, PROPRIETARIO, NOME, TAGLIA, MARCA) values (?,?,?,?,?)";
-
-        try
-        {
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(insert);
-            statement.setString(2, clothing.getTipo());
-            statement.setString(2, clothing.getProprietario());
-            statement.setString(3, clothing.getNome());
-            statement.setInt(4, clothing.getTaglia());
-            statement.setString(5, clothing.getMarca());
-
-
-            statement.executeUpdate();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            if(statement != null)
-            {
-                statement.close();
-            }
-
-            if(connection != null)
-            {
-                connection.close();
-            }
-
-        }
-    }
-
-    public void addTextBook(TextBook textBook) throws Exception
-    {
-
-
-        Connection connection = null;
-
-        PreparedStatement statement = null;
-
-        final String insert = "INSERT INTO ARTICLES.Scolastico(MATERIA, PROPRIETARIO, NOME, EDIZIONE) values (?,?,?,?)";
-
-        try
-        {
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(insert);
-            statement.setString(1, textBook.getMateria());
-            statement.setString(2, textBook.getProprietario());
-            statement.setString(3, textBook.getNome());
-            statement.setString(4, textBook.getEditore());
-
-            statement.executeUpdate();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            if(statement != null)
-            {
-                statement.close();
-            }
-
-            if(connection != null)
-            {
-                connection.close();
-            }
-
-        }
-    }
-
-    public boolean checkArticle(String name, String mail) throws Exception
-    {
-
-        Article article;
-        System.out.println("sto per cercare l'articolo");
-        article = this.findByPrimaryKey(name, mail);
-        System.out.println("ricerca finita");
-        return article == null;
-
-    }
-
-    private Article findByPrimaryKey(String name, String owner) throws Exception
-    {
-
-        Connection connection = null;
-        PreparedStatement statement = null;
-        Article article = null;
-        ResultSet result = null;
-        final String query = "select * from ARTICLES.Articolo where NOME=? AND PROPRIETARIO=?";
-        //final String query = "select * from USERS.UtenteRegistrato";
-
-
-        try{
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(query);
-            statement.setString(1, name);
-            statement.setString(2, owner);
-            result = statement.executeQuery();
-
-            if (result.next()) {
-
-                article = ArticleFactory.getInstance().getArticle();
-
-                article.setNome(result.getString("NOME"));
-                article.setProprietario(result.getString("PROPRIETARIO"));
-                //user.setName(result.getString("NOME"));
-                System.out.println("articolo già presente nel database");
-
-            } else {
-                return null;
-            }
-        }finally{
-            // release resources
-            if(result != null){
-                result.close();
-            }
-            // release resources
-            if(statement != null){
-                statement.close();
-            }
-            if(connection  != null){
-                connection.close();
-            }
-
-        }
-        return article;
-
-    }
-
-    public String getImageName(String name, String owner) throws Exception
-    {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        String imageName;
-        ResultSet result = null;
-        final String query = "select IMMAGINE from ARTICLES.Articolo where NOME=? AND PROPRIETARIO=?";
-        //final String query = "select * from USERS.UtenteRegistrato";
-
-
-        try{
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(query);
-            statement.setString(1, name);
-            statement.setString(2, owner);
-            result = statement.executeQuery();
-
-            if (result.next()) {
-                imageName = result.getString("IMMAGINE");
-                System.out.println("nome immagine: " + imageName);
-
-            } else {
-                return null;
-            }
-        }finally{
-            // release resources
-            if(result != null){
-                result.close();
-            }
-            // release resources
-            if(statement != null){
-                statement.close();
-            }
-            if(connection  != null){
-                connection.close();
-            }
-
-        }
-        return imageName;
-    }
 
 }

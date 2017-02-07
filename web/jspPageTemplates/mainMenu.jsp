@@ -16,7 +16,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="home.jsp">Home</a></li>
-                    <li><a href="product.jsp">Compra</a></li>
                     <li onclick="showSlide()"><a>Ricerca</a></li>
                     <li><a href="ricerca.jsp">Ricerca avanzata</a></li>
                     <li><a href="insertArticle.jsp">Vendi</a></li>

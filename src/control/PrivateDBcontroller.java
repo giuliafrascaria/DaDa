@@ -72,7 +72,7 @@ public class PrivateDBcontroller extends DatabaseController
 
             if (result.next()) {
 /*                if (user == null) {*/
-                user = new PrivateUser();
+                user = UserFactory.getInstance().createUser();
                 user.setEmail(result.getString("EMAIL"));
                 user.setName(result.getString("NOME"));
                 user.setType(1);
@@ -140,6 +140,22 @@ public class PrivateDBcontroller extends DatabaseController
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             System.out.println("fallimento");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean addAcquisto(String nome, String proprietario, String articolo) {
+        String sql = "INSERT INTO ARTICLES.acquisti (UTENTE, ARTICOLO, PROPRIETARIO) VALUES ('" +
+                nome + "', '" + articolo + "', '" +
+                proprietario + "')";
+
+        System.out.println(sql);
+        try {
+            Statement stmt = provider.getConnection().createStatement();
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("errore nell'inserimento dell'acquisto");
             return false;
         }
         return true;

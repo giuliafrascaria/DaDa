@@ -4,6 +4,7 @@ package javabean;
  * Created by giogge on 23/01/17.
  */
 
+import control.DaDaSystem;
 import control.DatabaseController;
 import control.PrivateDBcontroller;
 import entity.articles.Article;
@@ -130,7 +131,7 @@ public class UserBean
                 "UPPER(ARTICLES.acquisti.UTENTE) LIKE UPPER('"+ this.email+"')";
         try {
             System.out.println("faccio la ricerca");
-            lista = DatabaseController.getInstance().searchArticle(sql, generic);
+            lista = DaDaSystem.getInstance().searchArticle(sql, generic);
             System.out.println("esco dalla ricerca");
             if(lista.size() == 0) {
                 System.out.println("è a null");

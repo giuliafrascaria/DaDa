@@ -3,6 +3,7 @@ package javabean;
 
 
 import control.CorporateDBcontroller;
+import control.DaDaSystem;
 import control.UserFactory;
 import entity.users.CorporateUser;
 import exceptions.IncompleteFormException;
@@ -14,9 +15,6 @@ import java.sql.SQLException;
 
 
 public class CorpRegistrationBean implements Serializable {
-
-    private CorporateDBcontroller dbController = CorporateDBcontroller.getOurInstance();
-
 
     private String name, owner, email, password, confirmpassword;
 
@@ -105,10 +103,10 @@ public class CorpRegistrationBean implements Serializable {
             {
                 throw new PasswordMismatchException();
             }
-            if (dbController.checkUser(email)) {
+            if (DaDaSystem.getInstance().checkUser(email)) {
 
                 saveData(this.name, this.email, this.owner, this.password, 2);
-                dbController.addUser(this.user);
+                DaDaSystem.getInstance().addUserCorp(this.user);
 
                 return 1;
             }
