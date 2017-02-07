@@ -42,7 +42,8 @@ public class CatalogueController {
     public  ArrayList<Article> createCatalogue(String nome,  String proprietario,
                                 String tipoArticolo, String editore, String autore, String titolo,
                                      String tipo, String marca, int taglia, String materia,
-                                     int edizione, String modello) throws SQLException {
+                                     int edizione, String modello) throws SQLException
+    {
 
         Article rq = null;
         if (tipoArticolo.equals("Book")) {
@@ -109,7 +110,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : createCatalogue() , CatalogueController                                                   |
     * --------------------------------------------------------------------------------------------------------*/
-    private ArrayList<Article> getCatalogue(Article rq) throws SQLException {
+    private ArrayList<Article> getCatalogue(Article rq) throws SQLException
+    {
 
         String sql = sqlCreator(rq);
         ArrayList<Article> articoli;
@@ -160,7 +162,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : createCatalogue(), CatalogueController                                                    |
     * --------------------------------------------------------------------------------------------------------*/
-    private String checkString(String string) {
+    private String checkString(String string)
+    {
         String s;
         if(string.contains("''")){
             s = "";
@@ -175,7 +178,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : getCatalogue(), CatalogueController                                                       |
     * --------------------------------------------------------------------------------------------------------*/
-    private String sqlCreator(Article rq){
+    private String sqlCreator(Article rq)
+    {
         int proprietario = 0;
         String sql;
         int isItTheFirst = 0;
@@ -291,7 +295,8 @@ public class CatalogueController {
 *                                                                                                             |
     * Invocata da : getCatalogue(), CatalogueController                                                       |
     * --------------------------------------------------------------------------------------------------------*/
-    private boolean sqlCheck(String sql){
+    private boolean sqlCheck(String sql)
+    {
         return !(sql.equals("SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
                 sql.equals("SELECT * FROM ARTICLES.Abbigliamento, ARTICLES.articolo WHERE ARTICLES.Abbigliamento.NOME = ARTICLES.articolo.NOME AND ARTICLES.Abbigliamento.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
                 sql.equals("SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
@@ -303,7 +308,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : levenshteinCheck(), CatalogueController                                                   |
     * --------------------------------------------------------------------------------------------------------*/
-    private int levenshtein (CharSequence stringa1, CharSequence stringa2) {
+    private int levenshtein (CharSequence stringa1, CharSequence stringa2)
+    {
         int len0 = stringa1.length() + 1;
         int len1 = stringa2.length() + 1;
 
@@ -338,7 +344,8 @@ public class CatalogueController {
     *                                                                                                         |
     * Invocata da : getCatalogue(), CatalogueController                                                       |
     * --------------------------------------------------------------------------------------------------------*/
-    private ArrayList<Article> levenshteinCheck(String nome) throws SQLException {
+    private ArrayList<Article> levenshteinCheck(String nome) throws SQLException
+    {
         ArrayList<Article> articoliVicini = new ArrayList<Article>();
         String sql = "SELECT * FROM ARTICLES.articolo";
         articoli = DatabaseController.getInstance().searchArticle(sql, "generic");
