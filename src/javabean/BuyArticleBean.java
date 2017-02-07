@@ -81,7 +81,7 @@ public class BuyArticleBean implements Serializable  {
         else
             System.out.println("ok");
         if(PrivateDBcontroller.getOurInstance().removeMoney(nome, (prezzocorrente - prezzo*quantitaBuy)))
-            return DatabaseController.getInstance().decreaseQuantity(articolo, proprietario, quantitatot-quantitaBuy);
+            return DatabaseController.getInstance().decreaseQuantity(articolo.replaceAll("'", "''"), proprietario, quantitatot-quantitaBuy);
         else
             return false;
     }
