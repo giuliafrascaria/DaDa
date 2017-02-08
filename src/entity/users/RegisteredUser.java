@@ -7,6 +7,8 @@ public class RegisteredUser
 
     protected int type;
 
+    private float balance;
+
     public String getEmail()
     {
         return email;
@@ -33,5 +35,13 @@ public class RegisteredUser
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
 }

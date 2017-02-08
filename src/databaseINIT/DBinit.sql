@@ -16,6 +16,7 @@ CREATE TABLE USERS.UtenteRegistrato(
   ACCOUNTTYPE      VARCHAR                ,
   PASSWORD        VARCHAR                ,
   CONTATTO        VARCHAR                ,
+  SALDO           FLOAT          NOT NULL,
   ISVALID         BOOLEAN         NOT NULL,
   PRIMARY KEY (EMAIL)
 );
@@ -36,7 +37,6 @@ CREATE TABLE USERS.Azienda(
 
 CREATE TABLE USERS.Privato(
   NOME            VARCHAR                ,
-  SALDO           FLOAT          NOT NULL,
   COGNOME        VARCHAR                ,
   TELEFONO        VARCHAR                ,
   EMAIL            VARCHAR
@@ -172,9 +172,13 @@ CREATE TABLE ARTICLES.wishlist(
 
 
 /*as users*/
-INSERT INTO USERS.UtenteRegistrato VALUES ('simone@gmail.com', '0', 'simone', '3333333333', TRUE);
-INSERT INTO USERS.UtenteRegistrato VALUES ('giogge@gmail.com', '0', 'giogge', '3333333333', TRUE);
-INSERT INTO USERS.UtenteRegistrato VALUES ('giuliac@gmail.com', '0', 'giulia', '3333333333', TRUE);
+INSERT INTO USERS.UtenteRegistrato VALUES ('simone@gmail.com', '0', 'simone', '3333333333', 0, TRUE);
+INSERT INTO USERS.UtenteRegistrato VALUES ('giogge@gmail.com', '0', 'giogge', '3333333333', 0, TRUE);
+INSERT INTO USERS.UtenteRegistrato VALUES ('giuliac@gmail.com', '0', 'giulia', '3333333333', 0,  TRUE);
+INSERT INTO USERS.UtenteRegistrato VALUES ('a', '1', 'a', '333333333', 0,  TRUE);
+
+INSERT INTO USERS.Privato VALUES ('a', 'a', '333333333', 'a');
+INSERT INTO ARTICLES.articolo VALUES ('cacca', 'a', '10', '1000', TRUE );
 
 
 /*as admin*/
@@ -228,8 +232,8 @@ INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pav
 INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 8', 'simone@gmail.com', '800', '10', TRUE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 8', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('Asus touch', 'simone@gmail.com', '1200', '10', TRUE );
-INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'Asus touch', 'Asus touch', 'Asus');
+INSERT INTO ARTICLES.articolo VALUES ('Asus touch', 'a', '1200', '10', TRUE );
+INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'a', 'Asus touch', 'Asus touch', 'Asus');
 
 
 INSERT INTO ARTICLES.articolo VALUES ('gonna lunga', 'simone@gmail.com', '12', '10', TRUE );
@@ -242,5 +246,6 @@ INSERT INTO ARTICLES.Abbigliamento VALUES ('gonna', 'simone@gmail.com', 'gonna c
 
 INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','Lenovo ThinkPad', 'simone@gmail.com' );
 INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','HP pavilion', 'simone@gmail.com' );
-INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','Asus touch', 'simone@gmail.com' );
+
+INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','Asus touch', 'a' );
 

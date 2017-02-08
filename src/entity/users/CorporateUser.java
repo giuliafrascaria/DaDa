@@ -1,9 +1,13 @@
 package entity.users;
 
 
+import java.util.ArrayList;
+
 public class CorporateUser extends RegisteredUser
 {
     private String name, owner, piva;
+
+    private ArrayList articoliVenduti, articoliinVendita;
 
     public CorporateUser() {}
 

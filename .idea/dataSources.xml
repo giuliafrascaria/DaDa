@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/dada</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - ispw@localhost" uuid="4a677bcb-f0e0-4470-8d22-1fddb2e27c53">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/ispw</jdbc-url>
+    </data-source>
   </component>
 </project>

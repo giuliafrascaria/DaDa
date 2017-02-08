@@ -63,7 +63,13 @@ else
             <li> <div class="shopping-item">
                 <a href="wallet.jsp">Saldo - <span class="cart-amunt">$<jsp:getProperty name="UserBean" property="balance"/></span> <i class="fa fa-shopping-cart"></i></a>
             </div></li>
-        <%}%>
+        <%}
+        else if(UserBean.getAccountType() == 2){
+        %>
+            <li> <div class="shopping-item">
+                <a>Saldo - <span class="cart-amunt">$<jsp:getProperty name="UserBean" property="balance"/></span> <i class="fa fa-shopping-cart"></i></a>
+            </div></li>
+            <%}%>
     </ul>
 </div>
 

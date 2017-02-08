@@ -76,7 +76,6 @@ public class PrivateDBcontroller extends DatabaseController
                 user.setEmail(result.getString("EMAIL"));
                 user.setName(result.getString("NOME"));
                 user.setType(1);
-                user.setBalance(result.getFloat("SALDO"));
                 System.out.println("nome ritrovato: " + user.getName());
 /*                }*/
             } else {
@@ -100,39 +99,11 @@ public class PrivateDBcontroller extends DatabaseController
         return user;
     }
 
-    public float addMoney(String email, float money) throws Exception
-    {
-        Connection connection = null;
-        PreparedStatement statement = null;
-        PrivateUser user = null;
-        ResultSet result = null;
-        final String query = "UPDATE USERS.Privato SET SALDO=? WHERE EMAIL=?";
-        //final String query = "select * from USERS.UtenteRegistrato";
 
-        try{
-            connection = provider.getConnection();
-
-            statement = connection.prepareStatement(query);
-            statement.setFloat(1, money);
-            statement.setString(2, email);
-
-            statement.executeUpdate();
-        }finally{
-
-            // release resources
-            if(statement != null){
-                statement.close();
-            }
-            if(connection  != null){
-                connection.close();
-            }
-        }
-        return money;
-    }
 
     public boolean removeMoney(String user, float newbalance)
     {
-        String sql = "UPDATE USERS.Privato SET SALDO='"+ newbalance +"' WHERE EMAIL = '"+ user+"'";
+        String sql = "UPDATE USERS.UtenteRegistrato SET SALDO='"+ newbalance +"' WHERE EMAIL = '"+ user+"'";
         System.out.println(sql);
         try{
             Statement stmt = provider.getConnection().createStatement();

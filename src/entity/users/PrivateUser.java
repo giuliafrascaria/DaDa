@@ -1,11 +1,13 @@
 package entity.users;
 
 
+import java.util.ArrayList;
+
 public class PrivateUser extends RegisteredUser
 {
     private String name, surname;
 
-    private float balance;
+    private ArrayList articoliAcquistati, articoliVenduti, articoliinVendita;
 
     public PrivateUser() {}
 
@@ -27,11 +29,5 @@ public class PrivateUser extends RegisteredUser
         this.surname = surname;
     }
 
-    public float getBalance() {
-        return balance;
-    }
 
-    public void setBalance(float balance) {
-        this.balance = balance;
-    }
 }

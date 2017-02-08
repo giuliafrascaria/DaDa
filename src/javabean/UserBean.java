@@ -5,8 +5,6 @@ package javabean;
  */
 
 import control.DaDaSystem;
-import control.DatabaseController;
-import control.PrivateDBcontroller;
 import entity.articles.Article;
 import entity.users.PrivateUser;
 

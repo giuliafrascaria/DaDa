@@ -144,7 +144,7 @@ public class DaDaSystem{
     }
 
     public float addMoney(String email, float money) throws Exception{
-        return PrivateDBcontroller.getOurInstance().addMoney(email, money);
+        return DatabaseController.getInstance().addMoney(email, money);
     }
 
     public boolean addAcquisto(String nome, String proprietario, String articolo) {
