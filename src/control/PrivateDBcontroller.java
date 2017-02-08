@@ -26,7 +26,7 @@ public class PrivateDBcontroller extends DatabaseController
 
         PreparedStatement statement2 = null;
 
-        final String insert2 = "INSERT INTO USERS.Privato(NOME, COGNOME, EMAIL, SALDO) values (?,?,?, 0)";
+        final String insert2 = "INSERT INTO USERS.Privato(NOME, COGNOME, EMAIL) values (?,?,?)";
 
         try
         {
@@ -131,6 +131,7 @@ public class PrivateDBcontroller extends DatabaseController
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             System.out.println("errore nell'inserimento dell'acquisto");
+            e.printStackTrace();
             return false;
         }
         return true;
