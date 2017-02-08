@@ -127,5 +127,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="javax.faces-api-2.2" level="project" />
   </component>
 </module>

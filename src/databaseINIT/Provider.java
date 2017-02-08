@@ -49,7 +49,7 @@ public class Provider {
         /*this.DB_URL = "jdbc:postgresql://localhost:5432/ispw";
         this.USER = "superuser";
         this.PASS = "password";*/
-        DB_URL = "jdbc:postgresql://localhost:5432/dada";
+        DB_URL = "jdbc:postgresql://localhost:5432/ispw";
         USER = "postgres";
         PASS = "postgres";
     }

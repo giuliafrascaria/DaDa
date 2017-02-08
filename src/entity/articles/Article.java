@@ -3,7 +3,7 @@ package entity.articles;
 import entity.users.RegisteredUser;
 
 /**
- * @author dandi
+ * @author dandi, v2devnull
  */
 
 public class Article {
@@ -12,11 +12,21 @@ public class Article {
     private float prezzo;
     private RegisteredUser proprietario;
     private String image;
+    private Boolean isvalid;
     private int quantità;
 
+    public Article(String nome, RegisteredUser proprietario, float prezzo, int quantità, Boolean isvalid, String image){}
 
     public String getNome() {
         return nome;
+    }
+
+    public void setValidation(Boolean isvalid){
+        this.isvalid = isvalid;
+    }
+
+    public boolean getValidation(){
+        return isvalid;
     }
 
     public void setNome(String nome) {
