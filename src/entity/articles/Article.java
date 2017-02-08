@@ -17,6 +17,10 @@ public class Article {
 
     public Article(String nome, RegisteredUser proprietario, float prezzo, int quantità, Boolean isvalid, String image){}
 
+    public Article() {
+
+    }
+
     public String getNome() {
         return nome;
     }
