@@ -12,12 +12,12 @@ import java.sql.*;
 public class PrivateDBcontroller extends DatabaseController
 {
     private static PrivateDBcontroller ourInstance = new PrivateDBcontroller();
-    public static PrivateDBcontroller getOurInstance(){return ourInstance;}
+    public static synchronized PrivateDBcontroller getOurInstance(){return ourInstance;}
     private PrivateDBcontroller(){
         super();
     }
 
-    public void addUser(PrivateUser newUser) throws Exception
+    synchronized void addUser(PrivateUser newUser) throws Exception
     {
 
         super.addRegisteredUser(newUser);
@@ -58,7 +58,7 @@ public class PrivateDBcontroller extends DatabaseController
     }
 
 
-    public PrivateUser findUser(String email) throws Exception
+    synchronized PrivateUser findUser(String email) throws Exception
     {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -105,7 +105,7 @@ public class PrivateDBcontroller extends DatabaseController
 
 
 
-    public boolean removeMoney(String user, float newbalance)
+    synchronized boolean removeMoney(String user, float newbalance)
     {
         String sql = "UPDATE USERS.UtenteRegistrato SET SALDO='"+ newbalance +"' WHERE EMAIL = '"+ user+"'";
         System.out.println(sql);
@@ -120,7 +120,7 @@ public class PrivateDBcontroller extends DatabaseController
         return true;
     }
 
-    public boolean addAcquisto(String nome, String proprietario, String articolo) {
+    synchronized boolean addAcquisto(String nome, String proprietario, String articolo) {
         String sql = "INSERT INTO ARTICLES.acquisti (UTENTE, ARTICOLO, PROPRIETARIO) VALUES ('" +
                 nome + "', '" + articolo + "', '" +
                 proprietario + "')";

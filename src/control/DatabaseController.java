@@ -1,12 +1,11 @@
 package control;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 
 import databaseINIT.Provider;
 import entity.articles.*;
-import entity.users.CorporateUser;
-import entity.users.PrivateUser;
 import entity.users.RegisteredUser;
 
 /**
@@ -20,15 +19,15 @@ public class DatabaseController {
     //Singleton
     private static DatabaseController instance = new DatabaseController();
 
-    protected DatabaseController() {
+    DatabaseController() {
     }
 
-    public static DatabaseController getInstance()
+    public static synchronized DatabaseController getInstance()
     {
         return instance;
     }
 
-    public ArrayList<Article> searchArticle(String sql, String kind) throws SQLException
+    synchronized ArrayList<Article> searchArticle(String sql, String kind) throws SQLException
     {
 
         Article nuovoArticolo;
@@ -113,7 +112,7 @@ public class DatabaseController {
         return array;
     }
 
-    public boolean checkUser(String mail) throws Exception
+    synchronized boolean checkUser(String mail) throws Exception
     {
 
         RegisteredUser user;
@@ -125,7 +124,7 @@ public class DatabaseController {
 
     }
 
-    public RegisteredUser findByPrimaryKey(String userID) throws Exception
+    synchronized RegisteredUser findByPrimaryKey(String userID) throws Exception
     {
 
         Connection connection = null;
@@ -176,7 +175,7 @@ public class DatabaseController {
 
     }
 
-    void addRegisteredUser(RegisteredUser newUser) throws SQLException
+    synchronized void addRegisteredUser(RegisteredUser newUser) throws SQLException
     {
 
 
@@ -220,7 +219,7 @@ public class DatabaseController {
 
     }
 
-    boolean setReview(Review review) throws ClassNotFoundException
+    synchronized boolean setReview(Review review) throws ClassNotFoundException
     {
         String sql = "INSERT INTO ARTICLES.recensione (SEGNALAZIONE, UTENTE, ARTICOLO, PROPRIETARIO, TESTO, RAITNG, TOCHECK) VALUES ("+
                 review.isWarning() +", '" + review.getUser()+"', '" +
@@ -238,7 +237,7 @@ public class DatabaseController {
         return true;
     }
 
-    public int setWarningUser(String testo, String proprietario, String utente) throws ClassNotFoundException
+    synchronized int setWarningUser(String testo, String proprietario, String utente) throws ClassNotFoundException
     {
         String sql = "INSERT INTO ARTICLES.segnalazioneUtente (UTENTE, PROPRIETARIO, TESTO, TOCHECK) VALUES ("+
                 "'" + utente +"', '"+ proprietario +"' , '" + testo +
@@ -255,7 +254,7 @@ public class DatabaseController {
         return 1;
     }
 
-    ArrayList<String> getArticles(String sql) throws SQLException, ClassNotFoundException
+    synchronized ArrayList<String> getArticles(String sql) throws SQLException, ClassNotFoundException
     {
         ArrayList<String> articoli = new ArrayList<String>();
         Statement stmt = provider.getConnection().createStatement();
@@ -269,7 +268,7 @@ public class DatabaseController {
         return articoli;
     }
 
-    public boolean decreaseQuantity(String articleName, String proprietario, int quantitatot){
+    synchronized boolean decreaseQuantity(String articleName, String proprietario, int quantitatot){
         String sql = "UPDATE ARTICLES.articolo SET QUANTITA='"+ quantitatot+ "' WHERE NOME = '"+ articleName+"' AND PROPRIETARIO = '"+proprietario+"'";
         System.out.println(sql);
         try{
@@ -283,7 +282,7 @@ public class DatabaseController {
         return true;
     }
 
-    public void addArticle(Article article) throws Exception
+    synchronized void addArticle(Article article) throws Exception
     {
 
 
@@ -324,7 +323,7 @@ public class DatabaseController {
         }
     }
 
-    public void addBook(Book book) throws Exception
+    synchronized void addBook(Book book) throws Exception
     {
 
 
@@ -366,7 +365,7 @@ public class DatabaseController {
         }
     }
 
-    public void addElectronics(Electronics electronics) throws Exception
+    synchronized void addElectronics(Electronics electronics) throws Exception
     {
 
 
@@ -408,7 +407,7 @@ public class DatabaseController {
         }
     }
 
-    public void addClothing(Clothing clothing) throws Exception
+    synchronized void addClothing(Clothing clothing) throws Exception
     {
 
 
@@ -451,7 +450,7 @@ public class DatabaseController {
         }
     }
 
-    public void addTextBook(TextBook textBook) throws Exception
+    synchronized void addTextBook(TextBook textBook) throws Exception
     {
 
 
@@ -492,7 +491,7 @@ public class DatabaseController {
         }
     }
 
-    public boolean checkArticle(String name, String mail) throws Exception
+    synchronized boolean checkArticle(String name, String mail) throws Exception
     {
 
         Article article;
@@ -503,7 +502,7 @@ public class DatabaseController {
 
     }
 
-    private Article findByPrimaryKey(String name, String owner) throws Exception
+    private synchronized Article findByPrimaryKey(String name, String owner) throws Exception
     {
 
         Connection connection = null;
@@ -554,7 +553,7 @@ public class DatabaseController {
 
     }
 
-    public String getImageName(String name, String owner) throws Exception
+    synchronized String getImageName(String name, String owner) throws Exception
     {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -596,7 +595,7 @@ public class DatabaseController {
         return imageName;
     }
 
-    public float addMoney(String email, float money) throws Exception
+    synchronized float addMoney(String email, float money) throws Exception
     {
         Connection connection = null;
         PreparedStatement statement = null;
