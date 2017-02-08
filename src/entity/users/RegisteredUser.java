@@ -3,9 +3,32 @@ package entity.users;
 
 public class RegisteredUser
 {
-    protected String email, password;
+
+    public RegisteredUser(){
+
+    }
+
+    public RegisteredUser(String email, Integer accounttype, String password, String contact, Boolean isvalid){
+        this.email = email;
+        this.type = accounttype;
+        this.password = password;
+        this.contact = contact;
+        this.isvalid = isvalid;
+    }
+
+    protected String email, password, contact;
 
     protected int type;
+
+    protected Boolean isvalid;
+
+    public void setValid(Boolean isvalid){
+        this.isvalid = isvalid;
+    }
+
+    public Boolean getValid(){
+        return isvalid;
+    }
 
     private float balance;
 
@@ -19,6 +42,14 @@ public class RegisteredUser
         this.email = email;
     }
 
+    public void setContact(String contact)
+    {
+        this.contact = contact;
+    }
+
+    public String getContact(){
+        return contact;
+    }
     public String getPwd()
     {
         return password;

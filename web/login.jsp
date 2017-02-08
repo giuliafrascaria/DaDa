@@ -10,15 +10,25 @@
         <%! int result ;%>
 <%
         result = LoginBean.validate();
-        if (result == 1)
-        {
-            UserBean.setName(LoginBean.getName());
-            UserBean.setEmail(LoginBean.getEmail());
-            UserBean.setAccountType(LoginBean.getAccountType());
-            UserBean.setBalance(LoginBean.getBalance());
+        if (result == 1) {
+
+            /*non administrative user, redirect to home*/
+            if(LoginBean.getAccountType() != 0){
+                UserBean.setName(LoginBean.getName());
+                UserBean.setEmail(LoginBean.getEmail());
+                UserBean.setAccountType(LoginBean.getAccountType());
+                UserBean.setBalance(LoginBean.getBalance());
+                response.sendRedirect("home.jsp");
+            }
+            /*Administrative user, redirect to Administrator Page*/
+            if(LoginBean.getAccountType() == 0){
+                UserBean.setName(LoginBean.getName());
+                UserBean.setEmail(LoginBean.getEmail());
+                UserBean.setAccountType(LoginBean.getAccountType());
+                response.sendRedirect("AdminPage.jsp");
+            }
 
             System.out.println(UserBean.getName());
-            response.sendRedirect("home.jsp");
         }
     }
 %>
