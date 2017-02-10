@@ -624,4 +624,54 @@ public class DatabaseController {
         return money;
     }
 
+    synchronized public ArrayList<Article> listAllArticles() throws Exception
+    {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+
+        ArrayList<Article> articles = new ArrayList<Article>();
+        final String query = "select * " +
+                "from ARTICLES.articolo";
+        try {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            result = statement.executeQuery();
+
+            while (result.next()) {
+                String nome = result.getString(1);
+                System.out.println(nome + "\n");
+                String proprietario = result.getString(2);
+                RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                ru.setEmail(proprietario);
+                System.out.println(proprietario + "\n");
+                Float prezzo = Float.parseFloat(result.getString(3));
+                System.out.print(prezzo  + "\n");
+                Integer quantità = Integer.parseInt(result.getString(4));
+                System.out.print(quantità + "\n");
+                Boolean isvalid = result.getBoolean(5);
+                System.out.print(isvalid  + "\n");
+                String immagine = result.getString(6);
+                System.out.println(immagine + "\n");
+
+                Article article = new Article(nome, proprietario, prezzo, quantità, isvalid, immagine);
+                articles.add(article);
+            }
+
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+        }
+        return articles;
+    }
 }
