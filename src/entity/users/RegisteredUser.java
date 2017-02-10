@@ -8,6 +8,10 @@ public class RegisteredUser
 
     }
 
+    public RegisteredUser(String email){
+        this.email = email;
+    }
+
     public RegisteredUser(String email, Integer accounttype, String password, String contact, Boolean isvalid){
         this.email = email;
         this.type = accounttype;

@@ -228,6 +228,12 @@ public class ArticleBean implements Serializable  {
         articles = ac.listAllArticles();
         return articles;
     }
+
+    public void validateArticle(String email_proprietario, String nome_articolo){
+        ArticlesController ac = ArticlesController.getInstance();
+        ac.validate(email_proprietario, nome_articolo);
+    }
+
     private void saveArticle()
     {
         article = ArticleFactory.getInstance().getArticle();

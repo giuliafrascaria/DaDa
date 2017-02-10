@@ -13,7 +13,7 @@
 <jsp:setProperty name="UserBean" property="*"/>
 
 <jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
-<jsp:setProperty name="ArticleBea" property="*"/>
+<jsp:setProperty name="ArticleBean" property="*"/>
 
 <jsp:useBean id="ListRegisteredUserBean" scope="request" class="javabean.ListRegisteredUsersBean"/>
 <jsp:setProperty name="ListRegisteredUserBean" property="*"/>
@@ -32,12 +32,29 @@
 
 
 <%
-    if (request.getParameter("submit") != null) {
-%>
-<%! String result ;%>
-<%
-        result = ListRegisteredUserBean.submission();
-        System.out.println(result);
+    if (request.getParameter("Validate") != null) {
+        if (request.getParameter("action").equals("validate_article")) {
+            String email_proprietario = request.getParameter("email_utente");
+            String nome_articolo = request.getParameter("nome_articolo");
+            System.out.println(email_proprietario + " " + nome_articolo);
+            ArticleBean.validateArticle(email_proprietario, nome_articolo);
+        }
+        if (request.getParameter("action").equals("validate_user")) {
+            String email = request.getParameter("email_utente");
+            System.out.println(email);
+            ListRegisteredUserBean.validateUser(email);
+        }
+    }
+    if (request.getParameter("Delete") != null) {
+        if (request.getParameter("action").equals("delete_article")) {
+            String email_proprietario = request.getParameter("email_utente");
+            String nome_articolo = request.getParameter("nome_articolo");
+            System.out.println(email_proprietario + " " + nome_articolo);
+        }
+        if (request.getParameter("action").equals("delete_user")) {
+            String email = request.getParameter("email_utente");
+            System.out.println(email);
+        }
     }
 %>
 
@@ -72,24 +89,27 @@
         <div class="col-md-3 col-sm-6">
                 <tr>
                     <td><%=registeredUser.getEmail()%></td>
-                    <td>
-                        <%=registeredUser.getType()%>
-                    </td>
+                    <td><%=registeredUser.getType()%></td>
                     <td><%=registeredUser.getContact()%></td>
                     <td><%=registeredUser.getPwd()%></td>
-                    <td>
-                        <%=registeredUser.getValid()%>
-
+                    <td><%=registeredUser.getValid()%>
                     </td>
-                    <td> <form action="AdminPage.jsp" name="myform" method="post">
-                        <div>
-                            <input type="submit" name = "Validate" value="validate" >
-                        </div>
-                        <br><br>
-                        <div>
-                            <input type="submit" name = "Delete" value="delete" >
-                        </div>
-                    </form></td>
+                    <td>
+                        <form action="AdminPage.jsp" name="myform" method="post">
+                            <div>
+                                <input type="text" hidden="true" name="action" value="validate_user">
+                                <input type="text" hidden="true" name="email_utente" value="<%=registeredUser.getEmail()%>">
+                                <input type="submit" name="Validate" value="validate" >
+                            </div>
+                        </form>
+                        <form>
+                            <div>
+                                <input type="text" hidden="true" name="action" value="delete_user">
+                                <input type="text" hidden="true" name="email_utente" value="<%=registeredUser.getEmail()%>">
+                                <input type="submit" name="Delete" value="delete" >
+                            </div>
+                        </form>
+                    </td>
                 </tr>
 
         </div>
@@ -101,7 +121,6 @@
         <p>0: Moderators</p>
         <p>1: Simple user</p>
         <p>2: Corporate</p>
-
 
         <div class="container">
             <div class="row" id ="riga2">
@@ -134,21 +153,29 @@
                     <div class="col-md-3 col-sm-6">
                         <tr>
                             <td><%=article.getNome()%></td>
-                            <td><%=article.getProprietario()%></td>
+                            <td><%=article.getProprietario().getEmail()%></td>
                             <td><%=article.getPrezzo()%></td>
-                            <td><td><%=article.getQuantità()%></td>
-                                <%=article.getValidation()%>
-                            </td>
+                            <td><%=article.getQuantità()%></td>
+                            <td><%=article.getValidation()%></td>
                             <td><%=article.getImage()%></td>
-                            <td> <form action="AdminPage.jsp" name="myform" method="post">
-                                <div>
-                                    <input type="submit" name = "Validate" value="validate" >
-                                </div>
-                                <br><br>
-                                <div>
-                                    <input type="submit" name = "Delete" value="delete" >
-                                </div>
-                            </form></td>
+                            <td>
+                                <form action="AdminPage.jsp" name="myform" method="post">
+                                    <div>
+                                        <input type="text" hidden="true" name="action" value="validate_article">
+                                        <input type="text" hidden="true" name="nome_articolo" value="<%=article.getNome()%>">
+                                        <input type="text" hidden="true" name="email_utente" value="<%=article.getProprietario().getEmail()%>">
+                                        <input type="submit" name="Validate" value="validate" >
+                                    </div>
+                                </form>
+                                <form>
+                                    <div>
+                                        <input type="text" hidden="true" name="action" value="delete_article">
+                                        <input type="text" hidden="true" name="nome_articolo" value="<%=article.getNome()%>">
+                                        <input type="text" hidden="true" name="email_utente" value="<%=article.getProprietario().getEmail()%>">
+                                        <input type="submit" name="Delete" value="delete" >
+                                    </div>
+                                </form>
+                            </td>
                         </tr>
 
                     </div>
@@ -162,7 +189,6 @@
 
     </div>
     </div>
-
 
 <jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
 </body>

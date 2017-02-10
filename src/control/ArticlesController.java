@@ -6,6 +6,7 @@ import entity.users.RegisteredUser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -21,6 +22,39 @@ public class ArticlesController extends DatabaseController{
         return instance;
     }
 
+    public void validate(String email_proprietario, String nome_articolo){
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        final String query = "update ARTICLES.articolo set isvalid=TRUE where proprietario=? and nome=?";
+        try {
+
+            connection = provider.getConnection();
+            statement = connection.prepareStatement(query);
+            statement.setString(1, email_proprietario);
+            statement.setString(2, nome_articolo);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            // release resources
+            if(statement != null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connection  != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     public ArrayList<Article> listAllArticles() throws Exception
     {
@@ -39,21 +73,19 @@ public class ArticlesController extends DatabaseController{
 
             while (result.next()) {
                 String nome = result.getString(1);
-                System.out.println(nome + "\n");
+                //System.out.println(nome + "\n");
                 String proprietario = result.getString(2);
-                RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
-                ru.setEmail(proprietario);
-                System.out.println(proprietario + "\n");
+                RegisteredUser ru = new RegisteredUser(proprietario);
                 Float prezzo = Float.parseFloat(result.getString(3));
-                System.out.print(prezzo  + "\n");
+                //System.out.print(prezzo  + "\n");
                 Integer quantità = Integer.parseInt(result.getString(4));
-                System.out.print(quantità + "\n");
+                //System.out.print(quantità + "\n");
                 Boolean isvalid = result.getBoolean(5);
-                System.out.print(isvalid  + "\n");
+                //System.out.print(isvalid  + "\n");
                 String immagine = result.getString(6);
-                System.out.println(immagine + "\n");
+                //System.out.println(immagine + "\n");
 
-                Article article = new Article(nome, proprietario, prezzo, quantità, isvalid, immagine);
+                Article article = new Article(nome, ru, prezzo, quantità, isvalid, immagine);
                 articles.add(article);
             }
 
