@@ -1,5 +1,7 @@
 package control;
 import entity.articles.Review;
+import exceptions.ErrorOnSendingReviewException;
+import exceptions.TextTooLongException;
 
 
 public class ArticlesController {
@@ -16,20 +18,27 @@ public class ArticlesController {
 
     public int sendReview(String text, String articlename, String username, int rating, String owner) throws ClassNotFoundException {
     /*invia la query al database e torna 1 in caso di successo, 0 o 2 altrimenti*/
-
-        if(text.length() > 300)
-            return 2;
-        else {
-            Review review;
-            if (rating > 0)
-                review = ArticleFactory.getInstance().getReview(rating, text.replace("\'", "\""), username, articlename, owner, false);
-            else
-                review = ArticleFactory.getInstance().getReview(0, text.replace("\'", "\""), username, articlename, owner, false);
-            if (DatabaseController.getInstance().setReview(review)) {
-                return 1;
-            } else {
-                return 0;
+        try {
+            if (text.length() > 300)
+                throw new TextTooLongException();
+            else {
+                Review review;
+                if (rating > 0)
+                    review = ArticleFactory.getInstance().getReview(rating, text.replace("\'", "\""), username, articlename, owner, false);
+                else
+                    review = ArticleFactory.getInstance().getReview(0, text.replace("\'", "\""), username, articlename, owner, false);
+                if (DatabaseController.getInstance().setReview(review)) {
+                    return 1;
+                } else {
+                    throw new ErrorOnSendingReviewException();
+                }
             }
+        }
+        catch(TextTooLongException e){
+            return 2;
+        }
+        catch(ErrorOnSendingReviewException e){
+            return 0;
         }
     }
 
@@ -38,10 +47,15 @@ public class ArticlesController {
     /*come sendReview ma invia una segnalazione e non una recensione*/
         System.out.println("sono qui ------------");
         Review review = ArticleFactory.getInstance().getReview(0, text.replace("\'", "\""), username, articlename, vendor, true);
-        if(DatabaseController.getInstance().setReview(review))
-            return 1;
-        else
+        try {
+            if (DatabaseController.getInstance().setReview(review))
+                return 1;
+            else
+                throw new ErrorOnSendingReviewException();
+        }
+        catch(ErrorOnSendingReviewException e){
             return 0;
+        }
     }
 
 }

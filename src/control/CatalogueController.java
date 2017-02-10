@@ -2,16 +2,10 @@ package control;
 
 import entity.articles.*;
 import entity.users.RegisteredUser;
+import exceptions.NoArticlesReturned;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.swing.*;
-
-import static control.DatabaseController.provider;
 
 /**
  * @author dandi
@@ -22,7 +16,7 @@ import static control.DatabaseController.provider;
 
 public class CatalogueController {
     //Singleton
-    private static CatalogueController instance = new CatalogueController();
+    public static CatalogueController instance = new CatalogueController();
     private ArrayList<Article> articoli;
 
     private CatalogueController() {
@@ -48,7 +42,7 @@ public class CatalogueController {
 
         Article rq = null;
         if (tipoArticolo.equals("Book")) {
-            rq = ArticleFactory.getInstance().getBook();
+            rq = ArticleFactory.getInstance().getArticolo("book");
 
             rq.setNome(checkString(nome));
             RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
@@ -60,7 +54,7 @@ public class CatalogueController {
 
 
         } else if (tipoArticolo.equals("Electronics")) {
-            rq = ArticleFactory.getInstance().getElectronics();
+            rq = ArticleFactory.getInstance().getArticolo("electronics");
             rq.setNome(checkString(nome));
             RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
             ru.setEmail(proprietario);
@@ -71,7 +65,7 @@ public class CatalogueController {
 
 
         } else if (tipoArticolo.equals("Clothing")) {
-            rq = ArticleFactory.getInstance().getClothing();
+            rq = ArticleFactory.getInstance().getArticolo("clothing");
 
             rq.setNome(checkString(nome));
             RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
@@ -86,7 +80,7 @@ public class CatalogueController {
 
 
         } else if (tipoArticolo.equals("TextBook")) {
-            rq = ArticleFactory.getInstance().getTextBook();
+            rq = ArticleFactory.getInstance().getArticolo("textBook");
 
             rq.setNome(checkString(nome));
             RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
@@ -101,8 +95,8 @@ public class CatalogueController {
             else
                 ((TextBook) rq).setEdizione(edizione);
 
-        } else if (tipoArticolo.equals("")) {
-            rq = ArticleFactory.getInstance().getArticle();
+        } else {
+            rq = ArticleFactory.getInstance().getArticolo("article");
             rq.setNome(checkString(nome));
 
         }
@@ -147,14 +141,17 @@ public class CatalogueController {
             articoli = DatabaseController.getInstance().searchArticle(sql, "generic");
         }
 
-        if (articoli.size() != 0){
-            return articoli;
-        }
-        else{
-            if(!rq.getNome().equals("")){
-                return levenshteinCheck(rq.getNome());
+        try {
+            if (articoli.size() == 0) {
+                throw new NoArticlesReturned();
             }
             else
+                return articoli;
+        }
+        catch (NoArticlesReturned e) {
+            if (!rq.getNome().equals("")) {
+                return levenshteinCheck(rq.getNome());
+            } else
                 return articoli;
         }
     }
@@ -282,7 +279,7 @@ public class CatalogueController {
 
 
         if (proprietario == 1){
-            if (!rq.getProprietario().equals("")) {
+            if (!rq.getProprietario().getEmail().equals("")) {
                 if (isItTheFirst != 0) {
                     sql = sql + "AND ";
                 }
