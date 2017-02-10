@@ -1,5 +1,7 @@
+<%@ page import="entity.articles.Article" %>
+<%@ page import="entity.users.RegisteredUser" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="entity.users.RegisteredUser" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: v2devnull
   Date: 31/01/17
@@ -10,6 +12,8 @@
 <jsp:useBean id="UserBean" scope="session" class="javabean.UserBean"/>
 <jsp:setProperty name="UserBean" property="*"/>
 
+<jsp:useBean id="ArticleBean" scope="request" class="javabean.ArticleBean"/>
+<jsp:setProperty name="ArticleBea" property="*"/>
 
 <jsp:useBean id="ListRegisteredUserBean" scope="request" class="javabean.ListRegisteredUsersBean"/>
 <jsp:setProperty name="ListRegisteredUserBean" property="*"/>
@@ -26,9 +30,38 @@
 
 <jsp:include page="jspPageTemplates/mainMenuWithoutBar.jsp" flush="true" />
 
+
+<%
+    if (request.getParameter("submit") != null) {
+%>
+<%! String result ;%>
+<%
+        result = ListRegisteredUserBean.submission();
+        System.out.println(result);
+    }
+%>
+
 <div class="container">
     <div class="row" id ="riga">
-        <table border="1">
+        <h2> Registered users </h2>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+            }
+        </style>
+        <table style="width:100%">
+            <tr>
+                <th>Email address</th>
+                <th>Type of user</th>
+                <th>User contact</th>
+                <th>User password</th>
+                <th>Is user valid</th>
+                <th>Validate or delete user</th>
+            </tr>
         <%
             ArrayList<RegisteredUser> reglist = ListRegisteredUserBean.listRegisteredUsers();
             if(reglist!=null) {
@@ -37,13 +70,26 @@
         %>
 
         <div class="col-md-3 col-sm-6">
-
                 <tr>
                     <td><%=registeredUser.getEmail()%></td>
-                    <td><%=registeredUser.getType()%></td>
+                    <td>
+                        <%=registeredUser.getType()%>
+                    </td>
                     <td><%=registeredUser.getContact()%></td>
                     <td><%=registeredUser.getPwd()%></td>
-                    <td><%=registeredUser.getValid()%></td>
+                    <td>
+                        <%=registeredUser.getValid()%>
+
+                    </td>
+                    <td> <form action="AdminPage.jsp" name="myform" method="post">
+                        <div>
+                            <input type="submit" name = "Validate" value="validate" >
+                        </div>
+                        <br><br>
+                        <div>
+                            <input type="submit" name = "Delete" value="delete" >
+                        </div>
+                    </form></td>
                 </tr>
 
         </div>
@@ -52,9 +98,71 @@
             }
         %>
         </table>
+        <p>0: Moderators</p>
+        <p>1: Simple user</p>
+        <p>2: Corporate</p>
+
+
+        <div class="container">
+            <div class="row" id ="riga2">
+                <h2> Inserted articles </h2>
+                <style>
+                    table, th, td {
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                    }
+                    th, td {
+                        padding: 15px;
+                    }
+                </style>
+                <table style="width:100%">
+                    <tr>
+                        <th>Nome articolo</th>
+                        <th>Proprietario</th>
+                        <th>Prezzo</th>
+                        <th>Quantità</th>
+                        <th>da validare</th>
+                        <th>Seriale</th>
+                    </tr>
+                    <%
+                        ArrayList<Article> artlist = ArticleBean.listArticles();
+                        if(artlist!=null) {
+                            for (Article article : artlist) {
+
+                    %>
+
+                    <div class="col-md-3 col-sm-6">
+                        <tr>
+                            <td><%=article.getNome()%></td>
+                            <td><%=article.getProprietario()%></td>
+                            <td><%=article.getPrezzo()%></td>
+                            <td><td><%=article.getQuantità()%></td>
+                                <%=article.getValidation()%>
+                            </td>
+                            <td><%=article.getImage()%></td>
+                            <td> <form action="AdminPage.jsp" name="myform" method="post">
+                                <div>
+                                    <input type="submit" name = "Validate" value="validate" >
+                                </div>
+                                <br><br>
+                                <div>
+                                    <input type="submit" name = "Delete" value="delete" >
+                                </div>
+                            </form></td>
+                        </tr>
+
+                    </div>
+
+                    <%
+                            }
+                        }
+                    %>
+
+                </table>
 
     </div>
-</div>
+    </div>
+
 
 <jsp:include page="jspPageTemplates/footerArea.jsp" flush="true" />
 </body>

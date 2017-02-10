@@ -3,7 +3,7 @@ package entity.articles;
 import entity.users.RegisteredUser;
 
 /**
- * @author dandi
+ * @author dandi, v2devnull
  */
 
 public class Article {
@@ -11,12 +11,30 @@ public class Article {
     private String nome;
     private float prezzo;
     private RegisteredUser proprietario;
+    private String email;
     private String image;
+    private Boolean isvalid;
     private int quantità;
 
+    public Article(String nome, float prezzo, int quantità, Boolean isvalid){}
+
+    public Article(String nome, String proprietario, float prezzo, int quantità, Boolean isvalid, String image){}
+    public Article(String nome, RegisteredUser proprietario, float prezzo, int quantità, Boolean isvalid, String image){}
+
+    public Article() {
+
+    }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setValidation(Boolean isvalid){
+        this.isvalid = isvalid;
+    }
+
+    public boolean getValidation(){
+        return isvalid;
     }
 
     public void setNome(String nome) {
@@ -53,5 +71,13 @@ public class Article {
 
     public void setImage(int image) {
         this.image = String.valueOf(image) + ".jpg";
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

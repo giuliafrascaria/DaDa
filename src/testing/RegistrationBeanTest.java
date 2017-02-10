@@ -1,33 +1,42 @@
 package testing;
 
-
-import javabean.LoginBean;
+import javabean.RegistrationBean;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Created by giogge on 08/02/17.
+ */
+public class RegistrationBeanTest {
 
-public class LoginBeanTest {
+    private String name, surname, email, password, confirmpassword;
 
-    private String email;
-    private String pwd;
+    private Float balance = 0f;
 
     @Test
     public void validate() throws Exception
     {
-        LoginBean loginBean = new LoginBean();
-        loginBean.setEmail("a");
-        loginBean.setPassword("a");
+        RegistrationBean registrationBean = new RegistrationBean();
+        registrationBean.setEmail("b");
+        registrationBean.setName("b");
+        registrationBean.setSurname("b");
+        registrationBean.setPassword("b");
+        registrationBean.setConfirmpassword("b");
+        registrationBean.setPassword("b");
+
 
         try {
             int result;
-            result = loginBean.validate();
+            result = registrationBean.validate();
 
-            this.email = "a";
-            this.pwd= "a";
+            this.email = "b";
+            this.password= "b";
+            this.name = "b";
+            this.surname = "b";
 
-            Assert.assertEquals(result, 1);
+            /*Assert.assertEquals(result, 1);
             Assert.assertEquals(email, loginBean.getEmail());
             Assert.assertEquals(pwd, loginBean.getPassword());
             Assert.assertEquals(1, loginBean.getAccountType());
@@ -51,7 +60,7 @@ public class LoginBeanTest {
             this.pwd= "c";
 
             Assert.assertEquals(result, 4);
-            //password errata
+            //password errata*/
 
         } catch (Exception e) {
             e.printStackTrace();

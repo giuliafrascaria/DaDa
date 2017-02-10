@@ -221,6 +221,13 @@ public class ArticleBean implements Serializable  {
         return null;
     }
 
+
+    public ArrayList<Article> listArticles() throws Exception{
+        ArrayList<Article> articles;
+        ArticlesController ac = ArticlesController.getInstance();
+        articles = ac.listAllArticles();
+        return articles;
+    }
     private void saveArticle()
     {
         article = ArticleFactory.getInstance().getArticolo("article");

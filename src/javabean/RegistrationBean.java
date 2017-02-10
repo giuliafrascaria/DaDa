@@ -15,14 +15,11 @@ public class RegistrationBean implements Serializable {
 
     //private PrivateDBcontroller dbController = PrivateDBcontroller.getOurInstance();
 
-
     private String name, surname, email, password, confirmpassword;
 
     private Float balance = 0f;
 
-
     private PrivateUser user;
-
 
     public RegistrationBean()
     {

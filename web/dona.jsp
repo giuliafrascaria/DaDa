@@ -28,11 +28,13 @@
     <label style="padding: 20px; font-family: 'Titillium Web', sans-serif; font-size: 22px;">Grazie !!!</label>
     <br>
     <textarea name="testo" rows="6" cols="50" class="myTextArea" style="padding: 20px; font-family: 'Titillium Web', sans-serif; border: none" readonly>
-    Sei davvero una bella persona se compi questo gesto ! Molte persone non hanno avuto la nostra stessa fortuna e necessitano di beni primari. Una tua Donazione è importante.Clicca il pulsante più in basso e inserisci un articolo. Sarà immediatamente destinato presso l'ente benefico da te scelto !
+    Sei davvero una bella persona se compi questo gesto ! Molte persone non hanno avuto la nostra stessa fortuna e necessitano di beni primari. Una tua Donazione è importante. Clicca il pulsante più in basso e inserisci un articolo. Sarà immediatamente destinato presso l'ente benefico da te scelto !
     </textarea>
+
     <form action="#">
-        <input type="submit" name = "submit" value="Dona !!" >
+        <input type="submit" name = "submit" value="Dona !" >
     </form>
+
 </div>
 
 

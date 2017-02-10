@@ -61,6 +61,7 @@ public class RegisteredUser
     }
 
     public int getType() {
+
         return type;
     }
 

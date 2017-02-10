@@ -12,10 +12,10 @@ import entity.users.CorporateUser;
 public class CorporateDBcontroller extends DatabaseController
 {
     private static CorporateDBcontroller ourInstance = new CorporateDBcontroller();
-    public static CorporateDBcontroller getOurInstance(){return ourInstance;}
+    public static synchronized CorporateDBcontroller getOurInstance(){return ourInstance;}
     private CorporateDBcontroller(){}
 
-    public void addUser(CorporateUser newUser) throws Exception
+    synchronized void addUser(CorporateUser newUser) throws Exception
     {
 
         super.addRegisteredUser(newUser);
@@ -54,7 +54,7 @@ public class CorporateDBcontroller extends DatabaseController
     }
 
 
-    public CorporateUser findUser(String email) throws Exception
+    synchronized CorporateUser findUser(String email) throws Exception
     {
         Connection connection = null;
         PreparedStatement statement = null;
