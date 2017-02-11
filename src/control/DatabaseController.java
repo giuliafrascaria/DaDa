@@ -642,19 +642,18 @@ public class DatabaseController {
 
             while (result.next()) {
                 String nome = result.getString(1);
-                System.out.println(nome + "\n");
+                //System.out.println(nome + "\n");
                 String proprietario = result.getString(2);
-                RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
-                ru.setEmail(proprietario);
-                System.out.println(proprietario + "\n");
+                RegisteredUser ru = new RegisteredUser(proprietario);
+                //System.out.println(proprietario + "\n");
                 Float prezzo = Float.parseFloat(result.getString(3));
-                System.out.print(prezzo  + "\n");
+                //System.out.print(prezzo  + "\n");
                 Integer quantità = Integer.parseInt(result.getString(4));
-                System.out.print(quantità + "\n");
+                //System.out.print(quantità + "\n");
                 Boolean isvalid = result.getBoolean(5);
-                System.out.print(isvalid  + "\n");
+                //System.out.print(isvalid  + "\n");
                 String immagine = result.getString(6);
-                System.out.println(immagine + "\n");
+                //System.out.println(immagine + "\n");
 
                 Article article = new Article(nome, ru, prezzo, quantità, isvalid, immagine);
                 articles.add(article);

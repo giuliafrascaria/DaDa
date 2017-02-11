@@ -234,6 +234,11 @@ public class ArticleBean implements Serializable  {
         ac.validate(email_proprietario, nome_articolo);
     }
 
+    public void deleteArticle(String email_proprietario, String nome_articolo){
+        ArticlesController ac = ArticlesController.getInstance();
+        ac.delete(email_proprietario, nome_articolo);
+    }
+
     private void saveArticle()
     {
         article = ArticleFactory.getInstance().getArticolo("article");

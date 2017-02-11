@@ -50,6 +50,8 @@
             String email_proprietario = request.getParameter("email_utente");
             String nome_articolo = request.getParameter("nome_articolo");
             System.out.println(email_proprietario + " " + nome_articolo);
+            ArticleBean.deleteArticle(email_proprietario, nome_articolo);
+
         }
         if (request.getParameter("action").equals("delete_user")) {
             String email = request.getParameter("email_utente");

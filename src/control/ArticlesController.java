@@ -58,6 +58,40 @@ public class ArticlesController extends DatabaseController{
         }
     }
 
+    public void delete(String email_proprietario, String nome_articolo){
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        final String query = "DELETE FROM ARTICLES.articolo where proprietario=? and nome=?";
+        try {
+
+            connection = provider.getConnection();
+            statement = connection.prepareStatement(query);
+            statement.setString(1, email_proprietario);
+            statement.setString(2, nome_articolo);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            // release resources
+            if(statement != null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connection  != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public ArrayList<Article> listAllArticles() throws Exception
     {
         Connection connection = null;
@@ -66,7 +100,8 @@ public class ArticlesController extends DatabaseController{
 
         ArrayList<Article> articles = new ArrayList<Article>();
         final String query = "select * " +
-                "from ARTICLES.articolo";
+                "from ARTICLES.articolo " +
+                "where isvalid=FALSE";
         try {
             connection = provider.getConnection();
 
@@ -75,17 +110,12 @@ public class ArticlesController extends DatabaseController{
 
             while (result.next()) {
                 String nome = result.getString(1);
-                //System.out.println(nome + "\n");
                 String proprietario = result.getString(2);
                 RegisteredUser ru = new RegisteredUser(proprietario);
                 Float prezzo = Float.parseFloat(result.getString(3));
-                //System.out.print(prezzo  + "\n");
                 Integer quantità = Integer.parseInt(result.getString(4));
-                //System.out.print(quantità + "\n");
                 Boolean isvalid = result.getBoolean(5);
-                //System.out.print(isvalid  + "\n");
                 String immagine = result.getString(6);
-                //System.out.println(immagine + "\n");
 
                 Article article = new Article(nome, ru, prezzo, quantità, isvalid, immagine);
                 articles.add(article);
