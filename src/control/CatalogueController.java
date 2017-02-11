@@ -26,21 +26,14 @@ public class CatalogueController {
         return instance;
     }
 
-    /*-------------------------------------------------------------------------------------------------------
-    * È la funzione chiamata dalla boundary.                                                                  |
-    * Si occupa della elaborazione dei dati immessi                                                           |
-    * dall'utente e dopo aver chiamato la funzione getCatalogue                                               |
-    * aggiorna la lista della boundary.                                                                       |
-    *                                                                                                         |
-    * Invocata da : research(), CatalogueBoundary                                                             |
-    * --------------------------------------------------------------------------------------------------------*/
+
     public  ArrayList<Article> createCatalogue(String nome,  String proprietario,
                                 String tipoArticolo, String editore, String autore, String titolo,
                                      String tipo, String marca, int taglia, String materia,
                                      int edizione, String modello) throws SQLException
     {
 
-        Article rq = null;
+        Article rq;
         if (tipoArticolo.equals("Book")) {
             rq = ArticleFactory.getInstance().getArticolo("book");
 
@@ -106,13 +99,7 @@ public class CatalogueController {
         return articoli;
     }
 
-    /* -------------------------------------------------------------------------------------------------------
-    * Effettua la richiesta di query al database invocando la funzione searchArticle di DatabaseController.   |
-    * Sfrutta la funzione sqlcreator per generare la stringa da passare al DatabaseController.                |
-    * Torna un array di articoli a createCatalogue.                                                           |
-    *                                                                                                         |
-    * Invocata da : createCatalogue() , CatalogueController                                                   |
-    * --------------------------------------------------------------------------------------------------------*/
+
     private ArrayList<Article> getCatalogue(Article rq) throws SQLException
     {
 
@@ -156,18 +143,7 @@ public class CatalogueController {
         }
     }
 
-    /* -------------------------------------------------------------------------------------------------------
-   * rimuove dalla lista gli articoli che hanno un prezzo superiore a quello richiesto.                       |
-   * Viene invocata direttamente dalla boundary.                                                              |
-   *                                                                                                          |
-   * Invocata da actionPerformed(), CatalogueBoundary                                                         |
-    * --------------------------------------------------------------------------------------------------------*/
 
-    /* -------------------------------------------------------------------------------------------------------
-    * Controlla la correttezza delle stringhe inserite dall'utente nella boundary                             |
-    *                                                                                                         |
-    * Invocata da : createCatalogue(), CatalogueController                                                    |
-    * --------------------------------------------------------------------------------------------------------*/
     private String checkString(String string)
     {
         String s;
@@ -179,11 +155,7 @@ public class CatalogueController {
             return string.replace("'", "''");
     }
 
-    /* -------------------------------------------------------------------------------------------------------
-    * Genera la stringa sql che getCatalogue dovrà passare alla funzione searchArticle di DatabaseController  |
-    *                                                                                                         |
-    * Invocata da : getCatalogue(), CatalogueController                                                       |
-    * --------------------------------------------------------------------------------------------------------*/
+
     private String sqlCreator(Article rq)
     {
         int proprietario = 0;
@@ -296,11 +268,7 @@ public class CatalogueController {
         return sql;
     }
 
-    /* -------------------------------------------------------------------------------------------------------
-    * Effettua un controllo sulla stringa sql da passare a DatabaseController                                 |
-*                                                                                                             |
-    * Invocata da : getCatalogue(), CatalogueController                                                       |
-    * --------------------------------------------------------------------------------------------------------*/
+
     private boolean sqlCheck(String sql)
     {
         return !(sql.equals("SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
@@ -309,11 +277,7 @@ public class CatalogueController {
                 sql.equals("SELECT * FROM ARTICLES.Scolastico, ARTICLES.articolo WHERE ARTICLES.Scolastico.NOME = ARTICLES.articolo.NOME AND ARTICLES.Scolastico.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND "));
     }
 
-    /* -------------------------------------------------------------------------------------------------------
-    * ritorna la distanza tra due stringhe utilizzando l'algoritmo di Levenshtein                             |
-    *                                                                                                         |
-    * Invocata da : levenshteinCheck(), CatalogueController                                                   |
-    * --------------------------------------------------------------------------------------------------------*/
+
     private int levenshtein (CharSequence stringa1, CharSequence stringa2)
     {
         int len0 = stringa1.length() + 1;
@@ -344,12 +308,7 @@ public class CatalogueController {
         return valore1[len0 - 1];
     }
 
-    /* -------------------------------------------------------------------------------------------------------
-    * Effettua una query al database su tutti gli articoli e ritorna tutti quelli che hanno distanza          |
-    * di Levenshtein minore di 4                                                                              |
-    *                                                                                                         |
-    * Invocata da : getCatalogue(), CatalogueController                                                       |
-    * --------------------------------------------------------------------------------------------------------*/
+
     private ArrayList<Article> levenshteinCheck(String nome) throws SQLException
     {
         ArrayList<Article> articoliVicini = new ArrayList<Article>();

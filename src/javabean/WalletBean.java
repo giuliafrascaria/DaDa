@@ -3,9 +3,7 @@ package javabean;
 import control.DaDaSystem;
 import control.PrivateDBcontroller;
 
-/**
- * Created by giogge on 30/01/17.
- */
+
 
 
 public class WalletBean {
