@@ -36,31 +36,24 @@ public class RegistrationBeanTest {
             this.name = "b";
             this.surname = "b";
 
-            /*Assert.assertEquals(result, 1);
-            Assert.assertEquals(email, loginBean.getEmail());
-            Assert.assertEquals(pwd, loginBean.getPassword());
-            Assert.assertEquals(1, loginBean.getAccountType());
+            Assert.assertEquals(1, result);
+            Assert.assertEquals(email, registrationBean.getEmail());
+            Assert.assertEquals(password, registrationBean.getPassword());
+            //registrazione riuscita
 
-            result = loginBean.validate();
-            //login riuscito
+            registrationBean.setEmail("b");
+            registrationBean.setName("");
 
-            this.email = "c";
-            this.pwd= "";
-
-            Assert.assertEquals(result, 2);
+            result = registrationBean.validate();
+            Assert.assertEquals(result, 5);
             //form incompleto
 
-            this.email = "c";
-            this.pwd= "a";
 
-            Assert.assertEquals(result, 3);
-            //utente non esistente
-
-            this.email = "a";
-            this.pwd= "c";
-
-            Assert.assertEquals(result, 4);
-            //password errata*/
+            registrationBean.setEmail("a");
+            registrationBean.setName("a");
+            result = registrationBean.validate();
+            Assert.assertEquals(2, result);
+            //utente già registrato
 
         } catch (Exception e) {
             e.printStackTrace();

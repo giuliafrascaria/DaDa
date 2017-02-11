@@ -31,10 +31,10 @@ public class LoginBeanTest {
 
             result = loginBean.validate();
             System.out.println("test numero 1 " + loginBean.getEmail() + loginBean.getPassword());
-            Assert.assertEquals(result, 1);
+            Assert.assertEquals(1, result);
             Assert.assertEquals(email, loginBean.getEmail());
             Assert.assertEquals(pwd, loginBean.getPassword());
-            //Assert.assertEquals(1, loginBean.getAccountType());
+            Assert.assertEquals(1, loginBean.getAccountType());
 
             //login riuscito
 
@@ -45,7 +45,7 @@ public class LoginBeanTest {
 
             result = loginBean.validate();
             System.out.println("test numero 2 " + loginBean.getEmail() + loginBean.getPassword());
-            Assert.assertEquals(result, 2);
+            Assert.assertEquals(2, result);
 
             //form incompleto
 
@@ -56,7 +56,7 @@ public class LoginBeanTest {
 
             result = loginBean.validate();
             System.out.println("test numero 3 " + loginBean.getEmail() + loginBean.getPassword());
-            Assert.assertEquals(result, 3);
+            Assert.assertEquals(3, result);
 
             //utente non esistente
 
@@ -66,7 +66,7 @@ public class LoginBeanTest {
             loginBean.setPassword("c");
             result = loginBean.validate();
             System.out.println("test numero 4 " + loginBean.getEmail() + loginBean.getPassword());
-            Assert.assertEquals(result, 4);
+            Assert.assertEquals(4, result);
             //password errata
 
         } catch (Exception e) {

@@ -77,7 +77,7 @@ public class LoginBean {
             RegisteredUser user = system.findByPrimaryKey(this.email);
             if(user != null)
             {
-                if(!(user.getValid())) {
+                if((user.getValid())) {
                     // Controllo dati di accesso
                     if (this.email.equals(user.getEmail()) && this.getPassword().equals(user.getPwd())) {
                         if (user.getType() == 1) {

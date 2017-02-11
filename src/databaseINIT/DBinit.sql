@@ -172,7 +172,7 @@ CREATE TABLE ARTICLES.wishlist(
 
 /*as users*/
 INSERT INTO USERS.UtenteRegistrato VALUES ('simone@gmail.com', '0', 'simone', '3333333333', 0, FALSE);
-INSERT INTO USERS.UtenteRegistrato VALUES ('giogge@gmail.com', '0', 'giogge', '3333333333', 0, FALSE);
+INSERT INTO USERS.UtenteRegistrato VALUES ('giogge@gmail.com', '0', 'giogge', '3333333333', 0, TRUE);
 INSERT INTO USERS.UtenteRegistrato VALUES ('giuliac@gmail.com', '0', 'giulia', '3333333333', 0, FALSE);
 INSERT INTO USERS.UtenteRegistrato VALUES ('a', '1', 'a', '333333333', 0,  TRUE);
 
