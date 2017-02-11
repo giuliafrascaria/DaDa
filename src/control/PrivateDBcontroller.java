@@ -120,6 +120,7 @@ public class PrivateDBcontroller extends DatabaseController
         return true;
     }
 
+
     synchronized boolean addAcquisto(String nome, String proprietario, String articolo) {
         String sql = "INSERT INTO ARTICLES.acquisti (UTENTE, ARTICOLO, PROPRIETARIO) VALUES ('" +
                 nome + "', '" + articolo + "', '" +
@@ -129,8 +130,27 @@ public class PrivateDBcontroller extends DatabaseController
         try {
             Statement stmt = provider.getConnection().createStatement();
             stmt.executeUpdate(sql);
-        } catch (SQLException e) {
-            System.out.println("errore nell'inserimento dell'acquisto");
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    synchronized boolean removeAcquisto(String nome, String proprietario, String articolo) {
+        String sql = "DELETE FROM ARTICLES.acquisti UPPER(UTENTE)= LIKE UPPER('"+nome+"')" +
+                " AND UPPER(ARTICOLO) LIKE UPPER('"+articolo+"')" +
+                " AND UPPER(PROPRIETARIO) LIKE UPPER('"+proprietario+"')";
+
+        System.out.println(sql);
+        try
+        {
+            Statement stmt = provider.getConnection().createStatement();
+            stmt.executeUpdate(sql);
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
             return false;
         }
