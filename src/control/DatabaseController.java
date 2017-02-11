@@ -150,6 +150,7 @@ public class DatabaseController {
                     user.setPwd(result.getString("PASSWORD"));
                     user.setType(result.getInt("ACCOUNTTYPE"));
                     user.setBalance(result.getFloat("SALDO"));
+                    user.setValid(result.getBoolean("ISVALID"));
                     //user.setName(result.getString("NOME"));
                     System.out.println("email presa dal database controller = " + user.getEmail());
 /*                }*/
@@ -595,7 +596,7 @@ public class DatabaseController {
         return imageName;
     }
 
-    synchronized float addMoney(String email, float money) throws Exception
+    synchronized boolean addMoney(String email, float money) throws Exception
     {
         Connection connection = null;
         PreparedStatement statement = null;
@@ -621,7 +622,7 @@ public class DatabaseController {
                 connection.close();
             }
         }
-        return money;
+        return true;
     }
 
     synchronized public ArrayList<Article> listAllArticles() throws Exception

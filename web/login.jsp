@@ -54,8 +54,10 @@
     <div class="alert alert-danger" role="alert">Wrong password</div><%
         } if(result == 5) {%>
     <div class="alert alert-danger" role="alert">An error occurred, please try again later</div><%
-            }
+        }if(result == 6) {%>
+    <div class="alert alert-danger" role="alert">Please wait for the admin to validate your account</div><%
         }
+    }
     %>
 
     <form action="login.jsp" name="myform" method="post">

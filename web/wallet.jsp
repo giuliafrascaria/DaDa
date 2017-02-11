@@ -21,9 +21,9 @@
         WalletBean.setBalance(UserBean.getBalance());
         WalletBean.setUser(UserBean.getEmail());
         result = WalletBean.incrementBalance();
-        if (result > 0)
+        if (result == 0)
         {
-            UserBean.setBalance(result);
+            UserBean.setBalance(WalletBean.getNewbalance());
             response.sendRedirect("home.jsp");
         }
     }
@@ -46,7 +46,14 @@
 
 <h3>Ricarica</h3>
 
-
+    <%if (request.getParameter("submit") != null) {
+        if (result == 1) {%>
+    <div class="alert alert-danger" role="alert">Error in Payment</div><%
+        } if (result == 2) {%>
+    <div class="alert alert-danger" role="alert">System error</div><%
+        }
+    }
+%>
 <form action="wallet.jsp" name="myform" method="post">
 
     Importo in $: <br>

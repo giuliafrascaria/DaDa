@@ -4,6 +4,8 @@ import entity.articles.*;
 import entity.users.CorporateUser;
 import entity.users.PrivateUser;
 import entity.users.RegisteredUser;
+import exceptions.ErrorInBalanceException;
+import exceptions.FailedPaymentException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -143,8 +145,11 @@ public class DaDaSystem{
         return DatabaseController.getInstance().searchArticle(sql, kind);
     }
 
-    public float addMoney(String email, float money) throws Exception{
-        return DatabaseController.getInstance().addMoney(email, money);
+    public boolean addMoney(String email, float money) throws Exception{
+        if (DatabaseController.getInstance().addMoney(email, money))
+                return true;
+        else
+            throw new ErrorInBalanceException();
     }
 
     public boolean addAcquisto(String nome, String proprietario, String articolo) {
@@ -154,5 +159,15 @@ public class DaDaSystem{
 
     public ArrayList<Article> listAllArticles() throws Exception {
         return DatabaseController.getInstance().listAllArticles();
+    }
+
+    public void buyArticle(String acquirente, String proprietario, String nomeArticolo, float saldo, float prezzo, int quantitaBuy, int quantitatot)
+    {
+        Thread transaction = new PaymentController(prezzo, saldo, quantitaBuy, quantitatot, acquirente, proprietario, nomeArticolo);
+
+        transaction.start();
+
+        //implementare un observer qui
+
     }
 }

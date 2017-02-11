@@ -5,6 +5,7 @@ import entity.users.PrivateUser;
 import entity.users.RegisteredUser;
 import exceptions.IncompleteFormException;
 import exceptions.UserDoNotExistsException;
+import exceptions.UserNotValidException;
 import exceptions.WrongPasswordException;
 import control.DaDaSystem;
 
@@ -76,31 +77,31 @@ public class LoginBean {
             RegisteredUser user = system.findByPrimaryKey(this.email);
             if(user != null)
             {
-                // Controllo dati di accesso
-                if( this.email.equals(user.getEmail()) && this.getPassword().equals(user.getPwd()))
-                {
-                    if(user.getType() == 1)
-                    {
-                        System.out.println("cerco un privato");
-                        PrivateUser user1 = system.findPrivateUser(email);
-                        this.name = user1.getName();
-                        this.accountType = 1;
-                        this.balance = user1.getBalance();
-                        System.out.println("nome ritrovato: " + user1.getName());
+                if(!(user.getValid())) {
+                    // Controllo dati di accesso
+                    if (this.email.equals(user.getEmail()) && this.getPassword().equals(user.getPwd())) {
+                        if (user.getType() == 1) {
+                            System.out.println("cerco un privato");
+                            PrivateUser user1 = system.findPrivateUser(email);
+                            this.name = user1.getName();
+                            this.accountType = 1;
+                            this.balance = user1.getBalance();
+                            System.out.println("nome ritrovato: " + user1.getName());
+                        } else if (user.getType() == 2) {
+                            System.out.println("cerco un'azienda");
+                            CorporateUser user2 = system.findCorporateUser(email);
+                            this.name = user2.getName();
+                            this.accountType = 2;
+                            System.out.println("nome ritrovato: " + user2.getName());
+                        }
+                        return 1;
+                    } else {
+                        throw new WrongPasswordException();
                     }
-                    else if(user.getType() == 2)
-                    {
-                        System.out.println("cerco un'azienda");
-                        CorporateUser user2 = system.findCorporateUser(email);
-                        this.name = user2.getName();
-                        this.accountType = 2;
-                        System.out.println("nome ritrovato: " + user2.getName());
-                    }
-                    return 1;
                 }
                 else
                 {
-                    throw new WrongPasswordException();
+                    throw new UserNotValidException();
                 }
             }
             else
@@ -114,6 +115,10 @@ public class LoginBean {
         catch (UserDoNotExistsException e)
         {
             return 3;
+        }
+        catch (UserNotValidException e)
+        {
+            return 6;
         }
         catch (WrongPasswordException e)
         {

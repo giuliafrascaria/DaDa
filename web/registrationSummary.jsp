@@ -11,7 +11,7 @@
 <jsp:setProperty name="UserBean" property="*"/>
 <html>
 <head>
-    <title>Title</title>
+    <title>Registrazione Avvenuta</title>
     <jsp:include page="jspPageTemplates/head.jsp" flush="true" />
 </head>
 <body>

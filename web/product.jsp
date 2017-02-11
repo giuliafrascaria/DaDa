@@ -20,7 +20,7 @@
         BuyArticleBean.setProprietario(ArticleBean.getProprietario());
         BuyArticleBean.setNome(UserBean.getEmail());
         BuyArticleBean.setPrezzo(Float.parseFloat(ArticleBean.getPrezzo()));
-        BuyArticleBean.setPrezzocorrente(UserBean.getBalance());
+        BuyArticleBean.setSaldo(UserBean.getBalance());
         BuyArticleBean.setQuantitatot(Integer.parseInt(ArticleBean.getQuantita()));
         BuyArticleBean.setArticolo(ArticleBean.getNome());
 
