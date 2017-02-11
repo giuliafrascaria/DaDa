@@ -163,7 +163,7 @@ public class CatalogueController {
         int isItTheFirst = 0;
         if (rq.getClass().equals(Book.class)) {
 
-            sql = "SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ";
+            sql = "SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ISVALID = TRUE AND ";
             if (!((Book) rq).getTitolo().equals("")) {
                 sql = sql + "UPPER(ARTICLES.libro.TITOLO) LIKE UPPER('%" + rq.getNome() + "%') ";
                 isItTheFirst++;
@@ -186,7 +186,7 @@ public class CatalogueController {
 
 
         } else if (rq.getClass().equals(Clothing.class)) {
-            sql = "SELECT * FROM ARTICLES.Abbigliamento, ARTICLES.articolo WHERE ARTICLES.Abbigliamento.NOME = ARTICLES.articolo.NOME AND ARTICLES.Abbigliamento.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ";
+            sql = "SELECT * FROM ARTICLES.Abbigliamento, ARTICLES.articolo WHERE ARTICLES.Abbigliamento.NOME = ARTICLES.articolo.NOME AND ARTICLES.Abbigliamento.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ISVALID = TRUE AND  ";
             if (!((Clothing) rq).getTipo().equals("")) {
                 sql = sql + "UPPER(ARTICLES.Abbigliamento.TIPO) LIKE UPPER('%" + ((Clothing) rq).getTipo() + "%') ";
                 isItTheFirst++;
@@ -208,7 +208,7 @@ public class CatalogueController {
             proprietario++;
 
         } else if (rq.getClass().equals(Electronics.class)) {
-            sql = "SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ";
+            sql = "SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND  ISVALID = TRUE AND ";
             if (!((Electronics) rq).getTipo().equals("")) {
                 sql = sql + "UPPER(ARTICLES.informatica.TIPO) LIKE UPPER('%" + ((Electronics) rq).getTipo() + "%') ";
                 isItTheFirst++;
@@ -230,7 +230,7 @@ public class CatalogueController {
             proprietario++;
 
         } else if (rq.getClass().equals(TextBook.class)) {
-            sql = "SELECT * FROM ARTICLES.Scolastico, ARTICLES.articolo WHERE ARTICLES.Scolastico.NOME = ARTICLES.articolo.NOME AND ARTICLES.Scolastico.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ";
+            sql = "SELECT * FROM ARTICLES.Scolastico, ARTICLES.articolo WHERE ARTICLES.Scolastico.NOME = ARTICLES.articolo.NOME AND ARTICLES.Scolastico.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND  ISVALID = TRUE AND ";
             if (!((TextBook) rq).getMateria().equals("")) {
                 sql = sql + "UPPER(ARTICLES.Scolastico.MATERIA) LIKE UPPER('%" + ((TextBook) rq).getMateria()+ "%') ";
                 isItTheFirst++;
@@ -246,7 +246,7 @@ public class CatalogueController {
             proprietario++;
 
         } else {
-            sql = "SELECT * FROM ARTICLES.articolo WHERE UPPER(articolo.NOME) LIKE UPPER('%" + rq.getNome() + "%') ";
+            sql = "SELECT * FROM ARTICLES.articolo WHERE UPPER(articolo.NOME) LIKE UPPER('%" + rq.getNome() + "%') AND  ISVALID = TRUE";
         }
 
 
@@ -271,10 +271,10 @@ public class CatalogueController {
 
     private boolean sqlCheck(String sql)
     {
-        return !(sql.equals("SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
-                sql.equals("SELECT * FROM ARTICLES.Abbigliamento, ARTICLES.articolo WHERE ARTICLES.Abbigliamento.NOME = ARTICLES.articolo.NOME AND ARTICLES.Abbigliamento.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
-                sql.equals("SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND ") ||
-                sql.equals("SELECT * FROM ARTICLES.Scolastico, ARTICLES.articolo WHERE ARTICLES.Scolastico.NOME = ARTICLES.articolo.NOME AND ARTICLES.Scolastico.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND "));
+        return !(sql.equals("SELECT * FROM ARTICLES.libro, ARTICLES.articolo WHERE ARTICLES.libro.NOME = ARTICLES.articolo.NOME AND ARTICLES.libro.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND  ISVALID = TRUE AND ") ||
+                sql.equals("SELECT * FROM ARTICLES.Abbigliamento, ARTICLES.articolo WHERE ARTICLES.Abbigliamento.NOME = ARTICLES.articolo.NOME AND ARTICLES.Abbigliamento.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND  ISVALID = TRUE AND ") ||
+                sql.equals("SELECT * FROM ARTICLES.informatica, ARTICLES.articolo WHERE ARTICLES.informatica.NOME = ARTICLES.articolo.NOME AND ARTICLES.informatica.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND  ISVALID = TRUE AND ") ||
+                sql.equals("SELECT * FROM ARTICLES.Scolastico, ARTICLES.articolo WHERE ARTICLES.Scolastico.NOME = ARTICLES.articolo.NOME AND ARTICLES.Scolastico.PROPRIETARIO = ARTICLES.articolo.PROPRIETARIO AND  ISVALID = TRUE AND "));
     }
 
 
