@@ -2,30 +2,42 @@ package javabean;
 
 import control.DaDaSystem;
 import control.PrivateDBcontroller;
+import exceptions.ErrorInBalanceException;
 
-/**
- * Created by giogge on 30/01/17.
- */
+
 
 
 public class WalletBean {
 
-    private float balance, importo;
+    private float balance, importo, newbalance;
     private String user;
 
-    public float incrementBalance()
+    public int incrementBalance()
     {
         try {
-            float newBalance = balance+importo;
-            DaDaSystem.getInstance().addMoney(user, newBalance);
-            return newBalance;
+            this.newbalance = balance+importo;
+
+            DaDaSystem.getInstance().addMoney(user, newbalance);
+            return 0;
+        }
+        catch (ErrorInBalanceException e)
+        {
+            return 1;
         }
         catch (Exception e)
         {
-            return 0;
+            return 2;
         }
 
         //aggiorna nel DB
+    }
+
+    public float getNewbalance() {
+        return newbalance;
+    }
+
+    public void setNewbalance(float newbalance) {
+        this.newbalance = newbalance;
     }
 
     public void setBalance(float balance) {

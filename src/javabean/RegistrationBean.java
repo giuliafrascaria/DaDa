@@ -81,7 +81,6 @@ public class RegistrationBean implements Serializable {
     private void saveData(String name, String email, String surname, String pwd, int type)
     {
         user = DaDaSystem.getInstance().saveDataPrivate(name, email, surname, pwd, type);
-
     }
 
     public int validate()

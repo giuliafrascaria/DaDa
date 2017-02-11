@@ -8,9 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-/**
- * Created by v2devnull on 30/01/17.
- */
+
 public class AdminDBController extends DatabaseController{
 
     private static AdminDBController ourInstance = new AdminDBController();

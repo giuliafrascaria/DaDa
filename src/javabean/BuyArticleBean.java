@@ -2,6 +2,8 @@ package javabean;
 
 
 import control.DaDaSystem;
+import exceptions.FailedPaymentException;
+
 import javax.servlet.http.Part;
 import java.io.Serializable;
 import java.util.logging.Level;
@@ -9,11 +11,11 @@ import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 public class BuyArticleBean implements Serializable  {
 
-    private String nome = "";
+    private String nome = "";//acqiorente
     private String articolo = "";
     private String proprietario = "";
     private float prezzo;
-    private float prezzocorrente;
+    private float saldo;
     private int quantitaBuy;
     private int quantitatot;
 
@@ -73,35 +75,21 @@ public class BuyArticleBean implements Serializable  {
         }
         else
             System.out.println("ok");
-        if (prezzocorrente < prezzo * quantitaBuy){
-            System.out.println("prezzo corrente : " + prezzocorrente + " prezzo da scalare = " + prezzo*quantitaBuy);
+        if (saldo < prezzo * quantitaBuy){
+            System.out.println("saldo corrente : " + saldo + " prezzo da scalare = " + prezzo*quantitaBuy);
             return false;
         }
-        else
+        else {
             System.out.println("ok");
-        if(DaDaSystem.getInstance().removeMoney(nome, (prezzocorrente - prezzo*quantitaBuy)))
-            if(DaDaSystem.getInstance().decreaseQuantity(articolo.replaceAll("'", "''"), proprietario, quantitatot-quantitaBuy)){
-                if(DaDaSystem.getInstance().addAcquisto(nome, proprietario, articolo.replaceAll("'", "''")))
-                {
-                    try {
-                        DaDaSystem.getInstance().addMoney(proprietario, prezzo*quantitaBuy);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-            else
-                return false;
-        else
-            return false;
+        }
+
+        DaDaSystem.getInstance().buyArticle(nome, proprietario, articolo, saldo, prezzo, quantitaBuy, quantitatot);
+
+        return true;
     }
 
-    public void setPrezzocorrente(float prezzocorrente) {
-        this.prezzocorrente = prezzocorrente;
+    public void setSaldo(float saldocorrente) {
+        this.saldo = saldocorrente;
     }
 
     public void setQuantitatot(int quantitatot) {

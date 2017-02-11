@@ -88,39 +88,6 @@ public class UserBean
         this.balance = balance;
     }
 
-    /**
-     * Principal method for the bean, it calls the controller
-     * and control the input parameters.
-     *
-     * @param password the password of the user.
-     * @return 0 if the login goes right
-     * @return 1 if the user with email doesn't exist
-     * @return 2 if the password for the entered email is incorrect
-     * @return 3 if there was some error
-     * @return 4 if is an administrator
-     */
-    public int validate(String password) {
-        /*LoginController controller = LoginController.getInstance();
-        try {
-            UserInfo info = controller.login(this.email, password);
-            this.fillUserBean(info);
-            return 0;
-        } catch (WrongPasswordException e) {
-            return 2;
-        } catch (UserDoNotExistsException e) {
-            return 1;
-        }catch (AdminException e) {
-            this.firstName = "admin";
-            this.accountType = "admin";
-            this.email = "admin";
-            this.premium = "admin";
-            return 4;
-        }catch(Exception e) {
-            return 3;
-        }*/
-        return 1;
-    }
-
     public ArrayList<Article> getArticleList(){
         ArrayList<Article> lista = null;
         String generic = "generic";
