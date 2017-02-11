@@ -1,4 +1,3 @@
-
 package javabean;
 
 import control.RegisteredDBController;

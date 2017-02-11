@@ -4,15 +4,13 @@ import exceptions.FailedAddAcquisto;
 import exceptions.FailedAddMoneyException;
 import exceptions.FailedDecreaseException;
 import exceptions.FailedPaymentException;
-/**
- * Created by giogge on 10/02/17.
- */
+
 public class PaymentController extends Thread {
 
     //ho degli attributi di classe che sono i valori da disfare in caso di fallimento
-    float previousBalance, price;
-    int quantity, totQuantity;
-    String buyer, owner, articleName;
+    private float previousBalance, price;
+    private int quantity, totQuantity;
+    private String buyer, owner, articleName;
 
     PaymentController(float price, float previousBalance, int quantity, int totQuantity, String buyer, String owner, String articleName)
     {
@@ -33,9 +31,7 @@ public class PaymentController extends Thread {
             if(PrivateDBcontroller.getOurInstance().removeMoney(buyer, (previousBalance - price*quantity))) {
                 if (DatabaseController.getInstance().decreaseQuantity(articleName.replaceAll("'", "''"), owner, totQuantity - quantity)) {
                     if (PrivateDBcontroller.getOurInstance().addAcquisto(buyer, owner, articleName.replaceAll("'", "''"))) {
-                        if(!(DatabaseController.getInstance().addMoney(owner, price * quantity))) {
-                            throw new FailedAddMoneyException();
-                        }
+                        DatabaseController.getInstance().addMoney(owner, price * quantity);
                     }
                     else {
                         throw new FailedAddAcquisto();
@@ -56,23 +52,21 @@ public class PaymentController extends Thread {
         catch (FailedDecreaseException e)
         {
             //notificare observer e disfare pagamento
+            PrivateDBcontroller.getOurInstance().removeMoney(buyer, (previousBalance));
         }
         catch (FailedAddAcquisto e)
         {
             //notificare observer e disfare pagamento e quantity decrease
-        }
-        catch (FailedAddMoneyException e)
-        {
-            //notificare observer e disfare pagamento, quantity decrease e addAcquisto
+            PrivateDBcontroller.getOurInstance().removeMoney(buyer, (previousBalance));
+            DatabaseController.getInstance().decreaseQuantity(articleName.replaceAll("'", "''"), owner, totQuantity);
         }
         catch (Exception e)
         {
-            //notificare con un observer e disfare il tutto tranne l'ultimo step
+            //notificare observer e disfare pagamento, quantity decrease e addAcquisto
+            PrivateDBcontroller.getOurInstance().removeMoney(buyer, (previousBalance));
+            DatabaseController.getInstance().decreaseQuantity(articleName.replaceAll("'", "''"), owner, totQuantity);
+            PrivateDBcontroller.getOurInstance().removeAcquisto(buyer, owner, articleName.replaceAll("'", "''"));
         }
     }
 
-    private void undoPayment()
-    {
-
-    }
 }

@@ -29,7 +29,7 @@ CREATE TABLE USERS.Azienda(
   SUPPORTO        VARCHAR                ,
   TELEFONO        VARCHAR                ,
   EMAIL            VARCHAR
-    REFERENCES USERS.UtenteRegistrato(EMAIL),
+  REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
   PRIMARY KEY (EMAIL)
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE USERS.Privato(
   COGNOME        VARCHAR                ,
   TELEFONO        VARCHAR                ,
   EMAIL            VARCHAR
-    REFERENCES USERS.UtenteRegistrato(EMAIL),
+    REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
   PRIMARY KEY (EMAIL)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE USERS.Admin(
   NOME            VARCHAR                ,
   COGNOME        VARCHAR                ,
   EMAIL            VARCHAR
-    REFERENCES USERS.UtenteRegistrato(EMAIL),
+    REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
   PRIMARY KEY (EMAIL)
 );
 
@@ -70,7 +70,7 @@ CREATE SCHEMA ARTICLES;
 CREATE TABLE ARTICLES.articolo(
   NOME            VARCHAR                ,
   PROPRIETARIO        VARCHAR
-    REFERENCES USERS.UtenteRegistrato(EMAIL),
+    REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
   PREZZO            FLOAT                NOT NULL,
   QUANTITA        INT                    NOT NULL,
   ISVALID         BOOLEAN               NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE ARTICLES.libro(
   TITOLO            VARCHAR                ,
   PROPRIETARIO        VARCHAR,
   NOME            VARCHAR,
-  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO),
+  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO) ON DELETE CASCADE,
   AUTORE            VARCHAR                ,
   CASA            VARCHAR                ,
   PAGINE            INT                ,
@@ -96,7 +96,7 @@ CREATE TABLE ARTICLES.informatica(
   TIPO            VARCHAR                ,
   PROPRIETARIO        VARCHAR,
   NOME            VARCHAR,
-  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO),
+  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO) ON DELETE CASCADE,
   MODELLO          VARCHAR                ,
   MARCA            VARCHAR                ,
   PRIMARY KEY (NOME, PROPRIETARIO)
@@ -107,7 +107,7 @@ CREATE TABLE ARTICLES.Abbigliamento(
   TIPO            VARCHAR                ,
   PROPRIETARIO        VARCHAR,
   NOME            VARCHAR,
-  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO),
+  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO) ON DELETE CASCADE,
   TAGLIA            INT                ,
   MARCA            VARCHAR                ,
   PRIMARY KEY (NOME, PROPRIETARIO)
@@ -118,7 +118,7 @@ CREATE TABLE ARTICLES.Scolastico(
   MATERIA        VARCHAR                ,
   PROPRIETARIO        VARCHAR,
   NOME            VARCHAR,
-  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.libro(NOME, PROPRIETARIO),
+  FOREIGN KEY (NOME, PROPRIETARIO) REFERENCES ARTICLES.libro(NOME, PROPRIETARIO) ON DELETE CASCADE,
   EDIZIONE        INT                ,
   PRIMARY KEY (NOME, PROPRIETARIO)
 );
@@ -131,8 +131,8 @@ CREATE TABLE ARTICLES.recensione(
   TESTO               VARCHAR,
   RAITNG              INT  ,
   TOCHECK             BOOLEAN,
-  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL),
-  FOREIGN KEY (ARTICOLO, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO),
+  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
+  FOREIGN KEY (ARTICOLO, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO) ON DELETE CASCADE,
   PRIMARY KEY (UTENTE, ARTICOLO, SEGNALAZIONE)
 );
 
@@ -142,8 +142,8 @@ CREATE TABLE ARTICLES.segnalazioneUtente(
   PROPRIETARIO        VARCHAR,
   TESTO               VARCHAR,
   TOCHECK             BOOLEAN,
-  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL),
-  FOREIGN KEY (PROPRIETARIO) REFERENCES USERS.UtenteRegistrato(EMAIL),
+  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
+  FOREIGN KEY (PROPRIETARIO) REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
   PRIMARY KEY (UTENTE, PROPRIETARIO)
 );
 
@@ -152,16 +152,16 @@ CREATE TABLE ARTICLES.acquisti(
   UTENTE           VARCHAR,
   ARTICOLO         VARCHAR,
   PROPRIETARIO     VARCHAR,
-  FOREIGN KEY (ARTICOLO, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO),
-  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL)
+  FOREIGN KEY (ARTICOLO, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO) ON DELETE CASCADE,
+  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE
 );
 
 CREATE TABLE ARTICLES.wishlist(
   UTENTE           VARCHAR,
   ARTICOLO         VARCHAR,
   PROPRIETARIO     VARCHAR,
-  FOREIGN KEY (ARTICOLO, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO),
-  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL),
+  FOREIGN KEY (ARTICOLO, PROPRIETARIO) REFERENCES ARTICLES.articolo(NOME, PROPRIETARIO) ON DELETE CASCADE,
+  FOREIGN KEY (UTENTE) REFERENCES USERS.UtenteRegistrato(EMAIL) ON DELETE CASCADE,
   PRIMARY KEY (UTENTE, ARTICOLO, PROPRIETARIO)
 );
 
@@ -177,7 +177,7 @@ INSERT INTO USERS.UtenteRegistrato VALUES ('giuliac@gmail.com', '0', 'giulia', '
 INSERT INTO USERS.UtenteRegistrato VALUES ('a', '1', 'a', '333333333', 0,  TRUE);
 
 INSERT INTO USERS.Privato VALUES ('a', 'a', '333333333', 'a');
-INSERT INTO ARTICLES.articolo VALUES ('cocaina', 'a', '10', '1000', TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('cocaina', 'a', '10', '1000', FALSE );
 
 
 /*as admin*/
@@ -186,34 +186,34 @@ INSERT INTO USERS.Admin VALUES ('giulia', 'frascaria', 'giogge@gmail.com');
 INSERT INTO USERS.Admin VALUES ('giulia', 'cassara', 'giuliac@gmail.com');
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Santa Croce', 'simone@gmail.com', '10', '100', TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('Santa Croce', 'simone@gmail.com', '10', '100', FALSE );
 INSERT INTO ARTICLES.libro VALUES ('origine della Santa Croce', 'simone@gmail.com', 'Santa Croce', 'Simone D'' Aniello', 'Mondadori', '350' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Sant'' Anna', 'simone@gmail.com', '15', '100' , TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('Sant'' Anna', 'simone@gmail.com', '15', '100' , FALSE );
 INSERT INTO ARTICLES.libro VALUES ('origine della Santa Anna', 'simone@gmail.com', 'Sant'' Anna', 'Simone D'' Aniello', 'Mondadori', '80' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Lieve', 'simone@gmail.com', '4.90', '100' , TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('Lieve', 'simone@gmail.com', '4.90', '100' , FALSE );
 INSERT INTO ARTICLES.libro VALUES ('origine della Lieve', 'simone@gmail.com', 'Lieve', 'Simone D'' Aniello', 'Mondadori', '100' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('A scuola con l'' acqua', 'simone@gmail.com', '50', '100', TRUE  );
+INSERT INTO ARTICLES.articolo VALUES ('A scuola con l'' acqua', 'simone@gmail.com', '50', '100', FALSE  );
 INSERT INTO ARTICLES.libro VALUES ('A scuola con l'' acqua', 'simone@gmail.com', 'A scuola con l'' acqua', 'Simone D'' Aniello', 'Mondadori', '100' );
 INSERT INTO ARTICLES.Scolastico VALUES ('Acquologia', 'simone@gmail.com', 'A scuola con l'' acqua', '1' );
 
 
-INSERT INTO ARTICLES.articolo VALUES ('Lenovo ThinkPad', 'simone@gmail.com', '500', '10', TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('Lenovo ThinkPad', 'simone@gmail.com', '500', '10', FALSE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'Lenovo ThinkPad', 'thinkPad Costoso', 'Lenovo');
 
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion', 'simone@gmail.com', '800', '10', TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion', 'simone@gmail.com', '800', '10', FALSE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 2', 'simone@gmail.com', '800', '10', TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 2', 'simone@gmail.com', '800', '10', FALSE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 2', 'HP Tamarro', 'HP');
 
-INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 3', 'simone@gmail.com', '800', '10', TRUE );
+INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 3', 'simone@gmail.com', '800', '10', FALSE );
 INSERT INTO ARTICLES.informatica VALUES ('Notebook', 'simone@gmail.com', 'HP pavilion 3', 'HP Tamarro', 'HP');
 
 INSERT INTO ARTICLES.articolo VALUES ('HP pavilion 4', 'simone@gmail.com', '800', '10', TRUE );

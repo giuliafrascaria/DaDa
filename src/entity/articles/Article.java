@@ -16,10 +16,17 @@ public class Article {
     private Boolean isvalid;
     private int quantità;
 
-    public Article(String nome, float prezzo, int quantità, Boolean isvalid){}
+    //public Article(String nome, float prezzo, int quantità, Boolean isvalid){}
 
-    public Article(String nome, String proprietario, float prezzo, int quantità, Boolean isvalid, String image){}
-    public Article(String nome, RegisteredUser proprietario, float prezzo, int quantità, Boolean isvalid, String image){}
+
+    public Article(String nome, RegisteredUser proprietario, float prezzo, int quantità, Boolean isvalid, String image){
+        this.nome = nome;
+        this.proprietario = proprietario;
+        this.prezzo = prezzo;
+        this.quantità = quantità;
+        this.isvalid = isvalid;
+        this.image = image;
+    }
 
     public Article() {
 
@@ -80,4 +87,5 @@ public class Article {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }

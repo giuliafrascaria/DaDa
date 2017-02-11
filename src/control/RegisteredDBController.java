@@ -45,25 +45,25 @@ public class RegisteredDBController extends DatabaseController {
         PreparedStatement statement = null;
 
         final String query = "update USERS.UtenteRegistrato set isvalid=TRUE where email=?";
-        try {
+    try {
 
-            connection = provider.getConnection();
-            statement = connection.prepareStatement(query);
-            statement.setString(1, email);
-            statement.executeUpdate();
+        connection = provider.getConnection();
+        statement = connection.prepareStatement(query);
+        statement.setString(1, email);
+        statement.executeUpdate();
 
-        }catch (Exception e){
-            e.printStackTrace();
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    finally{
+        // release resources
+        if(statement != null){
+            statement.close();
         }
-        finally{
-            // release resources
-            if(statement != null){
-                statement.close();
-            }
-            if(connection  != null){
-                connection.close();
-            }
+        if(connection  != null){
+            connection.close();
         }
+    }
     }
 
     /*list all registered users not validate by the admin*/
