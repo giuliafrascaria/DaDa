@@ -86,15 +86,18 @@ public class BuyArticleBean implements Serializable  {
                     try {
                         DaDaSystem.getInstance().addMoney(proprietario, prezzo*quantitaBuy);
                     } catch (Exception e) {
+                        //rimetti i soldi, aggiungi quantità e togli acquisto da tabella
                         e.printStackTrace();
                     }
                     return true;
                 }
                 else {
+                    //rimetti soldi e aggiungi quantità
                     return false;
                 }
             }
             else
+                //rimetti i soldi
                 return false;
         else
             return false;

@@ -93,7 +93,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/postgresql-9.4.1210.jre6.jar!/" />
+          <root url="jar://$USER_HOME$/Scaricati/junit-4.12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -109,6 +109,14 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="javax.faces-api-2.2" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Scaricati/postgresql-9.4.1212.jre6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

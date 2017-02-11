@@ -131,7 +131,7 @@ public class DatabaseController {
         PreparedStatement statement = null;
         RegisteredUser user = null;
         ResultSet result = null;
-        final String query = "select * from USERS.UtenteRegistrato where EMAIL=?";
+        String query = "select * from USERS.UtenteRegistrato where EMAIL=?";
         //final String query = "select * from USERS.UtenteRegistrato";
 
 
