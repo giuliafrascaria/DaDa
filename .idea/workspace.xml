@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f2206a7c-aff7-4e77-8a7e-45d102410809" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/control/ArticlesController.java" afterPath="$PROJECT_DIR$/src/control/ArticlesController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/articles/Article.java" afterPath="$PROJECT_DIR$/src/entity/articles/Article.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/users/RegisteredUser.java" afterPath="$PROJECT_DIR$/src/entity/users/RegisteredUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javabean/ArticleBean.java" afterPath="$PROJECT_DIR$/src/javabean/ArticleBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseINIT/DBinit.sql" afterPath="$PROJECT_DIR$/src/databaseINIT/DBinit.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/AdminPage.jsp" afterPath="$PROJECT_DIR$/web/AdminPage.jsp" />
     </list>
     <ignored path="DaDaWA.iws" />
@@ -46,8 +43,8 @@
       <file leaf-file-name="AdminPage.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/AdminPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38989168">
-              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.59366757">
+              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -57,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/src/javabean/ListRegisteredUsersBean.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+              <caret line="76" column="60" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -67,8 +64,10 @@
         <entry file="file://$PROJECT_DIR$/web/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="50" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="50" />
-              <folding />
+              <caret line="21" column="13" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="50" />
+              <folding>
+                <marker date="1486828766545" expanded="true" signature="2173:2331" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/src/databaseINIT/DBinit.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -98,7 +97,36 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#786#787#0" expanded="false" />
+                <element signature="e#813#814#0" expanded="false" />
+                <element signature="e#862#863#0" expanded="false" />
+                <element signature="e#900#901#0" expanded="false" />
+                <element signature="e#937#938#0" expanded="false" />
+                <element signature="e#967#968#0" expanded="false" />
+                <element signature="e#1007#1008#0" expanded="false" />
+                <element signature="e#1039#1040#0" expanded="false" />
+                <element signature="e#1071#1072#0" expanded="false" />
+                <element signature="e#1100#1101#0" expanded="false" />
+                <element signature="e#1143#1144#0" expanded="false" />
+                <element signature="e#1179#1180#0" expanded="false" />
+                <element signature="e#1226#1227#0" expanded="false" />
+                <element signature="e#1261#1262#0" expanded="false" />
+                <element signature="e#1325#1326#0" expanded="false" />
+                <element signature="e#1373#1374#0" expanded="false" />
+                <element signature="e#1405#1406#0" expanded="false" />
+                <element signature="e#1436#1437#0" expanded="false" />
+                <element signature="e#1481#1482#0" expanded="false" />
+                <element signature="e#1521#1522#0" expanded="false" />
+                <element signature="e#1553#1554#0" expanded="false" />
+                <element signature="e#1581#1582#0" expanded="false" />
+                <element signature="e#1620#1621#0" expanded="false" />
+                <element signature="e#1679#1680#0" expanded="false" />
+                <element signature="e#1711#1712#0" expanded="false" />
+                <element signature="e#1739#1740#0" expanded="false" />
+                <element signature="e#1781#1782#0" expanded="false" />
+                <element signature="e#1815#1816#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,8 +139,6 @@
               <folding>
                 <element signature="e#131#132#0" expanded="true" />
                 <element signature="e#165#166#0" expanded="true" />
-                <element signature="e#1314#1315#0" expanded="true" />
-                <element signature="e#1344#1345#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,14 +148,8 @@
         <entry file="file://$PROJECT_DIR$/src/control/ArticlesController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1486764995584" expanded="true" signature="718:791" placeholder="update ARTIC... " />
-                <marker date="1486764995584" expanded="true" signature="1912:1955" placeholder="select * fro... UtenteRegistrato" />
-                <marker date="1486764995584" expanded="true" signature="1912:1964" placeholder="select * fro... articolo" />
-                <marker date="1486764995584" expanded="true" signature="1912:1965" placeholder="select * fro... articologroup" />
-              </folding>
+              <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,11 +158,12 @@
         <entry file="file://$PROJECT_DIR$/src/control/RegisteredDBController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
-                <marker date="1486763384144" expanded="true" signature="617:677" placeholder="update USERS... " />
-                <marker date="1486763384144" expanded="true" signature="1442:1478" placeholder="select * fro... UtenteRegistrato" />
-                <marker date="1486763384144" expanded="true" signature="1442:1498" placeholder="select * fro... UtenteRegistrato" />
+                <marker date="1486766344696" expanded="true" signature="609:657" placeholder="DELETE FROM " />
+                <marker date="1486766344696" expanded="true" signature="1283:1343" placeholder="update USERS... " />
+                <marker date="1486766344696" expanded="true" signature="2168:2204" placeholder="select * fro... UtenteRegistrato" />
+                <marker date="1486766344696" expanded="true" signature="2168:2224" placeholder="select * fro... UtenteRegistrato" />
               </folding>
             </state>
           </provider>
@@ -207,15 +228,15 @@
         <option value="$PROJECT_DIR$/src/control/RegisteredUserController.java" />
         <option value="$PROJECT_DIR$/out/artifacts/DaDaWA_war_exploded/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/databaseINIT/Provider.java" />
-        <option value="$PROJECT_DIR$/src/databaseINIT/DBinit.sql" />
         <option value="$PROJECT_DIR$/src/control/DatabaseController.java" />
         <option value="$PROJECT_DIR$/web/dona.jsp" />
         <option value="$PROJECT_DIR$/src/entity/users/RegisteredUser.java" />
         <option value="$PROJECT_DIR$/src/entity/articles/Article.java" />
-        <option value="$PROJECT_DIR$/src/javabean/ListRegisteredUsersBean.java" />
-        <option value="$PROJECT_DIR$/src/control/RegisteredDBController.java" />
-        <option value="$PROJECT_DIR$/src/control/ArticlesController.java" />
         <option value="$PROJECT_DIR$/src/javabean/ArticleBean.java" />
+        <option value="$PROJECT_DIR$/src/javabean/ListRegisteredUsersBean.java" />
+        <option value="$PROJECT_DIR$/src/control/ArticlesController.java" />
+        <option value="$PROJECT_DIR$/src/control/RegisteredDBController.java" />
+        <option value="$PROJECT_DIR$/src/databaseINIT/DBinit.sql" />
         <option value="$PROJECT_DIR$/web/AdminPage.jsp" />
       </list>
     </option>
@@ -272,6 +293,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,38 +315,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="DaDa" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DaDa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DaDa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javax.faces-api-2.2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DaDa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DaDa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javax.faces-api-2.2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -518,9 +509,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -544,6 +533,142 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/exceptions" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/DaDaWA.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/control/AdminDBController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/control/CatalogueController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/control/DaDaSystem.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/control/DatabaseController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/exceptions/ErrorOnSendingReviewException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/javabean/BuyArticleBean.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/javabean/LoginBean.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/javabean/RegistrationBean.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/javabean/UserBean.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/javabean/WalletBean.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/testing/LoginBeanTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/login.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/product.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/registrationSummary.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/wallet.jsp</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/control/PaymentController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/exceptions/ErrorInBalanceException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/exceptions/FailedAddAcquisto.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/exceptions/FailedAddMoneyException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/exceptions/FailedDecreaseException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/exceptions/FailedPaymentException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/exceptions/UserNotValidException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/testing/BuyArticleBeanTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/testing/TestSuite.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/testing/WalletBeanTest.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/bean/LoginServlet.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Tomcat Server.home.jsp">
     <configuration default="false" name="home.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.6" ALTERNATIVE_JRE_ENABLED="false">
@@ -1138,7 +1263,8 @@
       <workItem from="1486586551327" duration="655000" />
       <workItem from="1486634872442" duration="10837000" />
       <workItem from="1486751122752" duration="12445000" />
-      <workItem from="1486765265489" duration="156000" />
+      <workItem from="1486765265489" duration="2619000" />
+      <workItem from="1486821994044" duration="2876000" />
     </task>
     <task id="LOCAL-00004" summary="registrazione">
       <created>1485355360057</created>
@@ -1254,46 +1380,52 @@
       <option name="project" value="LOCAL" />
       <updated>1486663375004</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="validate user and articles done">
+      <created>1486765442630</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1486765442630</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205540000" />
+    <option name="totallyTimeSpent" value="210879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09737418" sideWeight="0.45299146" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934355" sideWeight="0.50213677" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10612691" sideWeight="0.491453" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.8744658" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10612691" sideWeight="0.491453" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17094018" sideWeight="0.49520382" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17088607" sideWeight="0.50479615" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934355" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934355" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09737418" sideWeight="0.45299146" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.8744658" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822758" sideWeight="0.49786323" order="1" side_tool="false" content_ui="tabs" />
@@ -1370,7 +1502,8 @@
     <MESSAGE value="list articles controller" />
     <MESSAGE value="minor fixes" />
     <MESSAGE value="need to fix bug on article table" />
-    <option name="LAST_COMMIT_MESSAGE" value="need to fix bug on article table" />
+    <MESSAGE value="validate user and articles done" />
+    <option name="LAST_COMMIT_MESSAGE" value="validate user and articles done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1621,19 +1754,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="54" selection-start-line="47" selection-start-column="20" selection-end-line="49" selection-end-column="54" />
           <folding>
-            <marker date="1486580216112" expanded="true" signature="5692:5742" placeholder="select * fro... UtenteRegistrato" />
-            <marker date="1486580216112" expanded="true" signature="7267:7375" placeholder="INSERT INTO USERS.UtenteRegistrato... " />
-            <marker date="1486580216112" expanded="true" signature="8232:8564" placeholder="INSERT INTO ARTICLES.recensione... " />
-            <marker date="1486580216112" expanded="true" signature="9014:9200" placeholder="INSERT INTO ARTICLES.segnalazioneUtente... " />
-            <marker date="1486580216112" expanded="true" signature="10128:10255" placeholder="UPDATE ARTIC... " />
-            <marker date="1486580216112" expanded="true" signature="10793:10894" placeholder="INSERT INTO ARTICLES.Articolo... " />
-            <marker date="1486580216112" expanded="true" signature="11827:11914" placeholder="INSERT INTO ARTICLES.libro... " />
-            <marker date="1486580216112" expanded="true" signature="12913:13007" placeholder="INSERT INTO ARTICLES.informatica... " />
-            <marker date="1486580216112" expanded="true" signature="14029:14123" placeholder="INSERT INTO ARTICLES.Abbigliamento... " />
-            <marker date="1486580216112" expanded="true" signature="15127:15214" placeholder="INSERT INTO ARTICLES.Scolastico... " />
-            <marker date="1486580216112" expanded="true" signature="16562:16625" placeholder="select * fro... Articolo" />
-            <marker date="1486580216112" expanded="true" signature="18147:18217" placeholder="select IMMAG... Articolo" />
-            <marker date="1486580216112" expanded="true" signature="19378:19433" placeholder="UPDATE USERS... " />
+            <marker date="1486828766541" expanded="true" signature="5692:5720" placeholder="select * fro... UtenteRegistrato" />
+            <marker date="1486828766541" expanded="true" signature="7267:7375" placeholder="INSERT INTO USERS.UtenteRegistrato... " />
+            <marker date="1486828766541" expanded="true" signature="8232:8564" placeholder="INSERT INTO ARTICLES.recensione... " />
+            <marker date="1486828766541" expanded="true" signature="9014:9200" placeholder="INSERT INTO ARTICLES.segnalazioneUtente... " />
+            <marker date="1486828766541" expanded="true" signature="10128:10255" placeholder="UPDATE ARTIC... " />
+            <marker date="1486828766541" expanded="true" signature="10793:10894" placeholder="INSERT INTO ARTICLES.Articolo... " />
+            <marker date="1486828766541" expanded="true" signature="11827:11914" placeholder="INSERT INTO ARTICLES.libro... " />
+            <marker date="1486828766541" expanded="true" signature="12913:13007" placeholder="INSERT INTO ARTICLES.informatica... " />
+            <marker date="1486828766541" expanded="true" signature="14029:14123" placeholder="INSERT INTO ARTICLES.Abbigliamento... " />
+            <marker date="1486828766541" expanded="true" signature="15127:15214" placeholder="INSERT INTO ARTICLES.Scolastico... " />
+            <marker date="1486828766541" expanded="true" signature="16562:16625" placeholder="select * fro... Articolo" />
+            <marker date="1486828766541" expanded="true" signature="18147:18217" placeholder="select IMMAG... Articolo" />
+            <marker date="1486828766541" expanded="true" signature="19378:19433" placeholder="UPDATE USERS... " />
           </folding>
         </state>
       </provider>
@@ -1662,7 +1795,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding>
-            <element signature="e#566#567#0" expanded="false" />
+            <element signature="e#1060#1061#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1717,8 +1850,10 @@
     <entry file="file://$PROJECT_DIR$/web/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="50" />
-          <folding />
+          <caret line="21" column="13" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="50" />
+          <folding>
+            <marker date="1486828766545" expanded="true" signature="2173:2331" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1726,19 +1861,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/users/RegisteredUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
-            <element signature="e#131#132#0" expanded="true" />
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1344#1345#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#862#863#0" expanded="false" />
+            <element signature="e#900#901#0" expanded="false" />
+            <element signature="e#937#938#0" expanded="false" />
+            <element signature="e#967#968#0" expanded="false" />
+            <element signature="e#1007#1008#0" expanded="false" />
+            <element signature="e#1039#1040#0" expanded="false" />
+            <element signature="e#1071#1072#0" expanded="false" />
+            <element signature="e#1100#1101#0" expanded="false" />
+            <element signature="e#1143#1144#0" expanded="false" />
+            <element signature="e#1179#1180#0" expanded="false" />
+            <element signature="e#1226#1227#0" expanded="false" />
+            <element signature="e#1261#1262#0" expanded="false" />
+            <element signature="e#1325#1326#0" expanded="false" />
+            <element signature="e#1373#1374#0" expanded="false" />
+            <element signature="e#1405#1406#0" expanded="false" />
+            <element signature="e#1436#1437#0" expanded="false" />
+            <element signature="e#1481#1482#0" expanded="false" />
+            <element signature="e#1521#1522#0" expanded="false" />
+            <element signature="e#1553#1554#0" expanded="false" />
+            <element signature="e#1581#1582#0" expanded="false" />
+            <element signature="e#1620#1621#0" expanded="false" />
+            <element signature="e#1679#1680#0" expanded="false" />
+            <element signature="e#1711#1712#0" expanded="false" />
+            <element signature="e#1739#1740#0" expanded="false" />
+            <element signature="e#1781#1782#0" expanded="false" />
+            <element signature="e#1815#1816#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1748,32 +1899,6 @@
         <state vertical-scroll-proportion="1.4527112">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/RegisteredDBController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding>
-            <marker date="1486763384144" expanded="true" signature="617:677" placeholder="update USERS... " />
-            <marker date="1486763384144" expanded="true" signature="1442:1478" placeholder="select * fro... UtenteRegistrato" />
-            <marker date="1486763384144" expanded="true" signature="1442:1498" placeholder="select * fro... UtenteRegistrato" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/ArticlesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1486764995584" expanded="true" signature="718:791" placeholder="update ARTIC... " />
-            <marker date="1486764995584" expanded="true" signature="1912:1955" placeholder="select * fro... UtenteRegistrato" />
-            <marker date="1486764995584" expanded="true" signature="1912:1964" placeholder="select * fro... articolo" />
-            <marker date="1486764995584" expanded="true" signature="1912:1965" placeholder="select * fro... articologroup" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1788,7 +1913,15 @@
     <entry file="file://$PROJECT_DIR$/src/databaseINIT/DBinit.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/ArticlesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1796,15 +1929,39 @@
     <entry file="file://$PROJECT_DIR$/src/javabean/ListRegisteredUsersBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+          <caret line="76" column="60" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="60" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/users/RegisteredUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#165#166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/RegisteredDBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <marker date="1486766344696" expanded="true" signature="609:657" placeholder="DELETE FROM " />
+            <marker date="1486766344696" expanded="true" signature="1283:1343" placeholder="update USERS... " />
+            <marker date="1486766344696" expanded="true" signature="2168:2204" placeholder="select * fro... UtenteRegistrato" />
+            <marker date="1486766344696" expanded="true" signature="2168:2224" placeholder="select * fro... UtenteRegistrato" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/AdminPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38989168">
-          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.59366757">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
           <folding />
         </state>
       </provider>

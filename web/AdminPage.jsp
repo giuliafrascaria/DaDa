@@ -54,6 +54,7 @@
         if (request.getParameter("action").equals("delete_user")) {
             String email = request.getParameter("email_utente");
             System.out.println(email);
+            ListRegisteredUserBean.deleteUser(email);
         }
     }
 %>
