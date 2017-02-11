@@ -43,7 +43,7 @@ public class DatabaseController {
         if (rs != null) {
             while (rs.next()) {
                 if (kind.equals("Book")) {
-                    nuovoArticolo = ArticleFactory.getInstance().getBook();
+                    nuovoArticolo = ArticleFactory.getInstance().getArticolo("book");
                     nuovoArticolo.setNome(rs.getString("NOME"));
                     RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
                     ru.setEmail(rs.getString("PROPRIETARIO"));
@@ -57,7 +57,7 @@ public class DatabaseController {
                     ((Book) nuovoArticolo).setPagine(rs.getInt("PAGINE"));
 
                 } else if (kind.equals("Electronics")) {
-                    nuovoArticolo = ArticleFactory.getInstance().getElectronics();
+                    nuovoArticolo = ArticleFactory.getInstance().getArticolo("electronics");
                     nuovoArticolo.setNome(rs.getString("NOME"));
                     RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
                     ru.setEmail(rs.getString("PROPRIETARIO"));
@@ -69,7 +69,7 @@ public class DatabaseController {
                     ((Electronics) nuovoArticolo).setMarca(rs.getString("MARCA"));
 
                 } else if (kind.equals("Clothing")) {
-                    nuovoArticolo = ArticleFactory.getInstance().getClothing();
+                    nuovoArticolo = ArticleFactory.getInstance().getArticolo("clothing");
                     nuovoArticolo.setNome(rs.getString("NOME"));
                     RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
                     ru.setEmail(rs.getString("PROPRIETARIO"));
@@ -82,7 +82,7 @@ public class DatabaseController {
                     ((Clothing) nuovoArticolo).setMarca(rs.getString("MARCA"));
 
                 } else if (kind.equals("TextBook")) {
-                    nuovoArticolo = ArticleFactory.getInstance().getTextBook();
+                    nuovoArticolo = ArticleFactory.getInstance().getArticolo("textBook");
                     nuovoArticolo.setNome(rs.getString("NOME"));
                     RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
                     ru.setEmail(rs.getString("PROPRIETARIO"));
@@ -94,7 +94,7 @@ public class DatabaseController {
                     ((TextBook) nuovoArticolo).setMateria(rs.getString("MATERIA"));
 
                 } else if (kind.equals("generic")) {
-                    nuovoArticolo = ArticleFactory.getInstance().getArticle();
+                    nuovoArticolo = ArticleFactory.getInstance().getArticolo("article");
                     nuovoArticolo.setNome(rs.getString("NOME"));
                     RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
                     ru.setEmail(rs.getString("PROPRIETARIO"));
@@ -523,7 +523,7 @@ public class DatabaseController {
 
             if (result.next()) {
 
-                article = ArticleFactory.getInstance().getArticle();
+                article = ArticleFactory.getInstance().getArticolo("article");
 
                 article.setNome(result.getString("NOME"));
                 RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
@@ -624,4 +624,54 @@ public class DatabaseController {
         return money;
     }
 
+    synchronized public ArrayList<Article> listAllArticles() throws Exception
+    {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+
+        ArrayList<Article> articles = new ArrayList<Article>();
+        final String query = "select * " +
+                "from ARTICLES.articolo";
+        try {
+            connection = provider.getConnection();
+
+            statement = connection.prepareStatement(query);
+            result = statement.executeQuery();
+
+            while (result.next()) {
+                String nome = result.getString(1);
+                System.out.println(nome + "\n");
+                String proprietario = result.getString(2);
+                RegisteredUser ru = UserFactory.getInstance().createRegisteredUser();
+                ru.setEmail(proprietario);
+                System.out.println(proprietario + "\n");
+                Float prezzo = Float.parseFloat(result.getString(3));
+                System.out.print(prezzo  + "\n");
+                Integer quantità = Integer.parseInt(result.getString(4));
+                System.out.print(quantità + "\n");
+                Boolean isvalid = result.getBoolean(5);
+                System.out.print(isvalid  + "\n");
+                String immagine = result.getString(6);
+                System.out.println(immagine + "\n");
+
+                Article article = new Article(nome, proprietario, prezzo, quantità, isvalid, immagine);
+                articles.add(article);
+            }
+
+        }finally{
+            // release resources
+            if(result != null){
+                result.close();
+            }
+            // release resources
+            if(statement != null){
+                statement.close();
+            }
+            if(connection  != null){
+                connection.close();
+            }
+        }
+        return articles;
+    }
 }

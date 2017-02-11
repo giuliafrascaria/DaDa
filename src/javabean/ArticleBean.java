@@ -236,7 +236,7 @@ public class ArticleBean implements Serializable  {
 
     private void saveArticle()
     {
-        article = ArticleFactory.getInstance().getArticle();
+        article = ArticleFactory.getInstance().getArticolo("article");
 
         article.setNome(this.nome);
         article.setPrezzo(Float.parseFloat(this.prezzo));
@@ -340,24 +340,24 @@ public class ArticleBean implements Serializable  {
                         if (radioB.equals("inf")) {
                             //ottieni un articolo di informatica dal factory e aggiungilo al db
                             System.out.println("informatica");
-                            Electronics electronics = ArticleFactory.getInstance().getElectronics();
+                            Electronics electronics = (Electronics) ArticleFactory.getInstance().getArticolo("electronics");
                             saveExtraData(electronics);
                             DaDaSystem.getInstance().addElectronics(electronics);
                         } else if (radioB.equals("cloth")) {
                             //vestiti
                             System.out.println("vestiti");
-                            Clothing clothing = ArticleFactory.getInstance().getClothing();
+                            Clothing clothing = (Clothing) ArticleFactory.getInstance().getArticolo("clothing");
                             saveExtraData(clothing);
                             DaDaSystem.getInstance().addClothing(clothing);
                         } else if (radioB.equals("libri")) {
                             //libri
                             System.out.println("libri");
-                            Book book = ArticleFactory.getInstance().getBook();
+                            Book book = (Book) ArticleFactory.getInstance().getArticolo("book");
                             saveExtraData(book);
                             DaDaSystem.getInstance().addBook(book);
                         } else if (radioB.equals("scolastico")) {
                             System.out.println("scolastico");
-                            TextBook textBook = ArticleFactory.getInstance().getTextBook();
+                            TextBook textBook = (TextBook) ArticleFactory.getInstance().getArticolo("textBook");
                             saveExtraData(textBook);
                             DaDaSystem.getInstance().addTextBook(textBook);
                         }

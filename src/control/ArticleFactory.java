@@ -23,21 +23,38 @@ public class ArticleFactory {
         return instance;
     }
 
-    public Article getArticle(){
+    public Article getArticolo(String kind){
+        if (kind.equals("article")) {
+            return getArticle();
+        } else if (kind.equals("book")) {
+            return getBook();
+        } else if (kind.equals("clothing")) {
+            return getClothing();
+        } else if (kind.equals("electronics")) {
+            return getElectronics();
+        } else if (kind.equals("textBook")) {
+            return getTextBook();
+        } else {
+            return null;
+        }
+    }
+
+    private Article getArticle(){
         return new Article();
     }
-    public Book getBook(){
+    private Book getBook(){
         return new Book();
     }
-    public Clothing getClothing(){
+    private Clothing getClothing(){
         return new Clothing();
     }
-    public Electronics getElectronics(){
+    private Electronics getElectronics(){
         return new Electronics();
     }
-    public TextBook getTextBook(){
+    private TextBook getTextBook(){
         return new TextBook();
     }
+
     Review getReview(int rating, String text, String user, String article, String owner, boolean warning){
 
         Review review = new Review();

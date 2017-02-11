@@ -245,6 +245,6 @@ INSERT INTO ARTICLES.Abbigliamento VALUES ('gonna', 'simone@gmail.com', 'gonna c
 
 INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','Lenovo ThinkPad', 'simone@gmail.com' );
 INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','HP pavilion', 'simone@gmail.com' );
-
 INSERT INTO ARTICLES.acquisti VALUES ('simone@gmail.com','Asus touch', 'a' );
+INSERT INTO ARTICLES.acquisti VALUES ('a','Lieve', 'simone@gmail.com' );
 

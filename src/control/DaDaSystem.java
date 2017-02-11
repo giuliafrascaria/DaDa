@@ -151,4 +151,8 @@ public class DaDaSystem{
         System.out.println("proprietario = " + proprietario);
         return PrivateDBcontroller.getOurInstance().addAcquisto(nome, proprietario, articolo);
     }
+
+    public ArrayList<Article> listAllArticles() throws Exception {
+        return DatabaseController.getInstance().listAllArticles();
+    }
 }
