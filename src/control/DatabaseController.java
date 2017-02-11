@@ -656,7 +656,7 @@ public class DatabaseController {
                 String immagine = result.getString(6);
                 System.out.println(immagine + "\n");
 
-                Article article = new Article(nome, proprietario, prezzo, quantità, isvalid, immagine);
+                Article article = new Article(nome, ru, prezzo, quantità, isvalid, immagine);
                 articles.add(article);
             }
 
