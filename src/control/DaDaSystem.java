@@ -121,14 +121,6 @@ public class DaDaSystem{
         return DatabaseController.getInstance().getArticles(sql);
     }
 
-    public boolean decreaseQuantity(String articleName, String proprietario, int quantitatot){
-        return DatabaseController.getInstance().decreaseQuantity(articleName, proprietario, quantitatot);
-    }
-
-    public boolean removeMoney(String user, float newbalance){
-        return PrivateDBcontroller.getOurInstance().removeMoney(user, newbalance);
-    }
-
     public void addUserCorp(CorporateUser newUser) throws Exception{
         CorporateDBcontroller.getOurInstance().addUser(newUser);
     }
@@ -150,11 +142,6 @@ public class DaDaSystem{
                 return true;
         else
             throw new ErrorInBalanceException();
-    }
-
-    public boolean addAcquisto(String nome, String proprietario, String articolo) {
-        System.out.println("proprietario = " + proprietario);
-        return PrivateDBcontroller.getOurInstance().addAcquisto(nome, proprietario, articolo);
     }
 
     public ArrayList<Article> listAllArticles() throws Exception {
