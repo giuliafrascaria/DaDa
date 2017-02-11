@@ -30,7 +30,7 @@ public class LoginBeanTest {
             this.pwd= "a";
 
             result = loginBean.validate();
-
+            System.out.println("test numero 1 " + loginBean.getEmail() + loginBean.getPassword());
             Assert.assertEquals(result, 1);
             Assert.assertEquals(email, loginBean.getEmail());
             Assert.assertEquals(pwd, loginBean.getPassword());
@@ -44,7 +44,7 @@ public class LoginBeanTest {
             loginBean.setPassword("");
 
             result = loginBean.validate();
-
+            System.out.println("test numero 2 " + loginBean.getEmail() + loginBean.getPassword());
             Assert.assertEquals(result, 2);
 
             //form incompleto
@@ -55,7 +55,7 @@ public class LoginBeanTest {
             loginBean.setPassword("a");
 
             result = loginBean.validate();
-
+            System.out.println("test numero 3 " + loginBean.getEmail() + loginBean.getPassword());
             Assert.assertEquals(result, 3);
 
             //utente non esistente
@@ -65,7 +65,7 @@ public class LoginBeanTest {
             loginBean.setEmail("a");
             loginBean.setPassword("c");
             result = loginBean.validate();
-
+            System.out.println("test numero 4 " + loginBean.getEmail() + loginBean.getPassword());
             Assert.assertEquals(result, 4);
             //password errata
 
