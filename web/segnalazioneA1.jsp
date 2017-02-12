@@ -47,7 +47,7 @@
                         <form action="segnalazioneA2.jsp" name="myform">
                             <div class="textx" >
                                 <label for="nome"><%=anA.getNome()%> </label><br><input name="nome" type="hidden" id="nome" value="<%=anA.getNome()%>">
-                                <label for="proprietario"><%=anA.getProprietario()%> </label><br><input name="proprietario" type="hidden" id="proprietario" value="<%=anA.getProprietario()%>">
+                                <label for="proprietario"><%=anA.getProprietario().getEmail()%> </label><br><input name="proprietario" type="hidden" id="proprietario" value="<%=anA.getProprietario()%>">
                                 <input type="submit" name = "submit" value="Segnala" >
                             </div>
                         </form>
