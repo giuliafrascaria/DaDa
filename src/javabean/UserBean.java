@@ -109,4 +109,24 @@ public class UserBean
         return lista;
     }
 
+    public ArrayList<Article> getSoldList(){
+        ArrayList<Article> lista = null;
+        String generic = "generic";
+        String sql = "SELECT * FROM ARTICLES.acquisti, ARTICLES.articolo WHERE ARTICLES.acquisti.ARTICOLO = ARTICLES.articolo.NOME " +
+                "AND UPPER(ARTICLES.acquisti.PROPRIETARIO) LIKE UPPER('"+ this.email+"')";
+        try {
+            System.out.println("faccio la ricerca");
+            lista = DaDaSystem.getInstance().searchArticle(sql, generic);
+            System.out.println("esco dalla ricerca");
+            if(lista.size() == 0) {
+                System.out.println("è a null");
+                lista = null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("ritorno la lista");
+        return lista;
+    }
+
 }

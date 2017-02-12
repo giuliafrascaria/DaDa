@@ -24,7 +24,6 @@
 
         ArticleBean.setProprietario(UserBean.getEmail());
         //ArticleBean.setImage(request.getPart("image"));
-        System.out.println("immagina, puoi");
 
         result = ArticleBean.insert();
         if (result == 1)

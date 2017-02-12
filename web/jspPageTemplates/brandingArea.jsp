@@ -54,7 +54,7 @@ else
     <ul class="navlist">
         <li style="width:80%"><img src="img/DaDalogo.png" style="width:150px;height:150px"></li>
         <li><a href="logout.jsp"><i class="fa fa-user"></i>Logout</a></li>
-        <li ><span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="email"/> </span></li>
+        <li ><a href="registrationSummary.jsp"> <span class="cart-amunt"> Account: <jsp:getProperty name="UserBean" property="email"/> </span></a></li>
         <li style="width:20%"><img class="img-circle" src="img/martinapala.jpg"></li>
 
         <%
