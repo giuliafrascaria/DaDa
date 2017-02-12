@@ -85,7 +85,7 @@ public class LoginBean {
                             PrivateUser user1 = system.findPrivateUser(email);
                             this.name = user1.getName();
                             this.accountType = 1;
-                            this.balance = user1.getBalance();
+
                             System.out.println("nome ritrovato: " + user1.getName());
                         } else if (user.getType() == 2) {
                             System.out.println("cerco un'azienda");
@@ -94,6 +94,7 @@ public class LoginBean {
                             this.accountType = 2;
                             System.out.println("nome ritrovato: " + user2.getName());
                         }
+                        this.balance = user.getBalance();
                         return 1;
                     } else {
                         throw new WrongPasswordException();
