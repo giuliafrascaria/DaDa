@@ -174,14 +174,12 @@ CREATE TABLE ARTICLES.wishlist(
 INSERT INTO USERS.UtenteRegistrato VALUES ('simone@gmail.com', '0', 'simone', '3333333333', 0, TRUE);
 INSERT INTO USERS.UtenteRegistrato VALUES ('giogge@gmail.com', '0', 'giogge', '3333333333', 0, TRUE);
 INSERT INTO USERS.UtenteRegistrato VALUES ('giuliac@gmail.com', '0', 'giulia', '3333333333', 0, TRUE);
-INSERT INTO USERS.UtenteRegistrato VALUES ('a', '1', 'a', '333333333', 0,  FALSE);
-INSERT INTO USERS.UtenteRegistrato VALUES ('b', '1', 'b', '333333333', 0,  FALSE);
-INSERT INTO USERS.UtenteRegistrato VALUES ('c', '1', 'c', '333333333', 0,  FALSE);
+INSERT INTO USERS.UtenteRegistrato VALUES ('a', '1', 'a', '333333333', 0,  TRUE);
+
 INSERT INTO USERS.UtenteRegistrato VALUES ('d', '1', 'd', '333333333', 0,  FALSE);
 
 INSERT INTO USERS.Privato VALUES ('a', 'a', '333333333', 'a');
-INSERT INTO USERS.Privato VALUES ('b', 'b', '333333333', 'b');
-INSERT INTO USERS.Privato VALUES ('c', 'c', '333333333', 'c');
+
 INSERT INTO USERS.Privato VALUES ('d', 'd', '333333333', 'd');
 
 /*as admin*/

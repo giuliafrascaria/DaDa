@@ -17,13 +17,17 @@ public class DatabaseController {
     protected static Provider provider = new Provider();
 
     //Singleton
-    private static DatabaseController instance = new DatabaseController();
+    private static DatabaseController instance = null;
 
     DatabaseController() {
     }
 
     public static synchronized DatabaseController getInstance()
     {
+        if(instance == null)
+        {
+            instance = new DatabaseController();
+        }
         return instance;
     }
 
@@ -126,7 +130,6 @@ public class DatabaseController {
 
     synchronized RegisteredUser findByPrimaryKey(String userID) throws Exception
     {
-
         Connection connection = null;
         PreparedStatement statement = null;
         RegisteredUser user = null;
@@ -157,8 +160,9 @@ public class DatabaseController {
             } else {
                 return null;
             }
-
-        }finally{
+        }
+        finally
+        {
             // release resources
             if(result != null){
                 result.close();

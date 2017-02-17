@@ -19,22 +19,22 @@ public class RegistrationBeanTest {
     public void validate() throws Exception
     {
         RegistrationBean registrationBean = new RegistrationBean();
-        registrationBean.setEmail("b");
-        registrationBean.setName("b");
-        registrationBean.setSurname("b");
-        registrationBean.setPassword("b");
-        registrationBean.setConfirmpassword("b");
-        registrationBean.setPassword("b");
+        registrationBean.setEmail("z");
+        registrationBean.setName("z");
+        registrationBean.setSurname("z");
+        registrationBean.setPassword("z");
+        registrationBean.setConfirmpassword("z");
+        registrationBean.setPassword("z");
 
 
         try {
             int result;
             result = registrationBean.validate();
 
-            this.email = "b";
-            this.password= "b";
-            this.name = "b";
-            this.surname = "b";
+            this.email = "z";
+            this.password= "z";
+            this.name = "z";
+            this.surname = "z";
 
             Assert.assertEquals(1, result);
             Assert.assertEquals(email, registrationBean.getEmail());
