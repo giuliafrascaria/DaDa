@@ -19,7 +19,7 @@ by clicking on this URL
 
 https://dev.mysql.com/downloads/connector/j/5.0.html
 
-##How to add JARs
+## How to add JARs
 
 If you use IntelliJ IDE you have to 
 
@@ -31,14 +31,14 @@ If you use IntelliJ IDE you have to
 - Apply
 
 
-##Development environment
+## Development environment
 
 * IDEA IntelliJ - IDE
 * MySql 5.0.8 - Database system
 * JUnit 4.12 - Testing framework
 * Apache TomCat 8.5.6 - Web Server
 
-##Authors
+## Authors
 
 * Giulia Cassarà - B.Sc. student of Computer Engineering in the University of Rome Tor Vergata
 * Simone D'Aniello - B.Sc. student of Computer Engineering in the University of Rome Tor Vergata
